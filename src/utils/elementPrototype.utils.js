@@ -76,6 +76,28 @@ export class ElementPrototype{
             return this.classList.contains(name)
 
         }
+
+        HTMLFormElement.prototype.getForm = function(){
+
+            return new FormData(this)
+
+        }
+
+        HTMLFormElement.prototype.toJSON = function(){
+
+            let json = {}
+
+            this.getForm().forEach((value, key) => {
+
+                json[key] = value
+
+            })
+
+            return JSON.stringify(json)
+
+
+        }
+
     }
 
 }
