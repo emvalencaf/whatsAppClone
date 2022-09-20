@@ -1,0 +1,12 @@
+{
+  "name": "whatsappclone",
+  "version": "1.0.0",
+  "description": "[EM DESENVOLVIMENTO] clone do Whatsapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Edson Mota Valença Filho <emvalenca.dev@gmail.com>",
+  "license": "MIT"
+}
