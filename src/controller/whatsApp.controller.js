@@ -1,3 +1,4 @@
+import { cameraService } from "../service/camera.service.js"
 import { ElementPrototype } from "../utils/elementPrototype.utils.js"
 import { CameraView } from "../view/camera.view.js"
 import { whatsAppView } from "../view/whatsapp.view.js"
@@ -15,7 +16,7 @@ class WhatsAppController{
         
                 
         this.controller = {
-            _camera: new CameraController(cameraView)
+            _camera: new CameraController(cameraView, cameraService)
         }
 
         this.initEvents()
@@ -23,9 +24,17 @@ class WhatsAppController{
 
     initEvents(){
 
-        this.view.initEvents()
+        this.view.initEvents(this)
 
+    }
+
+    startCamera(){
+        this.controller._camera.startCamera()
+    }
+
+    stopCamera(){
+        this.controller._camera.stopCamera()
     }
 }
 
-export const whatsApController = new WhatsAppController(whatsAppView)
+export const whatsAppController = new WhatsAppController(whatsAppView)

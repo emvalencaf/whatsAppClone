@@ -1,6 +1,6 @@
 import "core-js/stable"
-import { whatsApController } from "./controller/whatsApp.controller.js";
+import { whatsAppController } from "./controller/whatsApp.controller.js";
 
-window.app = whatsApController
+window.app = whatsAppController
 
 console.log(app)

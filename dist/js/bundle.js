@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controller/whatsApp.controller.js */ "./src/controller/whatsApp.controller.js");
 
 
-window.app = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_1__.whatsApController;
+window.app = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_1__.whatsAppController;
 console.log(app);
 
 /***/ }),
@@ -30,36 +30,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CameraController": function() { return /* binding */ CameraController; }
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
 
-var CameraController = /*#__PURE__*/(0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_0__["default"])(function CameraController(view) {
-  (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, CameraController);
+var CameraController = /*#__PURE__*/function () {
+  function CameraController(view, service) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, CameraController);
 
-  this.view = view;
-  /*        
-          navigator.mediaDevices.getUserMedia({
-              video:true
-          })
-              .then(mediaStream => {
-  
-  
-                  this.view._el.videoCamera.srcObject = mediaStream
-  
-                  this.view._el.videoCamera.onloadedmetadata = () =>{
-  
-                      this.view._el.videoCamera.play()
-  
-                  }
-  
-              })
-              .catch(err => {
-  
-                  console.error(err)
-  
-              })*/
-});
+    this.view = view;
+    this.service = service;
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(CameraController, [{
+    key: "startCamera",
+    value: function startCamera() {
+      this.service.startCamera(this.view._el.videoCamera);
+    }
+  }, {
+    key: "stopCamera",
+    value: function stopCamera() {
+      this.service.stopCamera();
+    }
+  }]);
+
+  return CameraController;
+}();
 
 /***/ }),
 
@@ -72,14 +68,16 @@ var CameraController = /*#__PURE__*/(0,_babel_runtime_helpers_createClass__WEBPA
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "whatsApController": function() { return /* binding */ whatsApController; }
+/* harmony export */   "whatsAppController": function() { return /* binding */ whatsAppController; }
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./src/utils/elementPrototype.utils.js");
-/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../view/camera.view.js */ "./src/view/camera.view.js");
-/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./src/view/whatsapp.view.js");
-/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./camera.controller.js */ "./src/controller/camera.controller.js");
+/* harmony import */ var _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/camera.service.js */ "./src/service/camera.service.js");
+/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./src/utils/elementPrototype.utils.js");
+/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../view/camera.view.js */ "./src/view/camera.view.js");
+/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./src/view/whatsapp.view.js");
+/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./camera.controller.js */ "./src/controller/camera.controller.js");
+
 
 
 
@@ -92,12 +90,12 @@ var WhatsAppController = /*#__PURE__*/function () {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, WhatsAppController);
 
     console.log('WhatsAppController Ok');
-    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_2__.ElementPrototype.elementsProtoType();
+    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_3__.ElementPrototype.elementsProtoType();
     this.view = view;
     console.log(this.view.el.videoCamera);
-    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_3__.CameraView(this.view.el.videoCamera);
+    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_4__.CameraView(this.view.el.videoCamera);
     this.controller = {
-      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_5__.CameraController(cameraView)
+      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_6__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__.cameraService)
     };
     this.initEvents();
   }
@@ -105,14 +103,79 @@ var WhatsAppController = /*#__PURE__*/function () {
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(WhatsAppController, [{
     key: "initEvents",
     value: function initEvents() {
-      this.view.initEvents();
+      this.view.initEvents(this);
+    }
+  }, {
+    key: "startCamera",
+    value: function startCamera() {
+      this.controller._camera.startCamera();
+    }
+  }, {
+    key: "stopCamera",
+    value: function stopCamera() {
+      this.controller._camera.stopCamera();
     }
   }]);
 
   return WhatsAppController;
 }();
 
-var whatsApController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_4__.whatsAppView);
+var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppView);
+
+/***/ }),
+
+/***/ "./src/service/camera.service.js":
+/*!***************************************!*\
+  !*** ./src/service/camera.service.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cameraService": function() { return /* binding */ cameraService; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+
+var CameraService = /*#__PURE__*/function () {
+  function CameraService() {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, CameraService);
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(CameraService, [{
+    key: "stopCamera",
+    value: function stopCamera() {
+      this._mediaStream.getTracks().forEach(function (track) {
+        track.stop();
+      });
+    }
+  }, {
+    key: "startCamera",
+    value: function startCamera(view) {
+      var _this = this;
+
+      navigator.mediaDevices.getUserMedia({
+        video: true
+      }).then(function (mediaStream) {
+        _this._mediaStream = mediaStream;
+        view.srcObject = mediaStream;
+
+        view.onloadedmetadata = function () {
+          view.play();
+        };
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    }
+  }]);
+
+  return CameraService;
+}();
+
+var cameraService = new CameraService();
 
 /***/ }),
 
@@ -362,7 +425,7 @@ var WhatsAppView = /*#__PURE__*/function () {
     }
   }, {
     key: "initEvents",
-    value: function initEvents() {
+    value: function initEvents(controller) {
       var _this2 = this;
 
       this.el.myPhoto.on('click', function (e) {
@@ -440,14 +503,18 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.panelCamera.css({
           'height': 'calc(100% - 120px)'
         });
+
+        controller.startCamera();
       });
       this.el.btnClosePanelCamera.on('click', function (e) {
         _this2.closeAllMainPanel();
 
         _this2.el.panelMessagesContainer.show();
+
+        controller.stopCamera();
       });
       this.el.btnTakePicture.on('click', function (e) {
-        console.log('take picture');
+        console.log('take picture'); //comando
       });
       this.el.btnAttachDocument.on('click', function (e) {
         _this2.closeAllMainPanel();

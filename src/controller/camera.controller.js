@@ -1,29 +1,21 @@
 export class CameraController{
 
-    constructor(view){
+    constructor(view, service){
 
         this.view = view
-/*        
-        navigator.mediaDevices.getUserMedia({
-            video:true
-        })
-            .then(mediaStream => {
-
-
-                this.view._el.videoCamera.srcObject = mediaStream
-
-                this.view._el.videoCamera.onloadedmetadata = () =>{
-
-                    this.view._el.videoCamera.play()
-
-                }
-
-            })
-            .catch(err => {
-
-                console.error(err)
-
-            })*/
+        this.service = service
+        
     }
 
+    startCamera(){
+
+        this.service.startCamera(this.view._el.videoCamera)
+
+    }
+
+    stopCamera(){
+
+        this.service.stopCamera()
+
+    }
 }

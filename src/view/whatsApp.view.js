@@ -1,3 +1,4 @@
+
 import { Format } from "../utils/format.utils.js"
 import { FormatTimestamp } from "../utils/formatTimestamp.utils.js"
 
@@ -26,7 +27,7 @@ class WhatsAppView{
     }
 
     
-    initEvents(){
+    initEvents(controller){
 
         this.el.myPhoto.on('click', (e) =>{
 
@@ -150,18 +151,21 @@ class WhatsAppView{
                 'height':'calc(100% - 120px)'
 
             })
+            controller.startCamera()
         })
 
         this.el.btnClosePanelCamera.on('click', e =>{
 
             this.closeAllMainPanel()
             this.el.panelMessagesContainer.show()
+            controller.stopCamera()
 
         })
 
         this.el.btnTakePicture.on('click', e =>{
 
             console.log('take picture')
+            //comando
 
         })
         
