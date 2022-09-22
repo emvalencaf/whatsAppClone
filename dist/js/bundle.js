@@ -9,12 +9,10 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/stable */ "./node_modules/core-js/stable/index.js");
-/* harmony import */ var core_js_stable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_stable__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controller/whatsApp.controller.js */ "./src/controller/whatsApp.controller.js");
+/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controller/whatsApp.controller.js */ "./src/controller/whatsApp.controller.js");
+//import "core-js/stable"
 
-
-window.app = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_1__.whatsAppController;
+window.app = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_0__.whatsAppController;
 console.log(app);
 
 /***/ }),
@@ -56,11 +54,60 @@ var CameraController = /*#__PURE__*/function () {
     key: "takePicture",
     value: function takePicture() {
       var mimeType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'image/png';
-      this.service.takePicture(mimeType, this.view._el.videoCamera);
+      var dataURL = this.service.takePicture(mimeType, this.view._el.videoCamera);
+      this.view.takePicture(dataURL);
+    }
+  }, {
+    key: "reshootPicture",
+    value: function reshootPicture() {
+      this.view.reshootPicture();
     }
   }]);
 
   return CameraController;
+}();
+
+/***/ }),
+
+/***/ "./src/controller/documentPreview.controller.js":
+/*!******************************************************!*\
+  !*** ./src/controller/documentPreview.controller.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DocumentPreviewController": function() { return /* binding */ DocumentPreviewController; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+var DocumentPreviewController = /*#__PURE__*/function () {
+  function DocumentPreviewController(view, service) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentPreviewController);
+
+    this.view = view;
+    this.service = service;
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentPreviewController, [{
+    key: "getPreviewData",
+    value: function getPreviewData(file) {
+      var _this = this;
+
+      this.service.getPreviewData(file).then(function (result) {
+        console.log('ok', result);
+
+        _this.view.getPreviewData(result);
+      })["catch"](function (err) {
+        _this.view.renderPreviewIcon(file);
+      });
+    }
+  }]);
+
+  return DocumentPreviewController;
 }();
 
 /***/ }),
@@ -79,10 +126,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/camera.service.js */ "./src/service/camera.service.js");
-/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./src/utils/elementPrototype.utils.js");
-/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../view/camera.view.js */ "./src/view/camera.view.js");
-/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./src/view/whatsapp.view.js");
-/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./camera.controller.js */ "./src/controller/camera.controller.js");
+/* harmony import */ var _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/documentPreview.service.js */ "./src/service/documentPreview.service.js");
+/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./src/utils/elementPrototype.utils.js");
+/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../view/camera.view.js */ "./src/view/camera.view.js");
+/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./src/view/documentPreview.view.js");
+/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./src/view/whatsapp.view.js");
+/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./camera.controller.js */ "./src/controller/camera.controller.js");
+/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./src/controller/documentPreview.controller.js");
+
+
+
 
 
 
@@ -96,12 +149,13 @@ var WhatsAppController = /*#__PURE__*/function () {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, WhatsAppController);
 
     console.log('WhatsAppController Ok');
-    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_3__.ElementPrototype.elementsProtoType();
+    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_4__.ElementPrototype.elementsProtoType();
     this.view = view;
-    console.log(this.view.el.videoCamera);
-    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_4__.CameraView(this.view.el.videoCamera);
+    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_5__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
+    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_6__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview);
     this.controller = {
-      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_6__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__.cameraService)
+      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_8__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__.cameraService),
+      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_9__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_3__.documentPreviewService)
     };
     this.initEvents();
   }
@@ -128,12 +182,22 @@ var WhatsAppController = /*#__PURE__*/function () {
 
       this.controller._camera.takePicture(mimeType);
     }
+  }, {
+    key: "reshootPicture",
+    value: function reshootPicture() {
+      this.controller._camera.reshootPicture();
+    }
+  }, {
+    key: "getPreviewData",
+    value: function getPreviewData(file) {
+      this.controller._documentPreview.getPreviewData(file);
+    }
   }]);
 
   return WhatsAppController;
 }();
 
-var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppView);
+var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_7__.whatsAppView);
 
 /***/ }),
 
@@ -201,6 +265,70 @@ var CameraService = /*#__PURE__*/function () {
 }();
 
 var cameraService = new CameraService();
+
+/***/ }),
+
+/***/ "./src/service/documentPreview.service.js":
+/*!************************************************!*\
+  !*** ./src/service/documentPreview.service.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "documentPreviewService": function() { return /* binding */ documentPreviewService; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+
+var DocumentPreviewService = /*#__PURE__*/function () {
+  function DocumentPreviewService() {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentPreviewService);
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentPreviewService, [{
+    key: "getPreviewData",
+    value: function getPreviewData(file) {
+      return new Promise(function (resolve, reject) {
+        switch (file.type) {
+          case 'image/png':
+          case 'image/jpeg':
+          case 'image/jpg':
+          case 'image/gif':
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+              resolve({
+                src: reader.result,
+                info: file.name
+              });
+            };
+
+            reader.onerror = function (err) {
+              reject(err);
+            };
+
+            reader.readAsDataURL(file);
+            break;
+
+          case 'application/pdf':
+            break;
+
+          default:
+            reject();
+            break;
+        }
+      });
+    }
+  }]);
+
+  return DocumentPreviewService;
+}();
+
+var documentPreviewService = new DocumentPreviewService();
 
 /***/ }),
 
@@ -394,17 +522,131 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CameraView": function() { return /* binding */ CameraView; }
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
 
-var CameraView = /*#__PURE__*/(0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_0__["default"])(function CameraView(videoEl) {
-  (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, CameraView);
+var CameraView = /*#__PURE__*/function () {
+  function CameraView(videoEl, pictureCamera, btnReshootPanelCamera, containerTakePicture, containerSendPicture) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, CameraView);
 
-  this._el = {
-    videoCamera: videoEl
-  };
-});
+    this._el = {
+      videoCamera: videoEl,
+      pictureCamera: pictureCamera,
+      btnReshootPanelCamera: btnReshootPanelCamera,
+      containerTakePicture: containerTakePicture,
+      containerSendPicture: containerSendPicture
+    };
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(CameraView, [{
+    key: "takePicture",
+    value: function takePicture(dataURL) {
+      this._el.pictureCamera.src = dataURL;
+
+      this._el.pictureCamera.show();
+
+      this._el.videoCamera.hide();
+
+      this._el.btnReshootPanelCamera.show();
+
+      this._el.containerTakePicture.hide();
+
+      this._el.containerSendPicture.show();
+    }
+  }, {
+    key: "reshootPicture",
+    value: function reshootPicture() {
+      this._el.pictureCamera.hide();
+
+      this._el.videoCamera.show();
+
+      this._el.btnReshootPanelCamera.hide();
+
+      this._el.containerTakePicture.show();
+
+      this._el.containerSendPicture.hide();
+    }
+  }]);
+
+  return CameraView;
+}();
+
+/***/ }),
+
+/***/ "./src/view/documentPreview.view.js":
+/*!******************************************!*\
+  !*** ./src/view/documentPreview.view.js ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DocumentPreviewView": function() { return /* binding */ DocumentPreviewView; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+var DocumentPreviewView = /*#__PURE__*/function () {
+  function DocumentPreviewView(imagePanelDocumentPreview, imgPanelDocumentPreview, filePanelDocumentPreview, infoPanelDocumentPreview, iconPanelDocumentPreview, filenamePanelDocumentPreview) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, DocumentPreviewView);
+
+    this._el = {
+      imagePanelDocumentPreview: imagePanelDocumentPreview,
+      imgPanelDocumentPreview: imgPanelDocumentPreview,
+      filePanelDocumentPreview: filePanelDocumentPreview,
+      infoPanelDocumentPreview: infoPanelDocumentPreview,
+      iconPanelDocumentPreview: iconPanelDocumentPreview,
+      filenamePanelDocumentPreview: filenamePanelDocumentPreview
+    };
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentPreviewView, [{
+    key: "getPreviewData",
+    value: function getPreviewData(result) {
+      this._el.imgPanelDocumentPreview.src = result.src;
+      this._el.infoPanelDocumentPreview.innerHTML = result.info;
+
+      this._el.imagePanelDocumentPreview.show();
+
+      this._el.filePanelDocumentPreview.hide();
+    }
+  }, {
+    key: "renderPreviewIcon",
+    value: function renderPreviewIcon(file) {
+      switch (file.type) {
+        case 'application/vnd.ms-excel':
+        case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+          this._el.iconPanelDocumentPreview.className = 'jcxhw icon-doc-xls';
+          break;
+
+        case 'application/vnd.ms-powerpoint':
+        case 'application/vnd.openxmlformats-officedocument.presentationml.presentat':
+          this._el.iconPanelDocumentPreview.className = 'jcxhw icon-doc-ppt';
+          break;
+
+        case 'application/msword':
+        case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+          this._el.iconPanelDocumentPreview.className = 'jcxhw icon-doc-doc';
+          break;
+
+        default:
+          this._el.iconPanelDocumentPreview.className = 'jcxhw icon-doc-generic';
+          break;
+      }
+
+      this._el.filenamePanelDocumentPreview.innerHTML = file.name;
+
+      this._el.imagePanelDocumentPreview.hide();
+
+      this._el.filePanelDocumentPreview.show();
+    }
+  }]);
+
+  return DocumentPreviewView;
+}();
 
 /***/ }),
 
@@ -540,9 +782,13 @@ var WhatsAppView = /*#__PURE__*/function () {
         controller.stopCamera();
       });
       this.el.btnTakePicture.on('click', function (e) {
-        console.log('take picture'); //comando
-
         controller.takePicture();
+      });
+      this.el.btnReshootPanelCamera.on('click', function (e) {
+        controller.reshootPicture();
+      });
+      this.el.btnSendPicture.on('click', function (e) {
+        console.log(_this2.el.pictureCamera.src);
       });
       this.el.btnAttachDocument.on('click', function (e) {
         _this2.closeAllMainPanel();
@@ -552,6 +798,13 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.panelDocumentPreview.css({
           'height': '100%'
         });
+
+        _this2.el.inputDocument.click();
+      });
+      this.el.inputDocument.on('change', function (e) {
+        if (!_this2.el.inputDocument.files.length) return;
+        var file = _this2.el.inputDocument.files[0];
+        controller.getPreviewData(file);
       });
       this.el.btnClosePanelDocumentPreview.on('click', function (e) {
         _this2.closeAllMainPanel();
@@ -609,8 +862,6 @@ var WhatsAppView = /*#__PURE__*/function () {
       });
       this.el.panelEmojis.querySelectorAll('.emojik').forEach(function (emoji) {
         emoji.on('click', function (e) {
-          console.log(emoji.dataset.unicode);
-
           var img = _this2.el.imgEmojiDefault.cloneNode();
 
           img.style.cssText = emoji.style.cssText;
@@ -20039,18 +20290,6 @@ function _defineProperty(obj, key, value) {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -20095,7 +20334,7 @@ function _defineProperty(obj, key, value) {
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	// This entry module used 'module' so it can't be inlined
 /******/ 	__webpack_require__("./node_modules/core-js/stable/index.js");
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/app.js");
 /******/ 	

@@ -9,6 +9,7 @@
 
 ## Funcionalidades
 
+- [x] tirar foto
 
 ### Observações
 

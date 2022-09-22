@@ -164,28 +164,12 @@ class WhatsAppView{
 
         this.el.btnTakePicture.on('click', e =>{
 
-            console.log('take picture')
-            //comando
             controller.takePicture()
-            /*
-            const dataURL = controller.takePicture()
-            this.el.pictureCamera.src = dataURL
-            this.el.pictureCamera.show()
-            this.el.videoCamera.hide()
-            this.el.btnReshootPanelCamera.show()
-            this.el.containerTakePicture.hide()
-            this.el.containerSendPicture.show()*/
         })
 
         this.el.btnReshootPanelCamera.on('click', e => {
 
             controller.reshootPicture()
-/*
-            this.el.pictureCamera.hide()
-            this.el.videoCamera.show()
-            this.el.btnReshootPanelCamera.hide()
-            this.el.containerTakePicture.show()
-            this.el.containerSendPicture.hide()*/
 
         })
 
@@ -205,6 +189,17 @@ class WhatsAppView{
 
             })
 
+            this.el.inputDocument.click()
+
+        })
+
+        this.el.inputDocument.on('change', e => {
+
+            if(!this.el.inputDocument.files.length) return
+
+            let file = this.el.inputDocument.files[0]
+            
+            controller.getPreviewData(file)
         })
 
         this.el.btnClosePanelDocumentPreview.on('click', e =>{
@@ -296,8 +291,6 @@ class WhatsAppView{
         this.el.panelEmojis.querySelectorAll('.emojik').forEach(emoji => {
 
             emoji.on('click', e => {
-
-                console.log(emoji.dataset.unicode)
                 
                 const img = this.el.imgEmojiDefault.cloneNode()
 
