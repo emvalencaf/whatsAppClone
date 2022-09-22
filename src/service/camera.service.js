@@ -36,6 +36,19 @@ class CameraService{
 
     }
 
+    takePicture(mimeType = 'image/png', view){
+        
+        const canvas = document.createElement('canvas')
+        
+        canvas.setAttribute('height', view.videoHeight)
+        canvas.setAttribute('width', view.videoWidth)
+        let context = canvas.getContext('2d')
+        
+        context.drawImage(view, 0, 0, canvas.width, canvas.height)
+        
+        return canvas.toDataURL(mimeType)
+    }
+
 }
 
 export const cameraService = new CameraService()

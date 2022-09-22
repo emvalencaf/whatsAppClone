@@ -141,7 +141,7 @@ class WhatsAppView{
 
             ])
         })
-        
+//Lembrar de refatorar os eventos abaixo relacionado a câmera para a classe viewCamera        
         this.el.btnAttachCamera.on('click', e => {
 
             this.closeAllMainPanel()
@@ -166,9 +166,35 @@ class WhatsAppView{
 
             console.log('take picture')
             //comando
+            controller.takePicture()
+            /*
+            const dataURL = controller.takePicture()
+            this.el.pictureCamera.src = dataURL
+            this.el.pictureCamera.show()
+            this.el.videoCamera.hide()
+            this.el.btnReshootPanelCamera.show()
+            this.el.containerTakePicture.hide()
+            this.el.containerSendPicture.show()*/
+        })
+
+        this.el.btnReshootPanelCamera.on('click', e => {
+
+            controller.reshootPicture()
+/*
+            this.el.pictureCamera.hide()
+            this.el.videoCamera.show()
+            this.el.btnReshootPanelCamera.hide()
+            this.el.containerTakePicture.show()
+            this.el.containerSendPicture.hide()*/
 
         })
-        
+
+        this.el.btnSendPicture.on('click', e => {
+
+            console.log(this.el.pictureCamera.src)
+
+        })
+
         this.el.btnAttachDocument.on('click', e => {
 
             this.closeAllMainPanel()

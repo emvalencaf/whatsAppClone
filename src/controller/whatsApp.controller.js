@@ -12,8 +12,7 @@ class WhatsAppController{
         ElementPrototype.elementsProtoType()
         this.view = view
         console.log(this.view.el.videoCamera)
-        const cameraView = new CameraView(this.view.el.videoCamera)
-        
+        const cameraView = new CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture)
                 
         this.controller = {
             _camera: new CameraController(cameraView, cameraService)
@@ -34,6 +33,14 @@ class WhatsAppController{
 
     stopCamera(){
         this.controller._camera.stopCamera()
+    }
+
+    takePicture(mimeType = 'image/png'){
+        this.controller._camera.takePicture(mimeType)
+    }
+
+    reshootPicture(){
+        this.controller._camera.reshootPicture()
     }
 }
 

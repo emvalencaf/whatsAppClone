@@ -52,6 +52,12 @@ var CameraController = /*#__PURE__*/function () {
     value: function stopCamera() {
       this.service.stopCamera();
     }
+  }, {
+    key: "takePicture",
+    value: function takePicture() {
+      var mimeType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'image/png';
+      this.service.takePicture(mimeType, this.view._el.videoCamera);
+    }
   }]);
 
   return CameraController;
@@ -115,6 +121,13 @@ var WhatsAppController = /*#__PURE__*/function () {
     value: function stopCamera() {
       this.controller._camera.stopCamera();
     }
+  }, {
+    key: "takePicture",
+    value: function takePicture() {
+      var mimeType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'image/png';
+
+      this.controller._camera.takePicture(mimeType);
+    }
   }]);
 
   return WhatsAppController;
@@ -169,6 +182,18 @@ var CameraService = /*#__PURE__*/function () {
       })["catch"](function (err) {
         console.error(err);
       });
+    }
+  }, {
+    key: "takePicture",
+    value: function takePicture() {
+      var mimeType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'image/png';
+      var view = arguments.length > 1 ? arguments[1] : undefined;
+      var canvas = document.createElement('canvas');
+      canvas.setAttribute('height', view.videoHeight);
+      canvas.setAttribute('width', view.videoWidth);
+      var context = canvas.getContext('2d');
+      context.drawImage(view, 0, 0, canvas.width, canvas.height);
+      return canvas.toDataURL(mimeType);
     }
   }]);
 
@@ -494,7 +519,8 @@ var WhatsAppView = /*#__PURE__*/function () {
         Array.from(_this2.el.inputPhoto.files).forEach(function (file) {
           return [console.log(file)];
         });
-      });
+      }); //Lembrar de refatorar os eventos abaixo relacionado a câmera para a classe viewCamera        
+
       this.el.btnAttachCamera.on('click', function (e) {
         _this2.closeAllMainPanel();
 
@@ -515,6 +541,8 @@ var WhatsAppView = /*#__PURE__*/function () {
       });
       this.el.btnTakePicture.on('click', function (e) {
         console.log('take picture'); //comando
+
+        controller.takePicture();
       });
       this.el.btnAttachDocument.on('click', function (e) {
         _this2.closeAllMainPanel();

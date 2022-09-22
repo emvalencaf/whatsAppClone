@@ -18,4 +18,13 @@ export class CameraController{
         this.service.stopCamera()
 
     }
+
+    takePicture(mimeType = 'image/png'){
+        const dataURL = this.service.takePicture(mimeType, this.view._el.videoCamera)
+        this.view.takePicture(dataURL)
+    }
+
+    reshootPicture(){
+        this.view.reshootPicture()
+    }
 }
