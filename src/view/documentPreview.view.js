@@ -19,14 +19,14 @@ export class DocumentPreviewView{
         this._el.imagePanelDocumentPreview.show()
         this._el.filePanelDocumentPreview.hide()
         this._el.panelDocumentPreview.css({
-            'height': '100%'
+            'height': '100% - 128px'
         })
     }
 
     renderPreviewIcon(file){
 
         this._el.panelDocumentPreview.css({
-            'height': '100%'
+            'height': '100% - 128px'
         })
 
         switch(file.type){

@@ -266,9 +266,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var console__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! console */ "./node_modules/console-browserify/index.js");
-/* harmony import */ var console__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(console__WEBPACK_IMPORTED_MODULE_2__);
-
 
 
 
@@ -313,9 +310,13 @@ var DocumentPreviewService = /*#__PURE__*/function () {
               var loadingTask = pdfjsLib.getDocument(new Uint8Array(reader.result));
               loadingTask.promise.then(function (pdf) {
                 pdf.getPage(1).then(function (page) {
-                  var viewport = page.getViewport(1);
+                  console.log(page);
+                  var viewport = page.getViewport({
+                    scale: 1
+                  });
                   var canvas = document.createElement('canvas');
                   var canvasContext = canvas.getContext('2d');
+                  console.log(viewport.height, viewport.width);
                   canvas.width = viewport.width;
                   canvas.height = viewport.height;
                   page.render({
@@ -639,14 +640,14 @@ var DocumentPreviewView = /*#__PURE__*/function () {
       this._el.filePanelDocumentPreview.hide();
 
       this._el.panelDocumentPreview.css({
-        'height': '100%'
+        'height': '100% - 128px'
       });
     }
   }, {
     key: "renderPreviewIcon",
     value: function renderPreviewIcon(file) {
       this._el.panelDocumentPreview.css({
-        'height': '100%'
+        'height': '100% - 128px'
       });
 
       switch (file.type) {
@@ -970,103 +971,6 @@ var WhatsAppView = /*#__PURE__*/function () {
 }();
 
 var whatsAppView = new WhatsAppView();
-
-/***/ }),
-
-/***/ "./node_modules/console-browserify/index.js":
-/*!**************************************************!*\
-  !*** ./node_modules/console-browserify/index.js ***!
-  \**************************************************/
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-/*global window, global*/
-var util = __webpack_require__(/*! util */ "?4551")
-var assert = __webpack_require__(/*! assert */ "?8b6e")
-function now() { return new Date().getTime() }
-
-var slice = Array.prototype.slice
-var console
-var times = {}
-
-if (typeof __webpack_require__.g !== "undefined" && __webpack_require__.g.console) {
-    console = __webpack_require__.g.console
-} else if (typeof window !== "undefined" && window.console) {
-    console = window.console
-} else {
-    console = {}
-}
-
-var functions = [
-    [log, "log"],
-    [info, "info"],
-    [warn, "warn"],
-    [error, "error"],
-    [time, "time"],
-    [timeEnd, "timeEnd"],
-    [trace, "trace"],
-    [dir, "dir"],
-    [consoleAssert, "assert"]
-]
-
-for (var i = 0; i < functions.length; i++) {
-    var tuple = functions[i]
-    var f = tuple[0]
-    var name = tuple[1]
-
-    if (!console[name]) {
-        console[name] = f
-    }
-}
-
-module.exports = console
-
-function log() {}
-
-function info() {
-    console.log.apply(console, arguments)
-}
-
-function warn() {
-    console.log.apply(console, arguments)
-}
-
-function error() {
-    console.warn.apply(console, arguments)
-}
-
-function time(label) {
-    times[label] = now()
-}
-
-function timeEnd(label) {
-    var time = times[label]
-    if (!time) {
-        throw new Error("No such label: " + label)
-    }
-
-    delete times[label]
-    var duration = now() - time
-    console.log(label + ": " + duration + "ms")
-}
-
-function trace() {
-    var err = new Error()
-    err.name = "Trace"
-    err.message = util.format.apply(null, arguments)
-    console.error(err.stack)
-}
-
-function dir(object) {
-    console.log(util.inspect(object) + "\n")
-}
-
-function consoleAssert(expression) {
-    if (!expression) {
-        var arr = slice.call(arguments, 1)
-        assert.ok(false, util.format.apply(null, arr))
-    }
-}
-
 
 /***/ }),
 
@@ -21387,26 +21291,6 @@ const pdfjsBuild = '172ccdbe5';
 
 /***/ }),
 
-/***/ "?8b6e":
-/*!************************!*\
-  !*** assert (ignored) ***!
-  \************************/
-/***/ (function() {
-
-/* (ignored) */
-
-/***/ }),
-
-/***/ "?4551":
-/*!**********************!*\
-  !*** util (ignored) ***!
-  \**********************/
-/***/ (function() {
-
-/* (ignored) */
-
-/***/ }),
-
 /***/ "?4a14":
 /*!************************!*\
   !*** canvas (ignored) ***!
@@ -21573,18 +21457,6 @@ function _defineProperty(obj, key, value) {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -21595,18 +21467,6 @@ function _defineProperty(obj, key, value) {
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	!function() {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */

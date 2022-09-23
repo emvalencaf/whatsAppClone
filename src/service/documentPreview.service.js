@@ -1,5 +1,3 @@
-import { timeStamp } from 'console'
-
 const pdfjsLib = require('pdfjs-dist')
 const path = require('path')
 
@@ -43,10 +41,11 @@ class DocumentPreviewService{
 
                                 pdf.getPage(1)
                                     .then(page => {
-                                        let viewport = page.getViewport(1)
+                                        console.log(page)
+                                        let viewport = page.getViewport({scale: 1})
                                         let canvas = document.createElement('canvas')
                                         let canvasContext = canvas.getContext('2d')
-
+                                        console.log(viewport.height, viewport.width)
                                         canvas.width = viewport.width
                                         canvas.height = viewport.height
 
