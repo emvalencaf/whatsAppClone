@@ -37,7 +37,9 @@ class WhatsAppController{
         )
         
         const microphoneView = new MicrophoneView(
-
+            this.view.el.recordMicrophoneTimer,
+            this.view.el.recordMicrophone,
+            this.view.el.btnSendMicrophone
         )
                 
         this.controller = {

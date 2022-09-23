@@ -235,7 +235,7 @@ class WhatsAppView{
 
             this.el.recordMicrophone.show()
             this.el.btnSendMicrophone.hide()
-            this.startRecordMicrophoneTime()
+            //this.startRecordMicrophoneTime()
             controller.startMicrophone()
 
         })
@@ -243,13 +243,14 @@ class WhatsAppView{
         this.el.btnCancelMicrophone.on('click', e => {
 
             controller.stopMicrophone()
-            this.closeRecordMicrophone()
+            //this.closeRecordMicrophone()
 
         })
 
         this.el.btnFinishMicrophone.on('click', e => {
 
-            this.closeRecordMicrophone()
+            controller.stopMicrophone()
+            //this.closeRecordMicrophone()
 
         })
        
@@ -362,6 +363,7 @@ class WhatsAppView{
 
     }
 
+/*
     closeRecordMicrophone(){
 
         this.el.recordMicrophone.hide()
@@ -369,7 +371,6 @@ class WhatsAppView{
         clearInterval(this._recordMicrophoneInterval)
 
     }
-
     startRecordMicrophoneTime(){
 
         const start = Date.now()
@@ -380,7 +381,7 @@ class WhatsAppView{
 
         }, 100)
 
-    }
+    }*/
 }
 
 export const whatsAppView = new WhatsAppView()
