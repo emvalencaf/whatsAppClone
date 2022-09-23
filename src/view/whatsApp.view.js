@@ -185,7 +185,7 @@ class WhatsAppView{
             this.el.panelDocumentPreview.addClass('open')
             this.el.panelDocumentPreview.css({
             
-                'height':'100%'
+                'height':'calc(100% + 120px)'
 
             })
 
@@ -196,6 +196,10 @@ class WhatsAppView{
         this.el.inputDocument.on('change', e => {
 
             if(!this.el.inputDocument.files.length) return
+/*
+            this.el.panelDocumentPreview.css({
+                'height': '1%'
+            })*/
 
             let file = this.el.inputDocument.files[0]
             

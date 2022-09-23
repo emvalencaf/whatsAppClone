@@ -29,7 +29,8 @@ class WhatsAppController{
             this.view.el.filePanelDocumentPreview,
             this.view.el.infoPanelDocumentPreview,
             this.view.el.iconPanelDocumentPreview,
-            this.view.el.filenamePanelDocumentPreview
+            this.view.el.filenamePanelDocumentPreview,
+            this.view.el.panelDocumentPreview
         )
                 
         this.controller = {

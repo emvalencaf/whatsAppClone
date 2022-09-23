@@ -1,13 +1,14 @@
 export class DocumentPreviewView{
 
-    constructor(imagePanelDocumentPreview, imgPanelDocumentPreview, filePanelDocumentPreview, infoPanelDocumentPreview, iconPanelDocumentPreview, filenamePanelDocumentPreview){
+    constructor(imagePanelDocumentPreview, imgPanelDocumentPreview, filePanelDocumentPreview, infoPanelDocumentPreview, iconPanelDocumentPreview, filenamePanelDocumentPreview,panelDocumentPreview){
         this._el = {
             imagePanelDocumentPreview,
             imgPanelDocumentPreview,
             filePanelDocumentPreview,
             infoPanelDocumentPreview,
             iconPanelDocumentPreview,
-            filenamePanelDocumentPreview
+            filenamePanelDocumentPreview,
+            panelDocumentPreview
         }
     }
 
@@ -17,10 +18,17 @@ export class DocumentPreviewView{
         this._el.infoPanelDocumentPreview.innerHTML = result.info
         this._el.imagePanelDocumentPreview.show()
         this._el.filePanelDocumentPreview.hide()
-
+        this._el.panelDocumentPreview.css({
+            'height': '100%'
+        })
     }
 
     renderPreviewIcon(file){
+
+        this._el.panelDocumentPreview.css({
+            'height': '100%'
+        })
+
         switch(file.type){
 
             case 'application/vnd.ms-excel':
@@ -45,5 +53,6 @@ export class DocumentPreviewView{
         this._el.filenamePanelDocumentPreview.innerHTML = file.name
         this._el.imagePanelDocumentPreview.hide()
         this._el.filePanelDocumentPreview.show()
+
     }
 }

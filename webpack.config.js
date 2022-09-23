@@ -3,12 +3,25 @@ const path = require("path")
 module.exports = {
     mode:"development",
     target:["web", "es5"],
-    entry: ["core-js/stable","./src/app.js"],
+    entry: {
+        app: './src/app.js',
+        'pdf.worker': 'pdfjs-dist/build/pdf.worker.entry.js'
+
+    },
     output: {
-        path: path.resolve(__dirname, "dist","js"),
-        filename:"bundle.js"
+        path: path.join(__dirname, "dist","js"),
+        filename:"[name].bundle.js"
     },
     devtool: "source-map",
+    resolve:{
+        fallback:{
+            'path': require.resolve('path-browserify'),
+            'console': require.resolve('console-browserify'),
+            'assert': false,
+            'util': false
+        },
+        extensions:['.jsx','.js','.tsx','.ts']
+    },
     module:{
         rules:[
             {
