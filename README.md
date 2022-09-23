@@ -10,7 +10,8 @@
 ## Funcionalidades
 
 - [x] tirar foto
-
+- [x] ler imagens anexadas a mensagens e a primeira págia de documentos pdfs
+- [ ]
 ### Observações
 
 ## Desafios

@@ -1,11 +1,14 @@
 import { cameraService } from "../service/camera.service.js"
 import { documentPreviewService } from "../service/documentPreview.service.js"
+import { microphoneService } from "../service/microphone.service.js"
 import { ElementPrototype } from "../utils/elementPrototype.utils.js"
 import { CameraView } from "../view/camera.view.js"
 import { DocumentPreviewView } from "../view/documentPreview.view.js"
+import { MicrophoneView } from "../view/microphone.view.js"
 import { whatsAppView } from "../view/whatsapp.view.js"
 import { CameraController } from "./camera.controller.js"
 import { DocumentPreviewController } from "./documentPreview.controller.js"
+import { MicrophoneController } from "./microphone.controller.js"
 
 class WhatsAppController{
 
@@ -32,11 +35,18 @@ class WhatsAppController{
             this.view.el.filenamePanelDocumentPreview,
             this.view.el.panelDocumentPreview
         )
+        
+        const microphoneView = new MicrophoneView(
+
+        )
                 
         this.controller = {
             _camera: new CameraController(cameraView, cameraService),
-            _documentPreview: new DocumentPreviewController(documentPreviewView, documentPreviewService)
+            _documentPreview: new DocumentPreviewController(documentPreviewView, documentPreviewService),
+            _microphone: new MicrophoneController(microphoneView, microphoneService)
         }
+
+        console.log(this.controller._microphone)
 
         this.initEvents()
     }
@@ -66,6 +76,16 @@ class WhatsAppController{
     getPreviewData(file){
 
         this.controller._documentPreview.getPreviewData(file)
+    }
+
+    startMicrophone(){
+
+        this.controller._microphone.startMicrophone()
+    }
+
+    stopMicrophone(){
+
+        this.controller._microphone.stopMicrophone()
     }
 }
 

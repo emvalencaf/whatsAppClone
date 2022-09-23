@@ -96,6 +96,46 @@ var DocumentPreviewController = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/controller/microphone.controller.js":
+/*!*************************************************!*\
+  !*** ./src/controller/microphone.controller.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MicrophoneController": function() { return /* binding */ MicrophoneController; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+var MicrophoneController = /*#__PURE__*/function () {
+  function MicrophoneController(view, service) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, MicrophoneController);
+
+    this.view = view;
+    this.service = service;
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MicrophoneController, [{
+    key: "startMicrophone",
+    value: function startMicrophone() {
+      this.service.startMicrophone();
+    }
+  }, {
+    key: "stopMicrophone",
+    value: function stopMicrophone() {
+      this.service.stopMicrophone();
+    }
+  }]);
+
+  return MicrophoneController;
+}();
+
+/***/ }),
+
 /***/ "./src/controller/whatsApp.controller.js":
 /*!***********************************************!*\
   !*** ./src/controller/whatsApp.controller.js ***!
@@ -111,12 +151,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/camera.service.js */ "./src/service/camera.service.js");
 /* harmony import */ var _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/documentPreview.service.js */ "./src/service/documentPreview.service.js");
-/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./src/utils/elementPrototype.utils.js");
-/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../view/camera.view.js */ "./src/view/camera.view.js");
-/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./src/view/documentPreview.view.js");
-/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./src/view/whatsapp.view.js");
-/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./camera.controller.js */ "./src/controller/camera.controller.js");
-/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./src/controller/documentPreview.controller.js");
+/* harmony import */ var _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/microphone.service.js */ "./src/service/microphone.service.js");
+/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./src/utils/elementPrototype.utils.js");
+/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../view/camera.view.js */ "./src/view/camera.view.js");
+/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./src/view/documentPreview.view.js");
+/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../view/microphone.view.js */ "./src/view/microphone.view.js");
+/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./src/view/whatsapp.view.js");
+/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./camera.controller.js */ "./src/controller/camera.controller.js");
+/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./src/controller/documentPreview.controller.js");
+/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./microphone.controller.js */ "./src/controller/microphone.controller.js");
+
+
+
 
 
 
@@ -133,14 +179,17 @@ var WhatsAppController = /*#__PURE__*/function () {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, WhatsAppController);
 
     console.log('WhatsAppController Ok');
-    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_4__.ElementPrototype.elementsProtoType();
+    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_5__.ElementPrototype.elementsProtoType();
     this.view = view;
-    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_5__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
-    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_6__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
+    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_6__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
+    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_7__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
+    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_8__.MicrophoneView();
     this.controller = {
-      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_8__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__.cameraService),
-      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_9__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_3__.documentPreviewService)
+      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_10__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_2__.cameraService),
+      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_11__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_3__.documentPreviewService),
+      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_12__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_4__.microphoneService)
     };
+    console.log(this.controller._microphone);
     this.initEvents();
   }
 
@@ -176,12 +225,22 @@ var WhatsAppController = /*#__PURE__*/function () {
     value: function getPreviewData(file) {
       this.controller._documentPreview.getPreviewData(file);
     }
+  }, {
+    key: "startMicrophone",
+    value: function startMicrophone() {
+      this.controller._microphone.startMicrophone();
+    }
+  }, {
+    key: "stopMicrophone",
+    value: function stopMicrophone() {
+      this.controller._microphone.stopMicrophone();
+    }
   }]);
 
   return WhatsAppController;
 }();
 
-var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_7__.whatsAppView);
+var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_9__.whatsAppView);
 
 /***/ }),
 
@@ -354,6 +413,65 @@ var DocumentPreviewService = /*#__PURE__*/function () {
 }();
 
 var documentPreviewService = new DocumentPreviewService();
+
+/***/ }),
+
+/***/ "./src/service/microphone.service.js":
+/*!*******************************************!*\
+  !*** ./src/service/microphone.service.js ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "microphoneService": function() { return /* binding */ microphoneService; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+
+var MicrophoneService = /*#__PURE__*/function () {
+  function MicrophoneService() {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, MicrophoneService);
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MicrophoneService, [{
+    key: "startMicrophone",
+    value: function startMicrophone() {
+      var _this = this;
+
+      navigator.mediaDevices.getUserMedia({
+        audio: true
+      }).then(function (mediaStream) {
+        console.log('microfone on');
+        _this._mediaStream = mediaStream;
+        var audio = new Audio();
+        audio.srcObject = _this._mediaStream;
+
+        audio.onloadedmetadata = function () {
+          audio.play();
+        };
+      })["catch"](function (err) {
+        console.error(err);
+      });
+    }
+  }, {
+    key: "stopMicrophone",
+    value: function stopMicrophone() {
+      console.log('microfone off');
+
+      this._mediaStream.getAudioTracks().forEach(function (track) {
+        track.stop();
+      });
+    }
+  }]);
+
+  return MicrophoneService;
+}();
+
+var microphoneService = new MicrophoneService();
 
 /***/ }),
 
@@ -684,6 +802,29 @@ var DocumentPreviewView = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/view/microphone.view.js":
+/*!*************************************!*\
+  !*** ./src/view/microphone.view.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MicrophoneView": function() { return /* binding */ MicrophoneView; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+
+
+var MicrophoneView = /*#__PURE__*/(0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_0__["default"])(function MicrophoneView() {
+  (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, MicrophoneView);
+
+  this._el = {};
+});
+
+/***/ }),
+
 /***/ "./src/view/whatsapp.view.js":
 /*!***********************************!*\
   !*** ./src/view/whatsapp.view.js ***!
@@ -837,10 +978,10 @@ var WhatsAppView = /*#__PURE__*/function () {
       });
       this.el.inputDocument.on('change', function (e) {
         if (!_this2.el.inputDocument.files.length) return;
-        /*
-                    this.el.panelDocumentPreview.css({
-                        'height': '1%'
-                    })*/
+
+        _this2.el.panelDocumentPreview.css({
+          'height': '1%'
+        });
 
         var file = _this2.el.inputDocument.files[0];
         controller.getPreviewData(file);
@@ -865,8 +1006,12 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.btnSendMicrophone.hide();
 
         _this2.startRecordMicrophoneTime();
+
+        controller.startMicrophone();
       });
       this.el.btnCancelMicrophone.on('click', function (e) {
+        controller.stopMicrophone();
+
         _this2.closeRecordMicrophone();
       });
       this.el.btnFinishMicrophone.on('click', function (e) {

@@ -196,10 +196,10 @@ class WhatsAppView{
         this.el.inputDocument.on('change', e => {
 
             if(!this.el.inputDocument.files.length) return
-/*
+
             this.el.panelDocumentPreview.css({
                 'height': '1%'
-            })*/
+            })
 
             let file = this.el.inputDocument.files[0]
             
@@ -236,11 +236,13 @@ class WhatsAppView{
             this.el.recordMicrophone.show()
             this.el.btnSendMicrophone.hide()
             this.startRecordMicrophoneTime()
+            controller.startMicrophone()
 
         })
 
         this.el.btnCancelMicrophone.on('click', e => {
 
+            controller.stopMicrophone()
             this.closeRecordMicrophone()
 
         })
