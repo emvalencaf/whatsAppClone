@@ -10,19 +10,19 @@ export class MicrophoneController{
 
             console.log('ready event')
 
-            this.service.startMicrophoneRecord()
+            this.service.startMicrophoneRecord(this.view._el.recordMicrophoneTimer)
         })
 
         this.service.on('recordTimer', (timer, el) => {
-
+            console.log(timer)
             el.innerHTML = FormatTimestamp.toTime((timer))
 
         })
     }
 
     startMicrophone(){
-        const fnView = this.view.startRecordMicrophoneTime
-        this.service.startMicrophone(this.view._el.recordMicrophoneTimer)
+        
+        this.service.startMicrophone()
 
     }
 

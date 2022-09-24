@@ -98,6 +98,7 @@ class MicrophoneService extends ClassEvent{
 
         this._mediaRecorder.start()
         this.startTimer(view)
+        console.log(view)
     }
 
     stopMicrophoneRecord(){
@@ -111,10 +112,10 @@ class MicrophoneService extends ClassEvent{
 
     startTimer(view){
         let start = Date.now()
-
+        console.log(view)
         this._recordMicrophoneInterval = setInterval(() => {
 
-            this.trigger('recordTimer', (Date.now() - start, view))
+            this.trigger('recordTimer', (Date.now() - start), view)
 
         }, 100)
 

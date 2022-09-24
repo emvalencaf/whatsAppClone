@@ -124,9 +124,10 @@ var MicrophoneController = /*#__PURE__*/function () {
     this.service.on('ready', function (audio) {
       console.log('ready event');
 
-      _this.service.startMicrophoneRecord();
+      _this.service.startMicrophoneRecord(_this.view._el.recordMicrophoneTimer);
     });
     this.service.on('recordTimer', function (timer, el) {
+      console.log(timer);
       el.innerHTML = _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_2__.FormatTimestamp.toTime(timer);
     });
   }
@@ -134,8 +135,7 @@ var MicrophoneController = /*#__PURE__*/function () {
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MicrophoneController, [{
     key: "startMicrophone",
     value: function startMicrophone() {
-      var fnView = this.view.startRecordMicrophoneTime;
-      this.service.startMicrophone(this.view._el.recordMicrophoneTimer);
+      this.service.startMicrophone();
     }
   }, {
     key: "stopMicrophone",
@@ -560,6 +560,7 @@ var MicrophoneService = /*#__PURE__*/function (_ClassEvent) {
       this._mediaRecorder.start();
 
       this.startTimer(view);
+      console.log(view);
     }
   }, {
     key: "stopMicrophoneRecord",
@@ -576,8 +577,9 @@ var MicrophoneService = /*#__PURE__*/function (_ClassEvent) {
       var _this4 = this;
 
       var start = Date.now();
+      console.log(view);
       this._recordMicrophoneInterval = setInterval(function () {
-        _this4.trigger('recordTimer', (Date.now() - start, view));
+        _this4.trigger('recordTimer', Date.now() - start, view);
       }, 100);
     }
   }]);
