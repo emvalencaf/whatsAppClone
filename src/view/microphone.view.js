@@ -1,5 +1,3 @@
-import { FormatTimestamp } from "../utils/formatTimestamp.utils.js"
-
 export class MicrophoneView{
 
     constructor(recordMicrophoneTimer, recordMicrophone, btnSendMicrophone){
@@ -10,18 +8,6 @@ export class MicrophoneView{
             btnSendMicrophone
         }
     }
-/*
-    startRecordMicrophoneTime(){
-
-        const start = Date.now()
-
-        this._recordMicrophoneInterval = setInterval(()=>{
-
-            //this._el.recordMicrophoneTimer.innerHTML = FormatTimestamp.toTime((Date.now() - start))
-
-        }, 100)
-
-    }*/
 
     closeRecordMicrophone(){
 

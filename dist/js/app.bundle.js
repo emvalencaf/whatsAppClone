@@ -109,6 +109,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/formatTimestamp.utils.js */ "./src/utils/formatTimestamp.utils.js");
+
 
 
 var MicrophoneController = /*#__PURE__*/function () {
@@ -125,7 +127,7 @@ var MicrophoneController = /*#__PURE__*/function () {
       _this.service.startMicrophoneRecord();
     });
     this.service.on('recordTimer', function (timer, el) {
-      el.innerHTML = FormatTimestamp.toTime(timer);
+      el.innerHTML = _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_2__.FormatTimestamp.toTime(timer);
     });
   }
 
@@ -450,8 +452,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'core-js/core/date'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _utils_classEvent_utils_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/classEvent.utils.js */ "./src/utils/classEvent.utils.js");
+/* harmony import */ var _utils_classEvent_utils_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/classEvent.utils.js */ "./src/utils/classEvent.utils.js");
 
 
 
@@ -461,7 +462,6 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 
 
 
@@ -583,7 +583,7 @@ var MicrophoneService = /*#__PURE__*/function (_ClassEvent) {
   }]);
 
   return MicrophoneService;
-}(_utils_classEvent_utils_js__WEBPACK_IMPORTED_MODULE_6__.ClassEvent);
+}(_utils_classEvent_utils_js__WEBPACK_IMPORTED_MODULE_5__.ClassEvent);
 
 var microphoneService = new MicrophoneService();
 
@@ -978,8 +978,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/formatTimestamp.utils.js */ "./src/utils/formatTimestamp.utils.js");
-
 
 
 var MicrophoneView = /*#__PURE__*/function () {
@@ -992,19 +990,6 @@ var MicrophoneView = /*#__PURE__*/function () {
       btnSendMicrophone: btnSendMicrophone
     };
   }
-  /*
-      startRecordMicrophoneTime(){
-  
-          const start = Date.now()
-  
-          this._recordMicrophoneInterval = setInterval(()=>{
-  
-              //this._el.recordMicrophoneTimer.innerHTML = FormatTimestamp.toTime((Date.now() - start))
-  
-          }, 100)
-  
-      }*/
-
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MicrophoneView, [{
     key: "closeRecordMicrophone",
@@ -1198,21 +1183,16 @@ var WhatsAppView = /*#__PURE__*/function () {
       this.el.btnSendMicrophone.on('click', function (e) {
         _this2.el.recordMicrophone.show();
 
-        _this2.el.btnSendMicrophone.hide();
+        _this2.el.btnSendMicrophone.hide(); //this.startRecordMicrophoneTime()
 
-        _this2.startRecordMicrophoneTime();
 
         controller.startMicrophone();
       });
       this.el.btnCancelMicrophone.on('click', function (e) {
-        controller.stopMicrophone();
-
-        _this2.closeRecordMicrophone();
+        controller.stopMicrophone(); //this.closeRecordMicrophone()
       });
       this.el.btnFinishMicrophone.on('click', function (e) {
-        controller.stopMicrophone();
-
-        _this2.closeRecordMicrophone();
+        controller.stopMicrophone(); //this.closeRecordMicrophone()
       });
       this.el.inputText.on('keypress', function (e) {
         if (e.key === 'Enter' && !e.crtlKey) {
