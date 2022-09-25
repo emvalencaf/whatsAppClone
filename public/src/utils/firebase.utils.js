@@ -19,7 +19,6 @@ export class Firebase{
 
         }
 
-        this.initialiazed = false
         this.init()
     }
 
@@ -32,44 +31,61 @@ export class Firebase{
             const provider = new firebaseAuth.GoogleAuthProvider()
 
             firebaseAuth.signInWithPopup(this._auth, provider)
-                .then( result => {
-
-                    const credential = firebaseAuth.GoogleAuthProvider.credentialFromResult(result)
-                    const token = credential.accessToken
-                    const user = result.user
-
-                    resolve({
-                        user,
-                        token
-                    })
-
+            .then( result => {
+                
+                const credential = firebaseAuth.GoogleAuthProvider.credentialFromResult(result)
+                const token = credential.accessToken
+                const user = result.user
+                
+                resolve({
+                    user,
+                    token
                 })
-                .catch( err => {
-
-                    console.error(err)
-
-                })
+                
+            })
+            .catch( err => {
+                
+                console.error(err)
+                
+            })
         })
     }
-
-
+    
+    
     init(){
-
-        if(this.initialiazed) return
-
+        
+        if(window._initialiazedFirebase) return
+        
         this._app = firebaseApp.initializeApp(this._config)
-        this._db = firebaseFirestore.getFirestore(this._app)
+        this._db = firebaseFirestore.getFirestore()
+        firebaseFirestore.serverTimestamp()
         this._storage = firebaseStorage.getStorage(this._app)
         
-
-        this.initialiazed = true
+        window._initialiazedFirebase = true
+    }
+    
+    db(collection){
+        return firebaseFirestore.collection(this._db, collection)
     }
 
-    static db(){
-        return this._db
+    doc(collectionRef, document){
+        return firebaseFirestore.doc(collectionRef, document)
+    }
+    
+    getDoc(docRef){
+        return firebaseFirestore.getDoc(docRef)
     }
 
-    static storage(){
+    setDoc(documentRef, data){
+        return firebaseFirestore.setDoc(documentRef, data)
+    }
+
+    onSnapshot(docRef, fn = ()=>{}){
+        return firebaseFirestore.onSnapshot(docRef, fn)
+    }
+
+    storage(){
         return this._storage
     }
+
 }

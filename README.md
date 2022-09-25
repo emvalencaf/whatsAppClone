@@ -9,9 +9,11 @@
 
 ## Funcionalidades
 
-- [x] tirar foto
-- [x] ler imagens anexadas a mensagens e a primeira págia de documentos pdfs
-- [ ]
+- [x] tirar foto;
+- [x] ler imagens anexadas a mensagens e a primeira págia de documentos pdfs;
+- [x] gravar áudio;
+- [x] autenticação de usuários com o Google;
+
 ### Observações
 
 ## Desafios

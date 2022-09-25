@@ -1,3 +1,4 @@
+import { User } from "../model/user.model.js"
 import { cameraService } from "../service/camera.service.js"
 import { documentPreviewService } from "../service/documentPreview.service.js"
 import { microphoneService } from "../service/microphone.service.js"
@@ -60,16 +61,97 @@ class WhatsAppController{
         this._firebase.initAuth()
             .then(response => {
 
-                this._user = response.user
+                this._user = new User(response.user.email)
 
-                this.view.el.appContent.css({
-                    display:'flex'
+                this._user.on('datachange', data =>{
+
+                    document.querySelector('title').innerHTML = data.name + " - WhatsApp Clone"
+
+                    this.view.el.inputNamePanelEditProfile.innerHTML = data.name
+
+                    if(data.photo){
+
+                        const photo = this.view.el.imgPanelEditProfile
+
+                        photo.src = data.photo
+                        photo.show()
+
+                        this.view.el.imgDefaultPanelEditProfile.hide()
+
+                        const photo2 = this.view.el.myPhoto.querySelector('img')
+
+                        photo2.src = data.photo
+                        photo2.show()
+
+                    }
+
                 })
+
+                this._user.name = response.user.displayName
+                this._user.email = response.user.email
+                this._user.photo = response.user.photoURL
+
+                this._user.setDoc(response.user.email, {
+                    name: this._user.name,
+                    email: this._user.email,
+                    photo: this._user.photo
+                })
+                    .then(()=>{
+
+                        this.view.el.appContent.css({
+                            display:'flex'
+                        })
+
+                    })
+                    .catch(err => {
+
+                        console.error(err)
+
+                    })
+/*
+                this._user.setDoc(response.user.email, {
+                    name: response.user.displayName,
+                    email: response.user.email,
+                    photo: response.user.photoURL
+                })
+                    .then(() => {
+
+                        this.view.el.appContent.css({
+                            display:'flex'
+                        })
+
+
+                    })
+                    .catch(err => {
+                        console.error(err)
+                    })*/
+
 
             })
             .catch(err => {
                 console.error(err)
             })
+    }
+
+    changeUserName(el){
+
+        el.disabled = true
+
+        this._user.name = el.innerHTML
+        
+        this._user.setDoc(controller._user.id, {
+            name: controller._user.name
+        })
+            .then(()=>{
+
+                el.disabled = false
+
+            })
+            .catch(err =>{
+                console.error(err)
+            })
+
+
     }
 
     initEvents(){

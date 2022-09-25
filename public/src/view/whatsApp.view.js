@@ -86,6 +86,7 @@ class WhatsAppView{
 
         this.el.btnSavePanelEditProfile.on('click', e =>{
 
+            controller.changeUserName(this.el.inputNamePanelEditProfile)
             console.log(this.el.inputNamePanelEditProfile.innerHTML)
 
         })
