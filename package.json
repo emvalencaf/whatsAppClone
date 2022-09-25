@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "build:watch": "webpack -w"
+    "build:watch": "webpack -w",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "Edson Mota Valença Filho <emvalenca.dev@gmail.com>",
@@ -18,12 +19,14 @@
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
     "console-browserify": "^1.2.0",
-    "webpack": "^5.11.1",
-    "webpack-cli": "^4.3.1",
     "path-browserify": "^1.0.1",
-    "pdfjs-dist": "^2.16.105"
+    "pdfjs-dist": "^2.16.105",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
   },
   "dependencies": {
-    "core-js": "^3.3.2"
+    "core-js": "^3.3.2",
+    "express": "^4.18.1",
+    "firebase": "^9.10.0"
   }
 }

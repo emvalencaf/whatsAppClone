@@ -2,6 +2,7 @@ import { cameraService } from "../service/camera.service.js"
 import { documentPreviewService } from "../service/documentPreview.service.js"
 import { microphoneService } from "../service/microphone.service.js"
 import { ElementPrototype } from "../utils/elementPrototype.utils.js"
+import { Firebase } from "../utils/firebase.utils.js"
 import { CameraView } from "../view/camera.view.js"
 import { DocumentPreviewView } from "../view/documentPreview.view.js"
 import { MicrophoneView } from "../view/microphone.view.js"
@@ -47,10 +48,28 @@ class WhatsAppController{
             _documentPreview: new DocumentPreviewController(documentPreviewView, documentPreviewService),
             _microphone: new MicrophoneController(microphoneView, microphoneService)
         }
-
-        console.log(this.controller._microphone)
-
+        this.view.el.appContent.hide()
+        this._firebase = new Firebase()
+        this._firebase.init()
         this.initEvents()
+        this.initAuth()
+    }
+
+    initAuth(){
+
+        this._firebase.initAuth()
+            .then(response => {
+
+                this._user = response.user
+
+                this.view.el.appContent.css({
+                    display:'flex'
+                })
+
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 
     initEvents(){

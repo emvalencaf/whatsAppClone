@@ -4,12 +4,12 @@ module.exports = {
     mode:"development",
     target:["web", "es5"],
     entry: {
-        app: './src/app.js',
+        app: './public/src/app.js',
         'pdf.worker': 'pdfjs-dist/build/pdf.worker.entry.js'
 
     },
     output: {
-        path: path.join(__dirname, "dist","js"),
+        path: path.join(__dirname, "public/dist","js"),
         filename:"[name].bundle.js"
     },
     devtool: "source-map",

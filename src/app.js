@@ -1,6 +1,10 @@
-//import "core-js/stable"
-import { whatsAppController } from "./controller/whatsApp.controller.js";
+const express = require("express")
 
-window.app = whatsAppController
+const app = express()
 
-console.log(app)
+app.use(express.static('./public'))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+
+module.exports = app
