@@ -4,7 +4,7 @@ import { Model } from "./model.model.js";
 
 
 
-export class User extends Model{
+export class UserModel extends Model{
 
     constructor(id){
         super()

@@ -13,6 +13,7 @@
 - [x] ler imagens anexadas a mensagens e a primeira págia de documentos pdfs;
 - [x] gravar áudio;
 - [x] autenticação de usuários com o Google;
+- [x] lista de contatos;
 
 ### Observações
 
