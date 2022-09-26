@@ -11,7 +11,7 @@ class WhatsAppView{
         this.loadElements()
         
     }
-    
+
     renderContactList(contact){
 
         const div = document.createElement('div')
@@ -68,6 +68,8 @@ class WhatsAppView{
         </div>
         `
 
+        this.checkPhoto(contact.photo, div.querySelector('.photo'))
+/*
         if(contact.photo) {
             
             const img = div.querySelector('.photo')
@@ -75,11 +77,40 @@ class WhatsAppView{
             img.src = contact.photo
             img.show()
         
-        }
+        }*/
 
+        div.on('click', e => {
 
+            console.log("clicado")
+            
+            this.el.activeName.innerHTML = contact.name
+            this.el.activeStatus.innerHTML = contact.status
+            this.checkPhoto(contact.photo, this.el.activePhoto)
+            /*
+            if(contact.photo){
+                const img = this.el.activePhoto
+                img.src = contact.photo
+                img.show()
+            }*/
+
+            this.el.home.hide()
+            this.el.main.css({
+                display:"flex"
+            })
+
+        })
 
         this.el.contactsMessagesList.appendChild(div)
+
+    }
+
+    checkPhoto(dataPhoto, imgElement){
+
+        if(!dataPhoto) return
+
+        imgElement.src = dataPhoto
+
+        imgElement.show()
 
     }
 

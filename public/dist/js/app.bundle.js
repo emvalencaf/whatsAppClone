@@ -36907,82 +36907,115 @@ var WhatsAppView = /*#__PURE__*/function () {
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(WhatsAppView, [{
     key: "renderContactList",
     value: function renderContactList(contact) {
+      var _this = this;
+
       var div = document.createElement('div');
       div.className = 'contact-item';
       div.innerHTML = "\n        <div class=\"dIyEr\">\n            <div class=\"_1WliW\" style=\"height: 49px; width: 49px;\">\n                <img src=\"#\" class=\"Qgzj8 gqwaM photo\" style=\"display:none;\">\n                <div class=\"_3ZW2E\">\n                    <span data-icon=\"default-user\" class=\"\">\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 212 212\" width=\"212\" height=\"212\">\n                            <path fill=\"#DFE5E7\" d=\"M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z\"></path>\n                            <g fill=\"#FFF\">\n                                <path d=\"M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z\"></path>\n                            </g>\n                        </svg>\n                    </span>\n                </div>\n            </div>\n        </div>\n        <div class=\"_3j7s9\">\n            <div class=\"_2FBdJ\">\n                <div class=\"_25Ooe\">\n                    <span dir=\"auto\" title=\"".concat(contact.name, "\" class=\"_1wjpf\">").concat(contact.name, "</span>\n                </div>\n                <div class=\"_3Bxar\">\n                    <span class=\"_3T2VG\">").concat(contact.lastMessageTime, "</span>\n                </div>\n            </div>\n            <div class=\"_1AwDx\">\n                <div class=\"_itDl\">\n                    <span title=\"digitando\u2026\" class=\"vdXUe _1wjpf typing\" style=\"display:none\">digitando\u2026</span>\n\n                    <span class=\"_2_LEW last-message\">\n                        <div class=\"_1VfKB\">\n                            <span data-icon=\"status-dblcheck\" class=\"\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 18\" width=\"18\" height=\"18\">\n                                    <path fill=\"#263238\" fill-opacity=\".4\" d=\"M17.394 5.035l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-.427-.388a.381.381 0 0 0-.578.038l-.451.576a.497.497 0 0 0 .043.645l1.575 1.51a.38.38 0 0 0 .577-.039l7.483-9.602a.436.436 0 0 0-.076-.609zm-4.892 0l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-2.614-2.556a.435.435 0 0 0-.614.007l-.505.516a.435.435 0 0 0 .007.614l3.887 3.8a.38.38 0 0 0 .577-.039l7.483-9.602a.435.435 0 0 0-.075-.609z\"></path>\n                                </svg>\n                            </span>\n                        </div>\n                        <span dir=\"ltr\" class=\"_1wjpf _3NFp9\">").concat(contact.lastMessage, "</span>\n                        <div class=\"_3Bxar\">\n                            <span>\n                                <div class=\"_15G96\">\n                                    <span class=\"OUeyt messages-count-new\" style=\"display:none;\">1</span>\n                                </div>\n                        </div>\n                        </span>\n                </div>\n            </div>\n        </div>\n        ");
+      this.checkPhoto(contact.photo, div.querySelector('.photo'));
+      /*
+              if(contact.photo) {
+                  
+                  const img = div.querySelector('.photo')
+      
+                  img.src = contact.photo
+                  img.show()
+              
+              }*/
 
-      if (contact.photo) {
-        var img = div.querySelector('.photo');
-        img.src = contact.photo;
-        img.show();
-      }
+      div.on('click', function (e) {
+        console.log("clicado");
+        _this.el.activeName.innerHTML = contact.name;
+        _this.el.activeStatus.innerHTML = contact.status;
 
+        _this.checkPhoto(contact.photo, _this.el.activePhoto);
+        /*
+        if(contact.photo){
+            const img = this.el.activePhoto
+            img.src = contact.photo
+            img.show()
+        }*/
+
+
+        _this.el.home.hide();
+
+        _this.el.main.css({
+          display: "flex"
+        });
+      });
       this.el.contactsMessagesList.appendChild(div);
+    }
+  }, {
+    key: "checkPhoto",
+    value: function checkPhoto(dataPhoto, imgElement) {
+      if (!dataPhoto) return;
+      imgElement.src = dataPhoto;
+      imgElement.show();
     }
   }, {
     key: "loadElements",
     value: function loadElements() {
-      var _this = this;
+      var _this2 = this;
 
       document.querySelectorAll('[id]').forEach(function (element) {
-        _this.el[_utils_format_utils_js__WEBPACK_IMPORTED_MODULE_3__.Format.getCamelCase(element.id)] = element;
+        _this2.el[_utils_format_utils_js__WEBPACK_IMPORTED_MODULE_3__.Format.getCamelCase(element.id)] = element;
       });
     }
   }, {
     key: "initEvents",
     value: function initEvents(controller) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.el.myPhoto.on('click', function (e) {
-        _this2.closeAllLeftPanel();
+        _this3.closeAllLeftPanel();
 
-        _this2.el.panelEditProfile.show();
+        _this3.el.panelEditProfile.show();
 
         setTimeout(function () {
-          _this2.el.panelEditProfile.addClass('open');
+          _this3.el.panelEditProfile.addClass('open');
         }, 300);
       });
       this.el.btnClosePanelEditProfile.on('click', function (e) {
-        _this2.el.panelEditProfile.removeClass('open');
+        _this3.el.panelEditProfile.removeClass('open');
       });
       this.el.btnNewContact.on('click', function (e) {
-        _this2.closeAllLeftPanel();
+        _this3.closeAllLeftPanel();
 
-        _this2.el.panelAddContact.show();
+        _this3.el.panelAddContact.show();
 
         setTimeout(function () {
-          _this2.el.panelAddContact.addClass('open');
+          _this3.el.panelAddContact.addClass('open');
         }, 300);
       });
       this.el.btnClosePanelAddContact.on('click', function (e) {
-        _this2.el.panelAddContact.removeClass('open');
+        _this3.el.panelAddContact.removeClass('open');
       });
       this.el.photoContainerEditProfile.on('click', function (e) {
-        _this2.el.inputProfilePhoto.click();
+        _this3.el.inputProfilePhoto.click();
       });
       this.el.inputNamePanelEditProfile.on('keypress', function (e) {
         if (e.key === 'Enter') {
           e.preventDefault();
 
-          _this2.el.btnSavePanelEditProfile.click();
+          _this3.el.btnSavePanelEditProfile.click();
         }
       });
       this.el.btnSavePanelEditProfile.on('click', function (e) {
-        controller.changeUserName(_this2.el.inputNamePanelEditProfile);
-        console.log(_this2.el.inputNamePanelEditProfile.innerHTML);
+        controller.changeUserName(_this3.el.inputNamePanelEditProfile);
+        console.log(_this3.el.inputNamePanelEditProfile.innerHTML);
       });
       this.el.formPanelAddContact.on('submit', function (e) {
         e.preventDefault();
 
-        var formData = _this2.el.formPanelAddContact.getForm();
+        var formData = _this3.el.formPanelAddContact.getForm();
 
         controller.addContact(formData);
       });
       this.el.contactsMessagesList.querySelectorAll('.contact-item').forEach(function (item) {
         item.on('click', function (e) {
-          _this2.el.home.hide();
+          _this3.el.home.hide();
 
-          _this2.el.main.css({
+          _this3.el.main.css({
             display: 'flex'
           });
         });
@@ -36990,35 +37023,35 @@ var WhatsAppView = /*#__PURE__*/function () {
       this.el.btnAttach.on('click', function (e) {
         e.stopPropagation();
 
-        _this2.el.menuAttach.addClass('open');
+        _this3.el.menuAttach.addClass('open');
 
-        document.addEventListener('click', _this2.closeMenuAttach.bind(_this2));
+        document.addEventListener('click', _this3.closeMenuAttach.bind(_this3));
       });
       this.el.btnAttachPhoto.on('click', function (e) {
-        _this2.el.inputPhoto.click();
+        _this3.el.inputPhoto.click();
       });
       this.el.inputPhoto.on('change', function (e) {
-        console.log(_this2.el.inputPhoto.files);
-        Array.from(_this2.el.inputPhoto.files).forEach(function (file) {
+        console.log(_this3.el.inputPhoto.files);
+        Array.from(_this3.el.inputPhoto.files).forEach(function (file) {
           return [console.log(file)];
         });
       }); //Lembrar de refatorar os eventos abaixo relacionado a câmera para a classe viewCamera        
 
       this.el.btnAttachCamera.on('click', function (e) {
-        _this2.closeAllMainPanel();
+        _this3.closeAllMainPanel();
 
-        _this2.el.panelCamera.addClass('open');
+        _this3.el.panelCamera.addClass('open');
 
-        _this2.el.panelCamera.css({
+        _this3.el.panelCamera.css({
           'height': 'calc(100% - 120px)'
         });
 
         controller.startCamera();
       });
       this.el.btnClosePanelCamera.on('click', function (e) {
-        _this2.closeAllMainPanel();
+        _this3.closeAllMainPanel();
 
-        _this2.el.panelMessagesContainer.show();
+        _this3.el.panelMessagesContainer.show();
 
         controller.stopCamera();
       });
@@ -37029,47 +37062,47 @@ var WhatsAppView = /*#__PURE__*/function () {
         controller.reshootPicture();
       });
       this.el.btnSendPicture.on('click', function (e) {
-        console.log(_this2.el.pictureCamera.src);
+        console.log(_this3.el.pictureCamera.src);
       });
       this.el.btnAttachDocument.on('click', function (e) {
-        _this2.closeAllMainPanel();
+        _this3.closeAllMainPanel();
 
-        _this2.el.panelDocumentPreview.addClass('open');
+        _this3.el.panelDocumentPreview.addClass('open');
 
-        _this2.el.panelDocumentPreview.css({
+        _this3.el.panelDocumentPreview.css({
           'height': 'calc(100% + 120px)'
         });
 
-        _this2.el.inputDocument.click();
+        _this3.el.inputDocument.click();
       });
       this.el.inputDocument.on('change', function (e) {
-        if (!_this2.el.inputDocument.files.length) return;
+        if (!_this3.el.inputDocument.files.length) return;
 
-        _this2.el.panelDocumentPreview.css({
+        _this3.el.panelDocumentPreview.css({
           'height': '1%'
         });
 
-        var file = _this2.el.inputDocument.files[0];
+        var file = _this3.el.inputDocument.files[0];
         controller.getPreviewData(file);
       });
       this.el.btnClosePanelDocumentPreview.on('click', function (e) {
-        _this2.closeAllMainPanel();
+        _this3.closeAllMainPanel();
 
-        _this2.el.panelMessagesContainer.show();
+        _this3.el.panelMessagesContainer.show();
       });
       this.el.btnSendDocument.on('click', function (e) {
         console.log('send document');
       });
       this.el.btnAttachContact.on('click', function (e) {
-        _this2.el.modalContacts.show();
+        _this3.el.modalContacts.show();
       });
       this.el.btnCloseModalContacts.on('click', function (e) {
-        _this2.el.modalContacts.hide();
+        _this3.el.modalContacts.hide();
       });
       this.el.btnSendMicrophone.on('click', function (e) {
-        _this2.el.recordMicrophone.show();
+        _this3.el.recordMicrophone.show();
 
-        _this2.el.btnSendMicrophone.hide(); //this.startRecordMicrophoneTime()
+        _this3.el.btnSendMicrophone.hide(); //this.startRecordMicrophoneTime()
 
 
         controller.startMicrophone();
@@ -37083,33 +37116,33 @@ var WhatsAppView = /*#__PURE__*/function () {
       this.el.inputText.on('keypress', function (e) {
         if (e.key === 'Enter' && !e.crtlKey) {
           e.preventDefault();
-          if (_this2.el.inputText.innerHTML.length) _this2.el.btnSend.click();
+          if (_this3.el.inputText.innerHTML.length) _this3.el.btnSend.click();
         }
       });
       this.el.inputText.on('keyup', function (e) {
-        if (_this2.el.inputText.innerHTML.length) {
-          _this2.el.inputPlaceholder.hide();
+        if (_this3.el.inputText.innerHTML.length) {
+          _this3.el.inputPlaceholder.hide();
 
-          _this2.el.btnSendMicrophone.hide();
+          _this3.el.btnSendMicrophone.hide();
 
-          _this2.el.btnSend.show();
+          _this3.el.btnSend.show();
         } else {
-          _this2.el.inputPlaceholder.show();
+          _this3.el.inputPlaceholder.show();
 
-          _this2.el.btnSendMicrophone.show();
+          _this3.el.btnSendMicrophone.show();
 
-          _this2.el.btnSend.hide();
+          _this3.el.btnSend.hide();
         }
       });
       this.el.btnSend.on('click', function (e) {
-        console.log(_this2.el.inputText.innerHTML);
+        console.log(_this3.el.inputText.innerHTML);
       });
       this.el.btnEmojis.on('click', function (e) {
-        _this2.el.panelEmojis.toggleClass('open');
+        _this3.el.panelEmojis.toggleClass('open');
       });
       this.el.panelEmojis.querySelectorAll('.emojik').forEach(function (emoji) {
         emoji.on('click', function (e) {
-          var img = _this2.el.imgEmojiDefault.cloneNode();
+          var img = _this3.el.imgEmojiDefault.cloneNode();
 
           img.style.cssText = emoji.style.cssText;
           img.dataset.unicode = emoji.dataset.unicode;
@@ -37120,7 +37153,7 @@ var WhatsAppView = /*#__PURE__*/function () {
           var cursor = window.getSelection();
 
           if (!cursor.focusNode || !cursor.focusNode.id === 'input-text') {
-            _this2.el.inputText.focus();
+            _this3.el.inputText.focus();
 
             cursor = window.getSelection();
           }
@@ -37133,7 +37166,7 @@ var WhatsAppView = /*#__PURE__*/function () {
           range.insertNode(frag);
           range.setStartAfter(img);
 
-          _this2.el.inputText.dispatchEvent(new Event('keyup'));
+          _this3.el.inputText.dispatchEvent(new Event('keyup'));
         });
       });
     }
