@@ -68,6 +68,10 @@ export class Firebase{
         return firebaseFirestore.collection(this._db, collection)
     }
 
+    getCollection(docRef, path){
+        return firebaseFirestore.collection(docRef, path)
+    }
+
     doc(collectionRef, document){
         return firebaseFirestore.doc(collectionRef, document)
     }

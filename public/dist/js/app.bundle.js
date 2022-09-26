@@ -35561,6 +35561,8 @@ var WhatsAppController = /*#__PURE__*/function () {
             photo2.src = data.photo;
             photo2.show();
           }
+
+          _this.initContacts();
         });
 
         _this._user.name = response.user.displayName;
@@ -35601,13 +35603,116 @@ var WhatsAppController = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "initContacts",
+    value: function initContacts() {
+      var _this2 = this;
+
+      this._user.on('contactschange', function (docs) {
+        _this2.view.el.contactsMessagesList.innerHTML = '';
+        docs.forEach(function (doc) {
+          var contact = doc.data();
+
+          _this2.view.renderContactList(contact);
+          /*
+                          const div = document.createElement('div')
+          
+                          div.className = 'contact-item'
+                  
+                          div.innerHTML = `
+                          <div class="dIyEr">
+                              <div class="_1WliW" style="height: 49px; width: 49px;">
+                                  <img src="#" class="Qgzj8 gqwaM photo" style="display:none;">
+                                  <div class="_3ZW2E">
+                                      <span data-icon="default-user" class="">
+                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212" width="212" height="212">
+                                              <path fill="#DFE5E7" d="M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z"></path>
+                                              <g fill="#FFF">
+                                                  <path d="M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z"></path>
+                                              </g>
+                                          </svg>
+                                      </span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="_3j7s9">
+                              <div class="_2FBdJ">
+                                  <div class="_25Ooe">
+                                      <span dir="auto" title="${contact.name}" class="_1wjpf">${contact.name}</span>
+                                  </div>
+                                  <div class="_3Bxar">
+                                      <span class="_3T2VG">${contact.lastMessageTime}</span>
+                                  </div>
+                              </div>
+                              <div class="_1AwDx">
+                                  <div class="_itDl">
+                                      <span title="digitando…" class="vdXUe _1wjpf typing" style="display:none">digitando…</span>
+                  
+                                      <span class="_2_LEW last-message">
+                                          <div class="_1VfKB">
+                                              <span data-icon="status-dblcheck" class="">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18">
+                                                      <path fill="#263238" fill-opacity=".4" d="M17.394 5.035l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-.427-.388a.381.381 0 0 0-.578.038l-.451.576a.497.497 0 0 0 .043.645l1.575 1.51a.38.38 0 0 0 .577-.039l7.483-9.602a.436.436 0 0 0-.076-.609zm-4.892 0l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-2.614-2.556a.435.435 0 0 0-.614.007l-.505.516a.435.435 0 0 0 .007.614l3.887 3.8a.38.38 0 0 0 .577-.039l7.483-9.602a.435.435 0 0 0-.075-.609z"></path>
+                                                  </svg>
+                                              </span>
+                                          </div>
+                                          <span dir="ltr" class="_1wjpf _3NFp9">${contact.lastMessage}</span>
+                                          <div class="_3Bxar">
+                                              <span>
+                                                  <div class="_15G96">
+                                                      <span class="OUeyt messages-count-new" style="display:none;">1</span>
+                                                  </div>
+                                          </div>
+                                          </span>
+                                  </div>
+                              </div>
+                          </div>
+                          `
+          
+                          if(contact.photo) {
+                              
+                              const img = div.querySelector('.photo')
+          
+                              img.src = contact.photo
+                              img.show()
+                          
+                          }
+          
+          
+          
+                          this.view.el.contactsMessagesList.appendChild(div)*/
+
+        });
+      });
+
+      this._user.getContacts();
+    }
+  }, {
+    key: "addContact",
+    value: function addContact(dataForm) {
+      var _this3 = this;
+
+      var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_2__.User(dataForm.get('email'));
+      console.log(contact);
+      contact.on('datachange', function (data) {
+        if (!data.name) return console.error('Usuário não foi encontrado');
+
+        _this3._user.addContact(contact).then(function () {
+          console.info('contato foi adicionado!');
+
+          _this3.view.el.btnClosePanelAddContact.click();
+        });
+      });
+    }
+  }, {
     key: "changeUserName",
     value: function changeUserName(el) {
       el.disabled = true;
       this._user.name = el.innerHTML;
 
-      this._user.setDoc(controller._user.id, {
-        name: controller._user.name
+      this._user.setDoc(this._user.id, {
+        name: this._user.name,
+        email: this._user.email,
+        photo: this._user.photo
       }).then(function () {
         el.disabled = false;
       })["catch"](function (err) {
@@ -35742,8 +35847,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../controller/whatsApp.controller.js */ "./public/src/controller/whatsApp.controller.js");
-/* harmony import */ var _model_model_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./model.model.js */ "./public/src/model/model.model.js");
+/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
+/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../controller/whatsApp.controller.js */ "./public/src/controller/whatsApp.controller.js");
+/* harmony import */ var _model_model_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./model.model.js */ "./public/src/model/model.model.js");
 
 
 
@@ -35753,6 +35859,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -35830,35 +35937,84 @@ var User = /*#__PURE__*/function (_Model) {
       this._data.photo = value;
     }
   }, {
+    key: "addContact",
+    value: function addContact(contact) {
+      var collectionContacts = this.getContactsRef(this.id);
+      var newDoc = this.getDocRef(collectionContacts, Buffer.from(contact.email).toString('base64'));
+      return this.saveDoc(newDoc, contact.toJSON());
+    }
+  }, {
+    key: "getContacts",
+    value: function getContacts() {
+      var _this3 = this;
+
+      return new Promise(function (resolve, reject) {
+        var collectionContacts = _this3.getContactsRef(_this3.id);
+
+        _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.onSnapshot(collectionContacts, function (docs) {
+          var contacts = [];
+          docs.forEach(function (doc) {
+            var data = doc.data();
+            data.id = doc.id;
+            contacts.push(data);
+          });
+
+          _this3.trigger('contactschange', docs);
+
+          resolve(contacts);
+        });
+      });
+    }
+  }, {
+    key: "getContactsRef",
+    value: function getContactsRef(id) {
+      return this.getCollectionRef(this.findByEmail(id), "contacts");
+    }
+  }, {
+    key: "getCollectionRef",
+    value: function getCollectionRef(docRef, path) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.getCollection(docRef, path);
+    }
+  }, {
+    key: "getDocRef",
+    value: function getDocRef(collectionRef, doc) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.doc(collectionRef, doc);
+    }
+  }, {
+    key: "saveDoc",
+    value: function saveDoc(docRef, data) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.setDoc(docRef, data);
+    }
+  }, {
     key: "getRefDB",
     value: function getRefDB() {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.db('users');
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.db('users');
     }
   }, {
     key: "findByEmail",
     value: function findByEmail(email) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.doc(this.getRefDB(), email);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.doc(this.getRefDB(), email);
     }
   }, {
     key: "getDoc",
     value: function getDoc(email) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.getDoc(this.findByEmail(email));
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.getDoc(this.findByEmail(email));
     }
   }, {
     key: "getDocRealTime",
     value: function getDocRealTime(email) {
       var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.onSnapshot(this.findByEmail(email), fn);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.onSnapshot(this.findByEmail(email), fn);
     }
   }, {
     key: "setDoc",
     value: function setDoc(email, data) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.setDoc(this.findByEmail(email), data);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.setDoc(this.findByEmail(email), data);
     }
   }]);
 
   return User;
-}(_model_model_js__WEBPACK_IMPORTED_MODULE_6__.Model);
+}(_model_model_js__WEBPACK_IMPORTED_MODULE_7__.Model);
 
 /***/ }),
 
@@ -36408,6 +36564,11 @@ var Firebase = /*#__PURE__*/function () {
       return firebaseFirestore.collection(this._db, collection);
     }
   }, {
+    key: "getCollection",
+    value: function getCollection(docRef, path) {
+      return firebaseFirestore.collection(docRef, path);
+    }
+  }, {
     key: "doc",
     value: function doc(collectionRef, document) {
       return firebaseFirestore.doc(collectionRef, document);
@@ -36729,8 +36890,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _utils_format_utils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/format.utils.js */ "./public/src/utils/format.utils.js");
-/* harmony import */ var _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/formatTimestamp.utils.js */ "./public/src/utils/formatTimestamp.utils.js");
-
 
 
 
@@ -36746,6 +36905,21 @@ var WhatsAppView = /*#__PURE__*/function () {
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(WhatsAppView, [{
+    key: "renderContactList",
+    value: function renderContactList(contact) {
+      var div = document.createElement('div');
+      div.className = 'contact-item';
+      div.innerHTML = "\n        <div class=\"dIyEr\">\n            <div class=\"_1WliW\" style=\"height: 49px; width: 49px;\">\n                <img src=\"#\" class=\"Qgzj8 gqwaM photo\" style=\"display:none;\">\n                <div class=\"_3ZW2E\">\n                    <span data-icon=\"default-user\" class=\"\">\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 212 212\" width=\"212\" height=\"212\">\n                            <path fill=\"#DFE5E7\" d=\"M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z\"></path>\n                            <g fill=\"#FFF\">\n                                <path d=\"M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z\"></path>\n                            </g>\n                        </svg>\n                    </span>\n                </div>\n            </div>\n        </div>\n        <div class=\"_3j7s9\">\n            <div class=\"_2FBdJ\">\n                <div class=\"_25Ooe\">\n                    <span dir=\"auto\" title=\"".concat(contact.name, "\" class=\"_1wjpf\">").concat(contact.name, "</span>\n                </div>\n                <div class=\"_3Bxar\">\n                    <span class=\"_3T2VG\">").concat(contact.lastMessageTime, "</span>\n                </div>\n            </div>\n            <div class=\"_1AwDx\">\n                <div class=\"_itDl\">\n                    <span title=\"digitando\u2026\" class=\"vdXUe _1wjpf typing\" style=\"display:none\">digitando\u2026</span>\n\n                    <span class=\"_2_LEW last-message\">\n                        <div class=\"_1VfKB\">\n                            <span data-icon=\"status-dblcheck\" class=\"\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 18\" width=\"18\" height=\"18\">\n                                    <path fill=\"#263238\" fill-opacity=\".4\" d=\"M17.394 5.035l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-.427-.388a.381.381 0 0 0-.578.038l-.451.576a.497.497 0 0 0 .043.645l1.575 1.51a.38.38 0 0 0 .577-.039l7.483-9.602a.436.436 0 0 0-.076-.609zm-4.892 0l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-2.614-2.556a.435.435 0 0 0-.614.007l-.505.516a.435.435 0 0 0 .007.614l3.887 3.8a.38.38 0 0 0 .577-.039l7.483-9.602a.435.435 0 0 0-.075-.609z\"></path>\n                                </svg>\n                            </span>\n                        </div>\n                        <span dir=\"ltr\" class=\"_1wjpf _3NFp9\">").concat(contact.lastMessage, "</span>\n                        <div class=\"_3Bxar\">\n                            <span>\n                                <div class=\"_15G96\">\n                                    <span class=\"OUeyt messages-count-new\" style=\"display:none;\">1</span>\n                                </div>\n                        </div>\n                        </span>\n                </div>\n            </div>\n        </div>\n        ");
+
+      if (contact.photo) {
+        var img = div.querySelector('.photo');
+        img.src = contact.photo;
+        img.show();
+      }
+
+      this.el.contactsMessagesList.appendChild(div);
+    }
+  }, {
     key: "loadElements",
     value: function loadElements() {
       var _this = this;
@@ -36801,6 +36975,8 @@ var WhatsAppView = /*#__PURE__*/function () {
         e.preventDefault();
 
         var formData = _this2.el.formPanelAddContact.getForm();
+
+        controller.addContact(formData);
       });
       this.el.contactsMessagesList.querySelectorAll('.contact-item').forEach(function (item) {
         item.on('click', function (e) {
