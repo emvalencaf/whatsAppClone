@@ -9,6 +9,14 @@ export class MessageModel extends Model{
         
     }
 
+    get id(){
+        return this._data.id
+    }
+
+    set id(value){
+        return this._data.id = value
+    }
+
     get content(){
         return this._data.content
     }
@@ -60,4 +68,16 @@ export class MessageModel extends Model{
 
     }
 
+    static getQueryMsgs(chatId, order){
+
+        const ref = MessageModel.getRef(chatId)
+        const orderConstrain = whatsAppController._firebase.orderBy(order)
+        const query = whatsAppController._firebase.query(ref, orderConstrain)
+
+        return query
+    }
+
+    static onSnapshot(ref, fn = () => {}){
+        return whatsAppController._firebase.onSnapshot(ref, fn)
+    }
 }

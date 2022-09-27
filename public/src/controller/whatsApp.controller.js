@@ -142,7 +142,7 @@ class WhatsAppController{
     sendMsg(msg){
 
         MessageService.send(
-            this._contactActive,
+            this._contactActive.chatId,
             this._user.email,
             'text',
             msg)
@@ -151,7 +151,9 @@ class WhatsAppController{
 
     setActiveContact(contact){
 
-        this._contactActive = contact.chatId
+        if(this._contactActive) MessageService.readMsg(this._contactActive.chatId, () =>{})
+
+        this._contactActive = contact
 
         this.view.el.activeName.innerHTML = contact.name
         this.view.el.activeStatus.innerHTML = contact.status
@@ -160,6 +162,31 @@ class WhatsAppController{
         this.view.el.home.hide()
         this.view.el.main.css({
             display:"flex"
+        })
+
+        MessageService.readMsg(this._contactActive.chatId, docs =>{
+            
+            this.view.el.panelMessagesContainer.innerHTML = ''
+
+            docs.forEach(doc => {
+
+                let data = doc.data()
+                data.id = doc.id
+                
+                if(!this.view.el.panelMessagesContainer.querySelector('#_' + data.id)){
+                    let message = new MessageService()
+                    
+                    message.fromJSON(data)
+                    
+                    let me = (data.from === this._user.email)
+                    
+                    const view = message.getViewElement(me)
+                
+                    this.view.el.panelMessagesContainer.appendChild(view)
+                }
+
+
+            })
         })
 
     }

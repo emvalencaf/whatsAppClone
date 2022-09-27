@@ -77,6 +77,10 @@ export class Firebase{
         return firebaseFirestore.where(fieldPath, opStr, value)
     }
 
+    orderBy(str){
+        return firebaseFirestore.orderBy(str)
+    }
+
     query(...arg){
 
         return firebaseFirestore.query(...arg)

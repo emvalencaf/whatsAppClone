@@ -1,3 +1,5 @@
+import { Format } from "./format.utils"
+
 export class FormatTimestamp{
 
     static timestampToSeconds(timestamp){
@@ -29,4 +31,16 @@ export class FormatTimestamp{
 
     }
 
+
+    static timestampToTime(timestamp){
+        return (timestamp && typeof timestamp.toDate === 'function')? FormatTimestamp.dateToTime(timestamp.toDate()): ''
+    }
+
+    static dateToTime(date, locale = 'pt-BR'){
+
+        return date.toLocaleTimeString(locale, {
+            hours: '2-digits',
+            minutes: '2-digits'
+        })
+    }
 }

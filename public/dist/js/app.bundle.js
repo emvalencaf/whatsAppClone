@@ -35607,12 +35607,15 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "sendMsg",
     value: function sendMsg(msg) {
-      _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.send(this._contactActive, this._user.email, 'text', msg);
+      _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.send(this._contactActive.chatId, this._user.email, 'text', msg);
     }
   }, {
     key: "setActiveContact",
     value: function setActiveContact(contact) {
-      this._contactActive = contact.chatId;
+      var _this3 = this;
+
+      if (this._contactActive) _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.readMsg(this._contactActive.chatId, function () {});
+      this._contactActive = contact;
       this.view.el.activeName.innerHTML = contact.name;
       this.view.el.activeStatus.innerHTML = contact.status;
       this.view.checkPhoto(contact.photo, this.view.el.activePhoto);
@@ -35620,25 +35623,41 @@ var WhatsAppController = /*#__PURE__*/function () {
       this.view.el.main.css({
         display: "flex"
       });
+      _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.readMsg(this._contactActive.chatId, function (docs) {
+        _this3.view.el.panelMessagesContainer.innerHTML = '';
+        docs.forEach(function (doc) {
+          var data = doc.data();
+          data.id = doc.id;
+
+          if (!_this3.view.el.panelMessagesContainer.querySelector('#_' + data.id)) {
+            var message = new _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService();
+            message.fromJSON(data);
+            var me = data.from === _this3._user.email;
+            var view = message.getViewElement(me);
+
+            _this3.view.el.panelMessagesContainer.appendChild(view);
+          }
+        });
+      });
     }
   }, {
     key: "addContact",
     value: function addContact(dataForm) {
-      var _this3 = this;
+      var _this4 = this;
 
       var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(dataForm.get('email'));
       console.log(contact);
       contact.on('datachange', function (data) {
         if (!data.name) return console.error('Usuário não foi encontrado');
-        _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this3._user.email, contact.email).then(function (chat) {
+        _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this4._user.email, contact.email).then(function (chat) {
           contact.chatId = chat.id;
-          _this3._user.chatId = chat.id;
-          contact.addContact(_this3._user);
+          _this4._user.chatId = chat.id;
+          contact.addContact(_this4._user);
 
-          _this3._user.addContact(contact).then(function () {
+          _this4._user.addContact(contact).then(function () {
             console.info('contato foi adicionado!');
 
-            _this3.view.el.btnClosePanelAddContact.click();
+            _this4.view.el.btnClosePanelAddContact.click();
           })["catch"](function (err) {
             console.error(err);
           });
@@ -35885,6 +35904,14 @@ var MessageModel = /*#__PURE__*/function (_Model) {
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MessageModel, [{
+    key: "id",
+    get: function get() {
+      return this._data.id;
+    },
+    set: function set(value) {
+      return this._data.id = value;
+    }
+  }, {
     key: "content",
     get: function get() {
       return this._data.content;
@@ -35929,6 +35956,23 @@ var MessageModel = /*#__PURE__*/function (_Model) {
     key: "addDoc",
     value: function addDoc(collectionRef, data) {
       return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.addDoc(collectionRef, data);
+    }
+  }, {
+    key: "getQueryMsgs",
+    value: function getQueryMsgs(chatId, order) {
+      var ref = MessageModel.getRef(chatId);
+
+      var orderConstrain = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.orderBy(order);
+
+      var query = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.query(ref, orderConstrain);
+
+      return query;
+    }
+  }, {
+    key: "onSnapshot",
+    value: function onSnapshot(ref) {
+      var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.onSnapshot(ref, fn);
     }
   }]);
 
@@ -36382,6 +36426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
 /* harmony import */ var _model_message_model_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../model/message.model.js */ "./public/src/model/message.model.js");
+/* harmony import */ var _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/formatTimestamp.utils.js */ "./public/src/utils/formatTimestamp.utils.js");
 
 
 
@@ -36391,6 +36436,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 var MessageService = /*#__PURE__*/function (_MessageModel) {
@@ -36404,7 +36450,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
     return _super.call(this);
   }
 
-  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MessageService, null, [{
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(MessageService, [{
     key: "getViewElement",
     value: function getViewElement() {
       var me = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
@@ -36429,7 +36475,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           break;
 
         default:
-          div.innerHTML = "\n    \n                <div class=\"font-style _3DFk6 tail\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"Tkt2p\">\n                        <div class=\"_3zb-j ZhF0n\">\n                            <span dir=\"ltr\" class=\"selectable-text invisible-space message-text\">Oi!</span>\n                        </div>\n                        <div class=\"_2f-RV\">\n                            <div class=\"_1DZAH\">\n                                <span class=\"msg-time\">11:33</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ";
+          div.innerHTML = "\n    \n                <div class=\"font-style _3DFk6 tail\" id=\"".concat(this.id, "\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"Tkt2p\">\n                        <div class=\"_3zb-j ZhF0n\">\n                            <span dir=\"ltr\" class=\"selectable-text invisible-space message-text\">").concat(this.content, "</span>\n                        </div>\n                        <div class=\"_2f-RV\">\n                            <div class=\"_1DZAH\">\n                                <span class=\"msg-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ");
           break;
       }
 
@@ -36437,7 +36483,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
       div.firstElementChild.classList.add(className);
       return div;
     }
-  }, {
+  }], [{
     key: "send",
     value: function send(chatId, from, type, content) {
       var ref = MessageService.getRef(chatId);
@@ -36448,6 +36494,13 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
         type: type,
         from: from
       });
+    }
+  }, {
+    key: "readMsg",
+    value: function readMsg(chatId) {
+      var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
+      console.log(chatId);
+      return this.onSnapshot(this.getQueryMsgs(chatId, 'timestamp'), fn);
     }
   }]);
 
@@ -36840,6 +36893,11 @@ var Firebase = /*#__PURE__*/function () {
       return firebaseFirestore.where(fieldPath, opStr, value);
     }
   }, {
+    key: "orderBy",
+    value: function orderBy(str) {
+      return firebaseFirestore.orderBy(str);
+    }
+  }, {
     key: "query",
     value: function query() {
       return firebaseFirestore.query.apply(firebaseFirestore, arguments);
@@ -36935,6 +36993,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _format_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./format.utils */ "./public/src/utils/format.utils.js");
+
 
 
 var FormatTimestamp = /*#__PURE__*/function () {
@@ -36965,6 +37025,20 @@ var FormatTimestamp = /*#__PURE__*/function () {
       var hours = FormatTimestamp.timestampToHours(duration);
       var stringTime = hours > 0 ? "".concat(hours, ":").concat(minutes, ":").concat(seconds.toString().padStart(2, '0')) : "".concat(minutes, ":").concat(seconds.toString().padStart(2, '0'));
       return stringTime;
+    }
+  }, {
+    key: "timestampToTime",
+    value: function timestampToTime(timestamp) {
+      return timestamp && typeof timestamp.toDate === 'function' ? FormatTimestamp.dateToTime(timestamp.toDate()) : '';
+    }
+  }, {
+    key: "dateToTime",
+    value: function dateToTime(date) {
+      var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'pt-BR';
+      return date.toLocaleTimeString(locale, {
+        hours: '2-digits',
+        minutes: '2-digits'
+      });
     }
   }]);
 

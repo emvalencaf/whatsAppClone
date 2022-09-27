@@ -1,11 +1,12 @@
 import { MessageModel } from "../model/message.model.js";
+import { FormatTimestamp } from "../utils/formatTimestamp.utils.js";
 
 export class MessageService extends MessageModel{
     constructor(){
         super()
     }
 
-    static getViewElement(me = true){
+    getViewElement(me = true){
 
         let div = document.createElement('div')
 
@@ -255,16 +256,16 @@ export class MessageService extends MessageModel{
             default:
                 div.innerHTML = `
     
-                <div class="font-style _3DFk6 tail">
+                <div class="font-style _3DFk6 tail" id="${this.id}">
                     <span class="tail-container"></span>
                     <span class="tail-container highlight"></span>
                     <div class="Tkt2p">
                         <div class="_3zb-j ZhF0n">
-                            <span dir="ltr" class="selectable-text invisible-space message-text">Oi!</span>
+                            <span dir="ltr" class="selectable-text invisible-space message-text">${this.content}</span>
                         </div>
                         <div class="_2f-RV">
                             <div class="_1DZAH">
-                                <span class="msg-time">11:33</span>
+                                <span class="msg-time">${FormatTimestamp.timestampToTime(this.timestamp)}</span>
                             </div>
                         </div>
                     </div>
@@ -293,6 +294,12 @@ export class MessageService extends MessageModel{
             type,
             from
         })
+
+    }
+
+    static readMsg(chatId, fn = () => {}){
+        console.log(chatId)
+        return this.onSnapshot(this.getQueryMsgs(chatId, 'timestamp'), fn)
 
     }
 
