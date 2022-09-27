@@ -2,6 +2,7 @@ import { ChatModel } from "../model/chat.model.js"
 import { UserModel } from "../model/user.model.js"
 import { cameraService } from "../service/camera.service.js"
 import { documentPreviewService } from "../service/documentPreview.service.js"
+import { MessageService } from "../service/message.service.js"
 import { microphoneService } from "../service/microphone.service.js"
 import { ElementPrototype } from "../utils/elementPrototype.utils.js"
 import { Firebase } from "../utils/firebase.utils.js"
@@ -129,13 +130,38 @@ class WhatsAppController{
 
                 const contact = doc.data()
 
-                this.view.renderContactList(contact)
+                this.view.renderContactList(contact, this.setActiveContact.bind(this))
 
             })
 
         })
 
         this._user.getContacts()
+    }
+
+    sendMsg(msg){
+
+        MessageService.send(
+            this._contactActive,
+            this._user.email,
+            'text',
+            msg)
+
+    }
+
+    setActiveContact(contact){
+
+        this._contactActive = contact.chatId
+
+        this.view.el.activeName.innerHTML = contact.name
+        this.view.el.activeStatus.innerHTML = contact.status
+        this.view.checkPhoto(contact.photo, this.view.el.activePhoto)
+
+        this.view.el.home.hide()
+        this.view.el.main.css({
+            display:"flex"
+        })
+
     }
 
     addContact(dataForm){

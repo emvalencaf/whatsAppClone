@@ -5,7 +5,7 @@ export class MessageService extends MessageModel{
         super()
     }
 
-    getViewElement(me = true){
+    static getViewElement(me = true){
 
         let div = document.createElement('div')
 
@@ -281,4 +281,19 @@ export class MessageService extends MessageModel{
         return div
 
     }
+
+    static send(chatId, from, type, content){
+
+        const ref = MessageService.getRef(chatId)
+
+        MessageService.addDoc(ref, {
+            content,
+            timestamp: new Date(),
+            status: 'wait',
+            type,
+            from
+        })
+
+    }
+
 }

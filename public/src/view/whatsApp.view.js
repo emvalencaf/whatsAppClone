@@ -1,4 +1,5 @@
 
+import { whatsAppController } from "../controller/whatsApp.controller.js"
 import { Format } from "../utils/format.utils.js"
 
 class WhatsAppView{
@@ -12,7 +13,11 @@ class WhatsAppView{
         
     }
 
-    renderContactList(contact){
+    getControllerObject(){
+        return whatsAppController
+    }
+
+    renderContactList(contact, cb = () => {}){
 
         const div = document.createElement('div')
 
@@ -81,23 +86,18 @@ class WhatsAppView{
 
         div.on('click', e => {
 
-            console.log("clicado")
-
+            cb(contact)
+/*
             this.el.activeName.innerHTML = contact.name
             this.el.activeStatus.innerHTML = contact.status
+
             this.checkPhoto(contact.photo, this.el.activePhoto)
-            /*
-            if(contact.photo){
-                const img = this.el.activePhoto
-                img.src = contact.photo
-                img.show()
-            }*/
 
             this.el.home.hide()
             this.el.main.css({
                 display:"flex"
             })
-
+*/
         })
 
         this.el.contactsMessagesList.appendChild(div)
@@ -387,7 +387,10 @@ class WhatsAppView{
 
         this.el.btnSend.on('click', e => {
 
-            console.log(this.el.inputText.innerHTML)
+            controller.sendMsg(this.el.inputText.innerHTML)
+            this.el.inputText.innerHTML = ''
+            this.el.panelEmojis.removeClass('open')
+            //console.log(this.el.inputText.innerHTML)
 
         })
 
