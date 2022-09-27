@@ -35484,19 +35484,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _model_user_model_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../model/user.model.js */ "./public/src/model/user.model.js");
-/* harmony import */ var _service_camera_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/camera.service.js */ "./public/src/service/camera.service.js");
-/* harmony import */ var _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/documentPreview.service.js */ "./public/src/service/documentPreview.service.js");
-/* harmony import */ var _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/microphone.service.js */ "./public/src/service/microphone.service.js");
-/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./public/src/utils/elementPrototype.utils.js");
-/* harmony import */ var _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/firebase.utils.js */ "./public/src/utils/firebase.utils.js");
-/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
-/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
-/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
-/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
-/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
-/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
-/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+/* harmony import */ var _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../model/chat.model.js */ "./public/src/model/chat.model.js");
+/* harmony import */ var _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../model/user.model.js */ "./public/src/model/user.model.js");
+/* harmony import */ var _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/camera.service.js */ "./public/src/service/camera.service.js");
+/* harmony import */ var _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/documentPreview.service.js */ "./public/src/service/documentPreview.service.js");
+/* harmony import */ var _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../service/microphone.service.js */ "./public/src/service/microphone.service.js");
+/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./public/src/utils/elementPrototype.utils.js");
+/* harmony import */ var _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/firebase.utils.js */ "./public/src/utils/firebase.utils.js");
+/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
+/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
+/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
+/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
+/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
+/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
+/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+
 
 
 
@@ -35518,18 +35520,18 @@ var WhatsAppController = /*#__PURE__*/function () {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, WhatsAppController);
 
     console.log('WhatsAppController Ok');
-    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_6__.ElementPrototype.elementsProtoType();
+    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_7__.ElementPrototype.elementsProtoType();
     this.view = view;
-    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_8__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
-    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_9__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
-    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_10__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
+    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_9__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
+    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_10__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
+    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_11__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
     this.controller = {
-      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_12__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_3__.cameraService),
-      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_13__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_4__.documentPreviewService),
-      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_14__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_5__.microphoneService)
+      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_13__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__.cameraService),
+      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_14__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
+      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_15__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_6__.microphoneService)
     };
     this.view.el.appContent.hide();
-    this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_7__.Firebase();
+    this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_8__.Firebase();
 
     this._firebase.init();
 
@@ -35543,7 +35545,7 @@ var WhatsAppController = /*#__PURE__*/function () {
       var _this = this;
 
       this._firebase.initAuth().then(function (response) {
-        _this._user = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_2__.UserModel(response.user.email);
+        _this._user = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(response.user.email);
 
         _this._user.on('datachange', function (data) {
           document.querySelector('title').innerHTML = data.name + " - WhatsApp Clone";
@@ -35605,15 +35607,24 @@ var WhatsAppController = /*#__PURE__*/function () {
     value: function addContact(dataForm) {
       var _this3 = this;
 
-      var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_2__.UserModel(dataForm.get('email'));
+      var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(dataForm.get('email'));
       console.log(contact);
       contact.on('datachange', function (data) {
         if (!data.name) return console.error('Usuário não foi encontrado');
+        _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this3._user.email, contact.email).then(function (chat) {
+          contact.chatId = chat.id;
+          _this3._user.chatId = chat.id;
+          contact.addContact(_this3._user);
 
-        _this3._user.addContact(contact).then(function () {
-          console.info('contato foi adicionado!');
+          _this3._user.addContact(contact).then(function () {
+            console.info('contato foi adicionado!');
 
-          _this3.view.el.btnClosePanelAddContact.click();
+            _this3.view.el.btnClosePanelAddContact.click();
+          })["catch"](function (err) {
+            console.error(err);
+          });
+        })["catch"](function (err) {
+          console.error(err);
         });
       });
     }
@@ -35680,7 +35691,136 @@ var WhatsAppController = /*#__PURE__*/function () {
   return WhatsAppController;
 }();
 
-var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_11__.whatsAppView);
+var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_12__.whatsAppView);
+
+/***/ }),
+
+/***/ "./public/src/model/chat.model.js":
+/*!****************************************!*\
+  !*** ./public/src/model/chat.model.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ChatModel": function() { return /* binding */ ChatModel; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _model_model_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./model.model.js */ "./public/src/model/model.model.js");
+/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../controller/whatsApp.controller.js */ "./public/src/controller/whatsApp.controller.js");
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+var ChatModel = /*#__PURE__*/function (_Model) {
+  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(ChatModel, _Model);
+
+  var _super = _createSuper(ChatModel);
+
+  function ChatModel() {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ChatModel);
+
+    return _super.call(this);
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ChatModel, [{
+    key: "users",
+    get: function get() {
+      return this._data.users;
+    },
+    set: function set(value) {
+      this._data.users = value;
+    }
+  }, {
+    key: "timestamp",
+    get: function get() {
+      return this._data.timestamp;
+    },
+    set: function set(value) {
+      return this._data.timestamp = value;
+    }
+  }], [{
+    key: "getRef",
+    value: function getRef() {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.db('/chats');
+    }
+  }, {
+    key: "find",
+    value: function find(meEmail, contactEmail) {
+      var query = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.query(ChatModel.getRef(), _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.where(btoa(meEmail), "==", true), _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.where(btoa(contactEmail), "==", true));
+
+      console.log(query);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.getDocs(query);
+    }
+  }, {
+    key: "create",
+    value: function create(meEmail, contactEmail) {
+      console.log('no create');
+      return new Promise(function (resolve, reject) {
+        var users = {};
+        users[btoa(meEmail)] = true;
+        users[btoa(contactEmail)] = true;
+        console.log(users);
+
+        _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.addDoc(ChatModel.getRef(), {
+          users: users,
+          timestamp: new Date()
+        }).then(function (doc) {
+          var collectionRef = ChatModel.getRef();
+
+          var docRef = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.doc(collectionRef, doc.id);
+
+          _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.getDoc(docRef).then(function (chat) {
+            resolve(chat);
+          })["catch"](function (err) {
+            reject(err);
+          });
+        })["catch"](function (err) {
+          reject(err);
+        });
+      });
+    }
+  }, {
+    key: "createIfNotExists",
+    value: function createIfNotExists(meEmail, contactEmail) {
+      return new Promise(function (resolve, reject) {
+        console.log('antes do find');
+        ChatModel.find(meEmail, contactEmail).then(function (chats) {
+          console.log(chats);
+          if (!chats.empety) chats.forEach(function (chat) {
+            resolve(chat);
+          });
+          console.log('chats estão vázias');
+          ChatModel.create(meEmail, contactEmail).then(function (chat) {
+            console.log(chat);
+            resolve(chat);
+          })["catch"](function (err) {
+            console.error(err);
+            reject(err);
+          });
+        })["catch"](function (err) {
+          console.error(err);
+          reject(err);
+        });
+      });
+    }
+  }]);
+
+  return ChatModel;
+}(_model_model_js__WEBPACK_IMPORTED_MODULE_5__.Model);
 
 /***/ }),
 
@@ -35851,10 +35991,18 @@ var UserModel = /*#__PURE__*/function (_Model) {
       this._data.photo = value;
     }
   }, {
+    key: "chatId",
+    get: function get() {
+      return this._data.chatId;
+    },
+    set: function set(value) {
+      return this._data.chatId = value;
+    }
+  }, {
     key: "addContact",
     value: function addContact(contact) {
       var collectionContacts = this.getContactsRef(this.id);
-      var newDoc = this.getDocRef(collectionContacts, Buffer.from(contact.email).toString('base64'));
+      var newDoc = this.getDocRef(collectionContacts, btoa(contact.email));
       return this.saveDoc(newDoc, contact.toJSON());
     }
   }, {
@@ -36473,9 +36621,24 @@ var Firebase = /*#__PURE__*/function () {
       window._initialiazedFirebase = true;
     }
   }, {
+    key: "addDoc",
+    value: function addDoc(collectionRef, data) {
+      return firebaseFirestore.addDoc(collectionRef, data);
+    }
+  }, {
     key: "db",
     value: function db(collection) {
       return firebaseFirestore.collection(this._db, collection);
+    }
+  }, {
+    key: "where",
+    value: function where(fieldPath, opStr, value) {
+      return firebaseFirestore.where(fieldPath, opStr, value);
+    }
+  }, {
+    key: "query",
+    value: function query() {
+      return firebaseFirestore.query.apply(firebaseFirestore, arguments);
     }
   }, {
     key: "getCollection",
@@ -36491,6 +36654,11 @@ var Firebase = /*#__PURE__*/function () {
     key: "getDoc",
     value: function getDoc(docRef) {
       return firebaseFirestore.getDoc(docRef);
+    }
+  }, {
+    key: "getDocs",
+    value: function getDocs(query) {
+      return firebaseFirestore.getDocs(query);
     }
   }, {
     key: "setDoc",

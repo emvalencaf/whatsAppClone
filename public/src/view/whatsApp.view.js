@@ -82,7 +82,7 @@ class WhatsAppView{
         div.on('click', e => {
 
             console.log("clicado")
-            
+
             this.el.activeName.innerHTML = contact.name
             this.el.activeStatus.innerHTML = contact.status
             this.checkPhoto(contact.photo, this.el.activePhoto)

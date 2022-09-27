@@ -64,8 +64,22 @@ export class Firebase{
         window._initialiazedFirebase = true
     }
     
+    addDoc(collectionRef, data){
+
+        return firebaseFirestore.addDoc(collectionRef, data)
+    }
+
     db(collection){
         return firebaseFirestore.collection(this._db, collection)
+    }
+
+    where(fieldPath, opStr, value){
+        return firebaseFirestore.where(fieldPath, opStr, value)
+    }
+
+    query(...arg){
+
+        return firebaseFirestore.query(...arg)
     }
 
     getCollection(docRef, path){
@@ -78,6 +92,10 @@ export class Firebase{
     
     getDoc(docRef){
         return firebaseFirestore.getDoc(docRef)
+    }
+
+    getDocs(query){
+        return firebaseFirestore.getDocs(query)
     }
 
     setDoc(documentRef, data){

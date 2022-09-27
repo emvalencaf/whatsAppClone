@@ -1,3 +1,4 @@
+import { ChatModel } from "../model/chat.model.js"
 import { UserModel } from "../model/user.model.js"
 import { cameraService } from "../service/camera.service.js"
 import { documentPreviewService } from "../service/documentPreview.service.js"
@@ -147,12 +148,33 @@ class WhatsAppController{
 
             if(!data.name) return console.error('Usuário não foi encontrado')
 
-            this._user.addContact(contact)
-                .then(() => {
+            ChatModel.createIfNotExists(this._user.email, contact.email)
+                .then(chat => {
 
-                    console.info('contato foi adicionado!')
-                    this.view.el.btnClosePanelAddContact.click()
+                    contact.chatId = chat.id
+                    
+                    this._user.chatId = chat.id
+
+                    contact.addContact(this._user)
+
+                    this._user.addContact(contact)
+                        .then(() => {
+        
+                            console.info('contato foi adicionado!')
+                            this.view.el.btnClosePanelAddContact.click()
+                        })
+                        .catch(err => {
+
+                            console.error(err)
+
+                        })
+                    
+
                 })
+                .catch(err => {
+                    console.error(err)
+                })
+
         })
     }
 

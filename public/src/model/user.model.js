@@ -65,10 +65,19 @@ export class UserModel extends Model{
         this._data.photo = value
     }
 
+    get chatId(){
+        return this._data.chatId
+    }
+
+    set chatId(value){
+        return this._data.chatId = value
+    }
+
+
     addContact(contact){
 
         const collectionContacts = this.getContactsRef(this.id)
-        const newDoc = this.getDocRef(collectionContacts, Buffer.from(contact.email).toString('base64'))
+        const newDoc = this.getDocRef(collectionContacts, btoa(contact.email))
 
         return this.saveDoc(newDoc, contact.toJSON())
         
