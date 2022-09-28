@@ -141,6 +141,8 @@ class WhatsAppController{
 
     sendMsg(msg){
 
+        if(typeof msg !== 'string') return MessageService.sendImage(this._contactActive.chatId, this._user.email, msg)
+
         return MessageService.send(
             this._contactActive.chatId,
             this._user.email,
@@ -192,7 +194,7 @@ class WhatsAppController{
                         },{
                             merge:true
                         })
-                        
+
                     }
 
                     const view = message.getViewElement(me)

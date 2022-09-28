@@ -35607,6 +35607,7 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "sendMsg",
     value: function sendMsg(msg) {
+      if (typeof msg !== 'string') return _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendImage(this._contactActive.chatId, this._user.email, msg);
       return _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.send(this._contactActive.chatId, this._user.email, 'text', msg);
     }
   }, {
@@ -35973,6 +35974,21 @@ var MessageModel = /*#__PURE__*/function (_Model) {
       return this._data.status = value;
     }
   }], [{
+    key: "hdRef",
+    value: function hdRef(path) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.hdRef(path);
+    }
+  }, {
+    key: "hdDownloadURL",
+    value: function hdDownloadURL(ref) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.hdDownloadURL(ref);
+    }
+  }, {
+    key: "hdPut",
+    value: function hdPut(ref, data, metadata) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.hdPut(ref, data, metadata);
+    }
+  }, {
     key: "getRef",
     value: function getRef(chatId) {
       var dbCollection = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.db('chats');
@@ -36545,7 +36561,14 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           break;
 
         case 'image':
-          div.innerHTML = "\n                <div class=\"_3_7SH _3qMSo\">\n                    <div class=\"KYpDv\">\n                        <div>\n                            <div class=\"_3v3PK\" style=\"width: 330px; height: 330px;\">\n                                <div class=\"_34Olu\">\n                                    <div class=\"_2BzIU\">\n                                        <div class=\"_2X3l6\">\n                                            <svg class=\"_1UDDE\" width=\"50\" height=\"50\" viewBox=\"0 0 43 43\">\n                                                <circle class=\"_3GbTq _2wGBy\" cx=\"21.5\" cy=\"21.5\" r=\"20\" fill=\"none\" stroke-width=\"3\"></circle>\n                                            </svg>\n                                        </div>\n                                        <div class=\"_1l3ap\">\n                                            <span data-icon=\"media-disabled\" class=\"\">\n                                                <svg id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 44 44\" width=\"44\" height=\"44\">\n                                                    <path fill=\"#FFF\" fill-opacity=\".4\" d=\"M29.377 16.099l-1.475-1.475L22 20.525l-5.901-5.901-1.476 1.475L20.525 22l-5.901 5.901 1.476 1.475 5.9-5.901 5.901 5.901 1.475-1.475L23.475 22l5.902-5.901z\"></path>\n                                                </svg>\n                                            </span>\n                                        </div>\n                                    </div>\n                                </div>\n                                <img src=\"#\" class=\"_1JVSX message-photo\" style=\"width: 100%; display:none\">\n                                <div class=\"_1i3Za\"></div>\n                            </div>\n                            <div class=\"message-container-legend\">\n                                <div class=\"_3zb-j ZhF0n\">\n                                    <span dir=\"ltr\" class=\"selectable-text invisible-space copyable-text message-text\">Texto da foto</span>\n                                </div>\n                            </div>\n                            <div class=\"_2TvOE\">\n                                <div class=\"_1DZAH text-white\" role=\"button\">\n                                    <span class=\"message-time\">".concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"_3S8Q-\" role=\"button\">\n                        <span data-icon=\"forward-chat\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" width=\"25\" height=\"25\">\n                                <path fill=\"#FFF\" d=\"M14.2 9.5V6.1l5.9 5.9-5.9 6v-3.5c-4.2 0-7.2 1.4-9.3 4.3.8-4.2 3.4-8.4 9.3-9.3z\"></path>\n                            </svg>\n                        </span>\n                    </div>\n                </div>\n                ");
+          div.innerHTML = "\n                <div class=\"_3_7SH _3qMSo\">\n                    <div class=\"KYpDv\">\n                        <div>\n                            <div class=\"_3v3PK\" style=\"width: 330px; height: 330px;\">\n                                <div class=\"_34Olu\">\n                                    <div class=\"_2BzIU\">\n                                        <div class=\"_2X3l6\">\n                                            <svg class=\"_1UDDE\" width=\"50\" height=\"50\" viewBox=\"0 0 43 43\">\n                                                <circle class=\"_3GbTq _2wGBy\" cx=\"21.5\" cy=\"21.5\" r=\"20\" fill=\"none\" stroke-width=\"3\"></circle>\n                                            </svg>\n                                        </div>\n                                        <div class=\"_1l3ap\">\n                                            <span data-icon=\"media-disabled\" class=\"\">\n                                                <svg id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 44 44\" width=\"44\" height=\"44\">\n                                                    <path fill=\"#FFF\" fill-opacity=\".4\" d=\"M29.377 16.099l-1.475-1.475L22 20.525l-5.901-5.901-1.476 1.475L20.525 22l-5.901 5.901 1.476 1.475 5.9-5.901 5.901 5.901 1.475-1.475L23.475 22l5.902-5.901z\"></path>\n                                                </svg>\n                                            </span>\n                                        </div>\n                                    </div>\n                                </div>\n                                <img src=\"".concat(this.content, "\" class=\"_1JVSX message-photo\" style=\"width: 100%; display:none\">\n                                <div class=\"_1i3Za\"></div>\n                            </div>\n                            <div class=\"_2TvOE\">\n                                <div class=\"_1DZAH text-white\" role=\"button\">\n                                    <span class=\"message-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"_3S8Q-\" role=\"button\">\n                        <span data-icon=\"forward-chat\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" width=\"25\" height=\"25\">\n                                <path fill=\"#FFF\" d=\"M14.2 9.5V6.1l5.9 5.9-5.9 6v-3.5c-4.2 0-7.2 1.4-9.3 4.3.8-4.2 3.4-8.4 9.3-9.3z\"></path>\n                            </svg>\n                        </span>\n                    </div>\n                </div>\n                ");
+          div.querySelector('.message-photo').on('load', function (e) {
+            div.querySelector('.message-photo').show();
+            div.querySelector('._34Olu').hide();
+            div.querySelector('._3v3PK').css({
+              height: 'auto'
+            });
+          });
           break;
 
         case 'document':
@@ -36572,9 +36595,34 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
       return div;
     }
   }], [{
+    key: "sendImage",
+    value: function sendImage(chatId, from, file) {
+      var _this = this;
+
+      return new Promise(function (resolve, reject) {
+        var path = from + "/" + Date.now() + "_" + file.name;
+
+        var ref = _this.hdRef(path);
+
+        var uploadTask = _this.hdPut(ref, file);
+
+        uploadTask.on('state_changed', function (e) {
+          console.info('upload', e);
+        }, function (err) {
+          console.error(err);
+        }, function () {
+          _this.hdDownloadURL(uploadTask.snapshot.ref).then(function (url) {
+            _this.send(chatId, from, 'image', url).then(function () {
+              resolve();
+            });
+          });
+        });
+      });
+    }
+  }, {
     key: "send",
     value: function send(chatId, from, type, content) {
-      var _this = this;
+      var _this2 = this;
 
       var ref = MessageService.getRef(chatId);
       return new Promise(function (resolve, reject) {
@@ -36587,7 +36635,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
         }).then(function (result) {
           console.log(result);
 
-          _this.setDoc(_this.doc(result.parent, result.id), {
+          _this2.setDoc(_this2.doc(result.parent, result.id), {
             status: 'sent'
           }, {
             merge: true
@@ -36983,6 +37031,21 @@ var Firebase = /*#__PURE__*/function () {
     key: "addDoc",
     value: function addDoc(collectionRef, data) {
       return firebaseFirestore.addDoc(collectionRef, data);
+    }
+  }, {
+    key: "hdRef",
+    value: function hdRef(path) {
+      return firebaseStorage.ref(this._storage, path);
+    }
+  }, {
+    key: "hdDownloadURL",
+    value: function hdDownloadURL(ref) {
+      return firebaseStorage.getDownloadURL(ref);
+    }
+  }, {
+    key: "hdPut",
+    value: function hdPut(ref, data, metadata) {
+      return firebaseStorage.uploadBytesResumable(ref, data, metadata);
     }
   }, {
     key: "db",
@@ -37493,9 +37556,8 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.inputPhoto.click();
       });
       this.el.inputPhoto.on('change', function (e) {
-        console.log(_this2.el.inputPhoto.files);
         Array.from(_this2.el.inputPhoto.files).forEach(function (file) {
-          return [console.log(file)];
+          return [controller.sendMsg(file)];
         });
       }); //Lembrar de refatorar os eventos abaixo relacionado a câmera para a classe viewCamera        
 

@@ -235,12 +235,9 @@ class WhatsAppView{
 
         this.el.inputPhoto.on('change', e => {
 
-            console.log(this.el.inputPhoto.files)
-
             Array.from(this.el.inputPhoto.files).forEach(file =>[
 
-                console.log(file)
-
+                controller.sendMsg(file)
             ])
         })
 //Lembrar de refatorar os eventos abaixo relacionado a câmera para a classe viewCamera        

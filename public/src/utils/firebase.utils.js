@@ -69,6 +69,18 @@ export class Firebase{
         return firebaseFirestore.addDoc(collectionRef, data)
     }
 
+    hdRef(path){
+        return firebaseStorage.ref(this._storage, path)
+    }
+
+    hdDownloadURL(ref){
+        return firebaseStorage.getDownloadURL(ref)
+    }
+
+    hdPut(ref, data, metadata){
+        return firebaseStorage.uploadBytesResumable(ref, data, metadata)
+    }
+
     db(collection){
         return firebaseFirestore.collection(this._db, collection)
     }

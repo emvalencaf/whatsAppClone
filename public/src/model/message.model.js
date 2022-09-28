@@ -52,6 +52,18 @@ export class MessageModel extends Model{
         return this._data.status = value
     }
 
+    static hdRef(path){
+        return whatsAppController._firebase.hdRef(path)
+    }
+    
+    static hdDownloadURL(ref){
+        return whatsAppController._firebase.hdDownloadURL(ref)
+    }
+
+    static hdPut(ref, data, metadata){
+        return whatsAppController._firebase.hdPut(ref, data, metadata)
+    }
+
     static getRef(chatId){
 
         const dbCollection = whatsAppController._firebase.db('chats')
