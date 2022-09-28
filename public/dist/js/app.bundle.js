@@ -35623,8 +35623,11 @@ var WhatsAppController = /*#__PURE__*/function () {
       this.view.el.main.css({
         display: "flex"
       });
+      this.view.el.panelMessagesContainer.innerHTML = '';
       _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.readMsg(this._contactActive.chatId, function (docs) {
-        _this3.view.el.panelMessagesContainer.innerHTML = '';
+        var scrollTop = _this3.view.el.panelMessagesContainer.scrollTop;
+        var scrollTopMax = _this3.view.el.panelMessagesContainer.scrollHeight - _this3.view.el.panelMessagesContainer.offsetHeight;
+        var autoScroll = scrollTop >= scrollTopMax;
         docs.forEach(function (doc) {
           var data = doc.data();
           data.id = doc.id;
@@ -35638,6 +35641,12 @@ var WhatsAppController = /*#__PURE__*/function () {
             _this3.view.el.panelMessagesContainer.appendChild(view);
           }
         });
+
+        if (autoScroll) {
+          _this3.view.el.panelMessagesContainer.scrollTop = _this3.view.el.panelMessagesContainer.scrollHeight - _this3.view.el.panelMessagesContainer.offsetHeight;
+        } else {
+          _this3.view.el.panelMessagesContainer.scrollTop = scrollTop;
+        }
       });
     }
   }, {
@@ -36475,7 +36484,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           break;
 
         default:
-          div.innerHTML = "\n    \n                <div class=\"font-style _3DFk6 tail\" id=\"".concat(this.id, "\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"Tkt2p\">\n                        <div class=\"_3zb-j ZhF0n\">\n                            <span dir=\"ltr\" class=\"selectable-text invisible-space message-text\">").concat(this.content, "</span>\n                        </div>\n                        <div class=\"_2f-RV\">\n                            <div class=\"_1DZAH\">\n                                <span class=\"msg-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ");
+          div.innerHTML = "\n    \n                <div class=\"font-style _3DFk6 tail\" id=\"_".concat(this.id, "\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"Tkt2p\">\n                        <div class=\"_3zb-j ZhF0n\">\n                            <span dir=\"ltr\" class=\"selectable-text invisible-space message-text\">").concat(this.content, "</span>\n                        </div>\n                        <div class=\"_2f-RV\">\n                            <div class=\"_1DZAH\">\n                                <span class=\"msg-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ");
           break;
       }
 

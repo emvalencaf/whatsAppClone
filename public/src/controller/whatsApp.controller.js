@@ -164,9 +164,14 @@ class WhatsAppController{
             display:"flex"
         })
 
-        MessageService.readMsg(this._contactActive.chatId, docs =>{
-            
-            this.view.el.panelMessagesContainer.innerHTML = ''
+        this.view.el.panelMessagesContainer.innerHTML = ''
+
+        MessageService.readMsg(this._contactActive.chatId, docs =>{ 
+
+            let scrollTop = this.view.el.panelMessagesContainer.scrollTop
+            let scrollTopMax = this.view.el.panelMessagesContainer.scrollHeight - this.view.el.panelMessagesContainer.offsetHeight
+
+            let autoScroll = scrollTop >= scrollTopMax
 
             docs.forEach(doc => {
 
@@ -174,6 +179,8 @@ class WhatsAppController{
                 data.id = doc.id
                 
                 if(!this.view.el.panelMessagesContainer.querySelector('#_' + data.id)){
+
+
                     let message = new MessageService()
                     
                     message.fromJSON(data)
@@ -183,10 +190,19 @@ class WhatsAppController{
                     const view = message.getViewElement(me)
                 
                     this.view.el.panelMessagesContainer.appendChild(view)
+
+                    
                 }
-
-
+                
+                
             })
+
+            if(autoScroll){
+                this.view.el.panelMessagesContainer.scrollTop = (this.view.el.panelMessagesContainer.scrollHeight - this.view.el.panelMessagesContainer.offsetHeight)
+            }else{
+                this.view.el.panelMessagesContainer.scrollTop = scrollTop
+            } 
+
         })
 
     }
