@@ -102,8 +102,9 @@ export class Firebase{
         return firebaseFirestore.getDocs(query)
     }
 
-    setDoc(documentRef, data){
-        return firebaseFirestore.setDoc(documentRef, data)
+
+    setDoc(documentRef, data, setoptions){
+        return firebaseFirestore.setDoc(documentRef, data, setoptions)
     }
 
     onSnapshot(docRef, fn = ()=>{}){

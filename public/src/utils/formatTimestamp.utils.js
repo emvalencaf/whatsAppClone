@@ -39,8 +39,8 @@ export class FormatTimestamp{
     static dateToTime(date, locale = 'pt-BR'){
 
         return date.toLocaleTimeString(locale, {
-            hours: '2-digits',
-            minutes: '2-digits'
+            hour: '2-digit',
+            minute: '2-digit'
         })
     }
 }

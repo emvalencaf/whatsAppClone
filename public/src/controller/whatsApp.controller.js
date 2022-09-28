@@ -141,7 +141,7 @@ class WhatsAppController{
 
     sendMsg(msg){
 
-        MessageService.send(
+        return MessageService.send(
             this._contactActive.chatId,
             this._user.email,
             'text',
@@ -178,20 +178,34 @@ class WhatsAppController{
                 let data = doc.data()
                 data.id = doc.id
                 
+                let message = new MessageService()
+                message.fromJSON(data)
+                let me = (data.from === this._user.email)
+
                 if(!this.view.el.panelMessagesContainer.querySelector('#_' + data.id)){
+                    
+                    
+                    if(!me){
 
+                        MessageService.setDoc(doc.ref,{
+                            status:'read',
+                        },{
+                            merge:true
+                        })
+                        
+                    }
 
-                    let message = new MessageService()
-                    
-                    message.fromJSON(data)
-                    
-                    let me = (data.from === this._user.email)
-                    
                     const view = message.getViewElement(me)
                 
                     this.view.el.panelMessagesContainer.appendChild(view)
 
                     
+                } else if(me){
+
+                    const msgEl = this.view.el.panelMessagesContainer.querySelector('#_' + data.id)
+
+                    msgEl.querySelector('.message-status').innerHTML = message.getStatusViewElement().outerHTML
+
                 }
                 
                 
