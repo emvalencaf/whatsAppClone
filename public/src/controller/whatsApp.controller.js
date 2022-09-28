@@ -271,9 +271,16 @@ class WhatsAppController{
     }
 
     initEvents(){
-
+        console.log(this.view.el.inputSearchContacts)
         this.view.initEvents(this)
 
+        this.view.el.inputSearchContacts.on('keyup', e => {
+            
+            this.view.el.inputSearchContacts.value.length > 0? this.view.el.inputSearchContactsPlaceholder.hide(): this.view.el.inputSearchContactsPlaceholder.show()
+
+            this._user.getContacts(this.view.el.inputSearchContacts.value)
+        })
+    
     }
 
     startCamera(){

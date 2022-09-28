@@ -83,13 +83,15 @@ export class UserModel extends Model{
         
     }
 
-    getContacts(){
+    getContacts(filter = ''){
 
         return new Promise((resolve, reject)=>{
 
             const collectionContacts = this.getContactsRef(this.id)
+            const where = this.where('name','>=', filter)
+            const query = this.query(collectionContacts, where)
 
-            whatsAppController._firebase.onSnapshot(collectionContacts, docs =>{
+            whatsAppController._firebase.onSnapshot(query, docs =>{
 
                 const contacts = []
 
@@ -110,6 +112,14 @@ export class UserModel extends Model{
             })
 
         })
+    }
+
+    query(...arg){
+        return whatsAppController._firebase.query(...arg)
+    }
+
+    where(fieldPath, opStr, value){
+        return whatsAppController._firebase.where(fieldPath, opStr, value)
     }
 
     getContactsRef(id){

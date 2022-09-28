@@ -468,6 +468,7 @@ class WhatsAppView{
 
     }
 
+    
 /*
     closeRecordMicrophone(){
 
@@ -487,6 +488,8 @@ class WhatsAppView{
         }, 100)
 
     }*/
+
+    
 }
 
 export const whatsAppView = new WhatsAppView()

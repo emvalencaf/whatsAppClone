@@ -35694,7 +35694,15 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "initEvents",
     value: function initEvents() {
+      var _this5 = this;
+
+      console.log(this.view.el.inputSearchContacts);
       this.view.initEvents(this);
+      this.view.el.inputSearchContacts.on('keyup', function (e) {
+        _this5.view.el.inputSearchContacts.value.length > 0 ? _this5.view.el.inputSearchContactsPlaceholder.hide() : _this5.view.el.inputSearchContactsPlaceholder.show();
+
+        _this5._user.getContacts(_this5.view.el.inputSearchContacts.value);
+      });
     }
   }, {
     key: "startCamera",
@@ -36176,10 +36184,15 @@ var UserModel = /*#__PURE__*/function (_Model) {
     value: function getContacts() {
       var _this3 = this;
 
+      var filter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       return new Promise(function (resolve, reject) {
         var collectionContacts = _this3.getContactsRef(_this3.id);
 
-        _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.onSnapshot(collectionContacts, function (docs) {
+        var where = _this3.where('name', '>=', filter);
+
+        var query = _this3.query(collectionContacts, where);
+
+        _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.onSnapshot(query, function (docs) {
           var contacts = [];
           docs.forEach(function (doc) {
             var data = doc.data();
@@ -36192,6 +36205,18 @@ var UserModel = /*#__PURE__*/function (_Model) {
           resolve(contacts);
         });
       });
+    }
+  }, {
+    key: "query",
+    value: function query() {
+      var _whatsAppController$_;
+
+      return (_whatsAppController$_ = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase).query.apply(_whatsAppController$_, arguments);
+    }
+  }, {
+    key: "where",
+    value: function where(fieldPath, opStr, value) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.where(fieldPath, opStr, value);
     }
   }, {
     key: "getContactsRef",
