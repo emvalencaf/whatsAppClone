@@ -35490,15 +35490,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/documentPreview.service.js */ "./public/src/service/documentPreview.service.js");
 /* harmony import */ var _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../service/message.service.js */ "./public/src/service/message.service.js");
 /* harmony import */ var _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../service/microphone.service.js */ "./public/src/service/microphone.service.js");
-/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./public/src/utils/elementPrototype.utils.js");
-/* harmony import */ var _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/firebase.utils.js */ "./public/src/utils/firebase.utils.js");
-/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
-/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
-/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
-/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
-/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
-/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
-/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+/* harmony import */ var _utils_base64_utils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/base64.utils.js */ "./public/src/utils/base64.utils.js");
+/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./public/src/utils/elementPrototype.utils.js");
+/* harmony import */ var _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/firebase.utils.js */ "./public/src/utils/firebase.utils.js");
+/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
+/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
+/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
+/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
+/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
+/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
+/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+
 
 
 
@@ -35522,18 +35524,18 @@ var WhatsAppController = /*#__PURE__*/function () {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, WhatsAppController);
 
     console.log('WhatsAppController Ok');
-    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_8__.ElementPrototype.elementsProtoType();
+    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_9__.ElementPrototype.elementsProtoType();
     this.view = view;
-    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_10__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
-    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_11__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
-    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_12__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
+    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_11__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
+    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_12__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
+    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_13__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
     this.controller = {
-      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_14__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__.cameraService),
-      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_15__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
-      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_16__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__.microphoneService)
+      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_15__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__.cameraService),
+      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_16__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
+      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_17__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__.microphoneService)
     };
     this.view.el.appContent.hide();
-    this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_9__.Firebase();
+    this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_10__.Firebase();
 
     this._firebase.init();
 
@@ -35605,6 +35607,19 @@ var WhatsAppController = /*#__PURE__*/function () {
       this._user.getContacts();
     }
   }, {
+    key: "sendDocument",
+    value: function sendDocument(chatId, from, file, preview) {
+      var _this3 = this;
+
+      if (file.type === 'application/pdf') {
+        _utils_base64_utils_js__WEBPACK_IMPORTED_MODULE_8__.Base64.toFile(preview).then(function (filePreview) {
+          _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendDocument(chatId, from, file, filePreview, _this3.view.el.infoPanelDocumentPreview.innerHTML);
+        });
+      } else {
+        _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendDocument(chatId, from, file);
+      }
+    }
+  }, {
     key: "sendMsg",
     value: function sendMsg(msg) {
       if (typeof msg !== 'string') return _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendImage(this._contactActive.chatId, this._user.email, msg);
@@ -35613,7 +35628,7 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "setActiveContact",
     value: function setActiveContact(contact) {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this._contactActive) _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.readMsg(this._contactActive.chatId, function () {});
       this._contactActive = contact;
@@ -35626,17 +35641,17 @@ var WhatsAppController = /*#__PURE__*/function () {
       });
       this.view.el.panelMessagesContainer.innerHTML = '';
       _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.readMsg(this._contactActive.chatId, function (docs) {
-        var scrollTop = _this3.view.el.panelMessagesContainer.scrollTop;
-        var scrollTopMax = _this3.view.el.panelMessagesContainer.scrollHeight - _this3.view.el.panelMessagesContainer.offsetHeight;
+        var scrollTop = _this4.view.el.panelMessagesContainer.scrollTop;
+        var scrollTopMax = _this4.view.el.panelMessagesContainer.scrollHeight - _this4.view.el.panelMessagesContainer.offsetHeight;
         var autoScroll = scrollTop >= scrollTopMax;
         docs.forEach(function (doc) {
           var data = doc.data();
           data.id = doc.id;
           var message = new _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService();
           message.fromJSON(data);
-          var me = data.from === _this3._user.email;
+          var me = data.from === _this4._user.email;
 
-          if (!_this3.view.el.panelMessagesContainer.querySelector('#_' + data.id)) {
+          if (!_this4.view.el.panelMessagesContainer.querySelector('#_' + data.id)) {
             if (!me) {
               _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.setDoc(doc.ref, {
                 status: 'read'
@@ -35647,39 +35662,45 @@ var WhatsAppController = /*#__PURE__*/function () {
 
             var view = message.getViewElement(me);
 
-            _this3.view.el.panelMessagesContainer.appendChild(view);
-          } else if (me) {
-            var msgEl = _this3.view.el.panelMessagesContainer.querySelector('#_' + data.id);
+            _this4.view.el.panelMessagesContainer.appendChild(view);
+          } else {
+            var _view = message.getViewElement(me);
+
+            _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id).innerHTML = _view.innerHTML;
+          }
+
+          if (_this4.view.el.panelMessagesContainer.querySelector('#_' + data.id) && me) {
+            var msgEl = _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id);
 
             msgEl.querySelector('.message-status').innerHTML = message.getStatusViewElement().outerHTML;
           }
         });
 
         if (autoScroll) {
-          _this3.view.el.panelMessagesContainer.scrollTop = _this3.view.el.panelMessagesContainer.scrollHeight - _this3.view.el.panelMessagesContainer.offsetHeight;
+          _this4.view.el.panelMessagesContainer.scrollTop = _this4.view.el.panelMessagesContainer.scrollHeight - _this4.view.el.panelMessagesContainer.offsetHeight;
         } else {
-          _this3.view.el.panelMessagesContainer.scrollTop = scrollTop;
+          _this4.view.el.panelMessagesContainer.scrollTop = scrollTop;
         }
       });
     }
   }, {
     key: "addContact",
     value: function addContact(dataForm) {
-      var _this4 = this;
+      var _this5 = this;
 
       var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(dataForm.get('email'));
       console.log(contact);
       contact.on('datachange', function (data) {
         if (!data.name) return console.error('Usuário não foi encontrado');
-        _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this4._user.email, contact.email).then(function (chat) {
+        _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this5._user.email, contact.email).then(function (chat) {
           contact.chatId = chat.id;
-          _this4._user.chatId = chat.id;
-          contact.addContact(_this4._user);
+          _this5._user.chatId = chat.id;
+          contact.addContact(_this5._user);
 
-          _this4._user.addContact(contact).then(function () {
+          _this5._user.addContact(contact).then(function () {
             console.info('contato foi adicionado!');
 
-            _this4.view.el.btnClosePanelAddContact.click();
+            _this5.view.el.btnClosePanelAddContact.click();
           })["catch"](function (err) {
             console.error(err);
           });
@@ -35707,20 +35728,20 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "initEvents",
     value: function initEvents() {
-      var _this5 = this;
+      var _this6 = this;
 
       console.log(this.view.el.inputSearchContacts);
       this.view.initEvents(this);
       this.view.el.inputSearchContacts.on('keyup', function (e) {
-        _this5.view.el.inputSearchContacts.value.length > 0 ? _this5.view.el.inputSearchContactsPlaceholder.hide() : _this5.view.el.inputSearchContactsPlaceholder.show();
+        _this6.view.el.inputSearchContacts.value.length > 0 ? _this6.view.el.inputSearchContactsPlaceholder.hide() : _this6.view.el.inputSearchContactsPlaceholder.show();
 
-        _this5._user.getContacts(_this5.view.el.inputSearchContacts.value);
+        _this6._user.getContacts(_this6.view.el.inputSearchContacts.value);
       });
     }
   }, {
     key: "sendCameraPicture",
     value: function sendCameraPicture() {
-      var _this6 = this;
+      var _this7 = this;
 
       var regex = /^data:(.+);base64,(.*)$/;
       var result = this.view.el.pictureCamera.src.match(regex);
@@ -35745,25 +35766,25 @@ var WhatsAppController = /*#__PURE__*/function () {
             type: mimeType
           });
         }).then(function (file) {
-          _this6.sendMsg(file);
+          _this7.sendMsg(file);
 
-          _this6.view.el.btnSendPicture.disabled = false;
+          _this7.view.el.btnSendPicture.disabled = false;
 
-          _this6.view.closeAllMainPanel();
+          _this7.view.closeAllMainPanel();
 
-          _this6.stopCamera();
+          _this7.stopCamera();
 
-          _this6.view.el.btnReshootPanelCamera.hide();
+          _this7.view.el.btnReshootPanelCamera.hide();
 
-          _this6.view.el.pictureCamera.hide();
+          _this7.view.el.pictureCamera.hide();
 
-          _this6.view.el.videoCamera.show();
+          _this7.view.el.videoCamera.show();
 
-          _this6.view.el.containerSendPicture.hide();
+          _this7.view.el.containerSendPicture.hide();
 
-          _this6.view.el.containerTakePicture.show();
+          _this7.view.el.containerTakePicture.show();
 
-          _this6.view.el.panelMessagesContainer.show();
+          _this7.view.el.panelMessagesContainer.show();
         });
       };
     }
@@ -35809,7 +35830,7 @@ var WhatsAppController = /*#__PURE__*/function () {
   return WhatsAppController;
 }();
 
-var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_13__.whatsAppView);
+var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_14__.whatsAppView);
 
 /***/ }),
 
@@ -36022,6 +36043,54 @@ var MessageModel = /*#__PURE__*/function (_Model) {
     },
     set: function set(value) {
       return this._data.status = value;
+    }
+  }, {
+    key: "preview",
+    get: function get() {
+      return this._data.preview;
+    },
+    set: function set(value) {
+      return this._data.preview = value;
+    }
+  }, {
+    key: "info",
+    get: function get() {
+      return this._data.info;
+    },
+    set: function set(value) {
+      return this._data.info = value;
+    }
+  }, {
+    key: "fileType",
+    get: function get() {
+      return this._data.fileType;
+    },
+    set: function set(value) {
+      return this._data.fileType = value;
+    }
+  }, {
+    key: "filename",
+    get: function get() {
+      return this._data.filename;
+    },
+    set: function set(value) {
+      return this._data.filename = value;
+    }
+  }, {
+    key: "size",
+    get: function get() {
+      return this._data.size;
+    },
+    set: function set(value) {
+      return this._data.size = value;
+    }
+  }, {
+    key: "from",
+    get: function get() {
+      return this._data.from;
+    },
+    set: function set(value) {
+      return this._data.from = value;
     }
   }], [{
     key: "hdRef",
@@ -36601,6 +36670,8 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
   }, {
     key: "getViewElement",
     value: function getViewElement() {
+      var _this = this;
+
       var me = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
       var div = document.createElement('div');
       div.className = 'message';
@@ -36622,7 +36693,10 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           break;
 
         case 'document':
-          div.innerHTML = "\n    \n                <div class=\"_3_7SH _1ZPgd\">\n                    <div class=\"_1fnMt _2CORf\">\n                        <a class=\"_1vKRe\" href=\"#\">\n                            <div class=\"_2jTyA\" style=\"background-image: url()\"></div>\n                            <div class=\"_12xX7\">\n                                <div class=\"_3eW69\">\n                                    <div class=\"JdzFp message-file-icon icon-doc-pdf\"></div>\n                                </div>\n                                <div class=\"nxILt\">\n                                    <span dir=\"auto\" class=\"message-filename\">Arquivo.pdf</span>\n                                </div>\n                                <div class=\"_17viz\">\n                                    <span data-icon=\"audio-download\" class=\"message-file-download\">\n                                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 34 34\" width=\"34\" height=\"34\">\n                                            <path fill=\"#263238\" fill-opacity=\".5\" d=\"M17 2c8.3 0 15 6.7 15 15s-6.7 15-15 15S2 25.3 2 17 8.7 2 17 2m0-1C8.2 1 1 8.2 1 17s7.2 16 16 16 16-7.2 16-16S25.8 1 17 1z\"></path>\n                                            <path fill=\"#263238\" fill-opacity=\".5\" d=\"M22.4 17.5h-3.2v-6.8c0-.4-.3-.7-.7-.7h-3.2c-.4 0-.7.3-.7.7v6.8h-3.2c-.6 0-.8.4-.4.8l5 5.3c.5.7 1 .5 1.5 0l5-5.3c.7-.5.5-.8-.1-.8z\"></path>\n                                        </svg>\n                                    </span>\n                                    <div class=\"_3SUnz message-file-load\" style=\"display:none\">\n                                        <svg class=\"_1UDDE\" width=\"32\" height=\"32\" viewBox=\"0 0 43 43\">\n                                            <circle class=\"_3GbTq _37WZ9\" cx=\"21.5\" cy=\"21.5\" r=\"20\" fill=\"none\" stroke-width=\"3\"></circle>\n                                        </svg>\n                                    </div>\n                                </div>\n                            </div>\n                        </a>\n                        <div class=\"_3cMIj\">\n                            <span class=\"PyPig message-file-info\">32 p\xE1ginas</span>\n                            <span class=\"PyPig message-file-type\">PDF</span>\n                            <span class=\"PyPig message-file-size\">4 MB</span>\n                        </div>\n                        <div class=\"_3Lj_s\">\n                            <div class=\"_1DZAH\" role=\"button\">\n                                <span class=\"message-time\">".concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ");
+          div.innerHTML = "\n    \n                <div class=\"_3_7SH _1ZPgd\">\n                    <div class=\"_1fnMt _2CORf\">\n                        <a class=\"_1vKRe\" href=\"#\">\n                            <div class=\"_2jTyA\" style=\"background-image: url(".concat(this.preview, ")\"></div>\n                            <div class=\"_12xX7\">\n                                <div class=\"_3eW69\">\n                                    <div class=\"JdzFp message-file-icon icon-doc-pdf\"></div>\n                                </div>\n                                <div class=\"nxILt\">\n                                    <span dir=\"auto\" class=\"message-filename\">").concat(this.filename, "</span>\n                                </div>\n                                <div class=\"_17viz\">\n                                    <span data-icon=\"audio-download\" class=\"message-file-download\">\n                                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 34 34\" width=\"34\" height=\"34\">\n                                            <path fill=\"#263238\" fill-opacity=\".5\" d=\"M17 2c8.3 0 15 6.7 15 15s-6.7 15-15 15S2 25.3 2 17 8.7 2 17 2m0-1C8.2 1 1 8.2 1 17s7.2 16 16 16 16-7.2 16-16S25.8 1 17 1z\"></path>\n                                            <path fill=\"#263238\" fill-opacity=\".5\" d=\"M22.4 17.5h-3.2v-6.8c0-.4-.3-.7-.7-.7h-3.2c-.4 0-.7.3-.7.7v6.8h-3.2c-.6 0-.8.4-.4.8l5 5.3c.5.7 1 .5 1.5 0l5-5.3c.7-.5.5-.8-.1-.8z\"></path>\n                                        </svg>\n                                    </span>\n                                    <div class=\"_3SUnz message-file-load\" style=\"display:none\">\n                                        <svg class=\"_1UDDE\" width=\"32\" height=\"32\" viewBox=\"0 0 43 43\">\n                                            <circle class=\"_3GbTq _37WZ9\" cx=\"21.5\" cy=\"21.5\" r=\"20\" fill=\"none\" stroke-width=\"3\"></circle>\n                                        </svg>\n                                    </div>\n                                </div>\n                            </div>\n                        </a>\n                        <div class=\"_3cMIj\">\n                            <span class=\"PyPig message-file-info\">").concat(this.info, "</span>\n                            <span class=\"PyPig message-file-type\">").concat(this.fileType, "</span>\n                            <span class=\"PyPig message-file-size\">").concat(this.size, "</span>\n                        </div>\n                        <div class=\"_3Lj_s\">\n                            <div class=\"_1DZAH\" role=\"button\">\n                                <span class=\"message-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ");
+          div.on('click', function (e) {
+            window.open(_this.content);
+          });
           break;
 
         case 'audio':
@@ -36645,26 +36719,71 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
       return div;
     }
   }], [{
-    key: "sendImage",
-    value: function sendImage(chatId, from, file) {
-      var _this = this;
+    key: "upload",
+    value: function upload(file, from) {
+      var _this2 = this;
 
       return new Promise(function (resolve, reject) {
         var path = from + "/" + Date.now() + "_" + file.name;
 
-        var ref = _this.hdRef(path);
+        var ref = _this2.hdRef(path);
 
-        var uploadTask = _this.hdPut(ref, file);
+        var uploadTask = _this2.hdPut(ref, file);
 
         uploadTask.on('state_changed', function (e) {
           console.info('upload', e);
         }, function (err) {
-          console.error(err);
+          reject(err);
         }, function () {
-          _this.hdDownloadURL(uploadTask.snapshot.ref).then(function (url) {
-            _this.send(chatId, from, 'image', url).then(function () {
-              resolve();
+          _this2.hdDownloadURL(uploadTask.snapshot.ref).then(function (url) {
+            resolve(url);
+          });
+        });
+      });
+    }
+  }, {
+    key: "sendDocument",
+    value: function sendDocument(chatId, from, file, filePreview, info) {
+      MessageService.send(chatId, from, 'document', '').then(function (msgRef) {
+        MessageService.upload(file, from).then(function (url) {
+          var downloadFile = url;
+
+          if (filePreview) {
+            MessageService.upload(filePreview, from).then(function (url2) {
+              var downloadPreview = url2;
+              MessageService.setDoc(msgRef, {
+                content: downloadFile,
+                preview: downloadPreview,
+                filename: file.name,
+                size: file.size,
+                fileType: file.type,
+                status: 'sent',
+                info: info
+              }, {
+                merge: true
+              });
             });
+          } else {
+            MessageService.setDoc(msgRef, {
+              content: downloadFile,
+              filename: file.name,
+              size: file.size,
+              fileType: file.type,
+              status: 'sent'
+            }, {
+              merge: true
+            });
+          }
+        });
+      });
+    }
+  }, {
+    key: "sendImage",
+    value: function sendImage(chatId, from, file) {
+      return new Promise(function (resolve, reject) {
+        MessageService.upload(file, from).then(function (url) {
+          MessageService.send(chatId, from, 'image', url).then(function () {
+            resolve();
           });
         });
       });
@@ -36672,7 +36791,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
   }, {
     key: "send",
     value: function send(chatId, from, type, content) {
-      var _this2 = this;
+      var _this3 = this;
 
       var ref = MessageService.getRef(chatId);
       return new Promise(function (resolve, reject) {
@@ -36683,14 +36802,14 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           type: type,
           from: from
         }).then(function (result) {
-          console.log(result);
+          var docRef = _this3.doc(result.parent, result.id);
 
-          _this2.setDoc(_this2.doc(result.parent, result.id), {
+          _this3.setDoc(docRef, {
             status: 'sent'
           }, {
             merge: true
           }).then(function () {
-            resolve();
+            resolve(docRef);
           });
         })["catch"](function (err) {});
       });
@@ -36861,6 +36980,54 @@ var MicrophoneService = /*#__PURE__*/function (_ClassEvent) {
 }(_utils_classEvent_utils_js__WEBPACK_IMPORTED_MODULE_5__.ClassEvent);
 
 var microphoneService = new MicrophoneService();
+
+/***/ }),
+
+/***/ "./public/src/utils/base64.utils.js":
+/*!******************************************!*\
+  !*** ./public/src/utils/base64.utils.js ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Base64": function() { return /* binding */ Base64; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+
+
+var Base64 = /*#__PURE__*/function () {
+  function Base64() {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Base64);
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Base64, null, [{
+    key: "getMimetype",
+    value: function getMimetype(urlBase64) {
+      var regex = /^data:(.+);base64,(.*)$/;
+      var result = urlBase64.match(regex);
+      return result[1];
+    }
+  }, {
+    key: "toFile",
+    value: function toFile(urlBase64) {
+      var mimeType = Base64.getMimetype(urlBase64);
+      var ext = mimeType.split('/')[1];
+      var filename = "file".concat(Date.now(), ".").concat(ext);
+      return fetch(urlBase64).then(function (res) {
+        return res.arrayBuffer();
+      }).then(function (buffer) {
+        return new File([buffer], filename, {
+          type: mimeType
+        });
+      });
+    }
+  }]);
+
+  return Base64;
+}();
 
 /***/ }),
 
@@ -37358,6 +37525,7 @@ var DocumentPreviewView = /*#__PURE__*/function () {
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(DocumentPreviewView, [{
     key: "getPreviewData",
     value: function getPreviewData(result) {
+      console.log('usado o getPreviewData');
       this._el.imgPanelDocumentPreview.src = result.src;
       this._el.infoPanelDocumentPreview.innerHTML = result.info;
 
@@ -37366,14 +37534,16 @@ var DocumentPreviewView = /*#__PURE__*/function () {
       this._el.filePanelDocumentPreview.hide();
 
       this._el.panelDocumentPreview.css({
-        'height': '100% - 128px'
+        'height': '100%'
       });
     }
   }, {
     key: "renderPreviewIcon",
     value: function renderPreviewIcon(file) {
+      console.log('usado o renderPreviewIcon');
+
       this._el.panelDocumentPreview.css({
-        'height': '100% - 128px'
+        'height': '100%'
       });
 
       switch (file.type) {
@@ -37666,7 +37836,12 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.panelMessagesContainer.show();
       });
       this.el.btnSendDocument.on('click', function (e) {
-        console.log('send document');
+        //console.log('send document')
+        var file = _this2.el.inputDocument.files[0];
+        var base64 = _this2.el.imgPanelDocumentPreview.src;
+        controller.sendDocument(controller._contactActive.chatId, controller._user.email, file, base64);
+
+        _this2.el.btnClosePanelDocumentPreview.click();
       });
       this.el.btnAttachContact.on('click', function (e) {
         _this2.el.modalContacts.show();

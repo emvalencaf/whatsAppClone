@@ -13,20 +13,20 @@ export class DocumentPreviewView{
     }
 
     getPreviewData(result){
-
+        console.log('usado o getPreviewData')
         this._el.imgPanelDocumentPreview.src = result.src
         this._el.infoPanelDocumentPreview.innerHTML = result.info
         this._el.imagePanelDocumentPreview.show()
         this._el.filePanelDocumentPreview.hide()
         this._el.panelDocumentPreview.css({
-            'height': '100% - 128px'
+            'height': '100%'
         })
     }
 
     renderPreviewIcon(file){
-
+        console.log('usado o renderPreviewIcon')
         this._el.panelDocumentPreview.css({
-            'height': '100% - 128px'
+            'height': '100%'
         })
 
         switch(file.type){

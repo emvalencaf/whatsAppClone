@@ -52,6 +52,54 @@ export class MessageModel extends Model{
         return this._data.status = value
     }
 
+    get preview(){
+        return this._data.preview
+    }
+
+    set preview(value){
+        return this._data.preview = value
+    }
+
+    get info(){
+        return this._data.info
+    }
+
+    set info(value){
+        return this._data.info = value
+    }
+
+    get fileType(){
+        return this._data.fileType
+    }
+
+    set fileType(value){
+        return this._data.fileType = value
+    }
+
+    get filename(){
+        return this._data.filename
+    }
+
+    set filename(value){
+        return this._data.filename = value
+    }
+
+    get size(){
+        return this._data.size
+    }
+
+    set size(value){
+        return this._data.size = value
+    }
+
+    get from(){
+        return this._data.from
+    }
+
+    set from(value){
+        return this._data.from = value
+    }
+
     static hdRef(path){
         return whatsAppController._firebase.hdRef(path)
     }

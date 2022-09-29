@@ -164,13 +164,13 @@ export class MessageService extends MessageModel{
                 <div class="_3_7SH _1ZPgd">
                     <div class="_1fnMt _2CORf">
                         <a class="_1vKRe" href="#">
-                            <div class="_2jTyA" style="background-image: url()"></div>
+                            <div class="_2jTyA" style="background-image: url(${this.preview})"></div>
                             <div class="_12xX7">
                                 <div class="_3eW69">
                                     <div class="JdzFp message-file-icon icon-doc-pdf"></div>
                                 </div>
                                 <div class="nxILt">
-                                    <span dir="auto" class="message-filename">Arquivo.pdf</span>
+                                    <span dir="auto" class="message-filename">${this.filename}</span>
                                 </div>
                                 <div class="_17viz">
                                     <span data-icon="audio-download" class="message-file-download">
@@ -188,9 +188,9 @@ export class MessageService extends MessageModel{
                             </div>
                         </a>
                         <div class="_3cMIj">
-                            <span class="PyPig message-file-info">32 páginas</span>
-                            <span class="PyPig message-file-type">PDF</span>
-                            <span class="PyPig message-file-size">4 MB</span>
+                            <span class="PyPig message-file-info">${this.info}</span>
+                            <span class="PyPig message-file-type">${this.fileType}</span>
+                            <span class="PyPig message-file-size">${this.size}</span>
                         </div>
                         <div class="_3Lj_s">
                             <div class="_1DZAH" role="button">
@@ -200,6 +200,11 @@ export class MessageService extends MessageModel{
                     </div>
                 </div>
                 `
+                div.on('click', e => {
+
+                    window.open(this.content)
+
+                })
                 break
             case 'audio':
                 div.innerHTML = `
@@ -319,42 +324,115 @@ export class MessageService extends MessageModel{
 
     }
 
-    static sendImage(chatId, from, file){
-
-        return new Promise((resolve, reject) => {
-
+    static upload(file, from){
+        
+        return new Promise((resolve, reject)=>{
+            
             const path = from + "/" + Date.now() + "_" + file.name
             const ref = this.hdRef(path)
-    
-            const uploadTask = this.hdPut(ref, file)
-    
-            uploadTask.on('state_changed',
             
-            e =>{
-    
-                console.info('upload', e)
-    
-            },
-            err =>{
-                console.error(err)
-            },
-            ()=>{
-                
-                this.hdDownloadURL(uploadTask.snapshot.ref)
-                    .then(url =>{
+            const uploadTask = this.hdPut(ref, file)
+            
+            uploadTask.on('state_changed',
+                    
+                e =>{
+            
+                    console.info('upload', e)
+            
+                },
+                err =>{
+                    reject(err)
+                },
+                ()=>{
+                        
+                    this.hdDownloadURL(uploadTask.snapshot.ref)
+                        .then(url =>{
+            
+                            resolve(url)
+            
+                        })
+            })
 
-                        this.send(chatId, from, 'image', url)
-                            .then(()=>{
-                                resolve()
+
+        })
+
+
+    }
+
+    static sendDocument(chatId, from, file, filePreview, info){
+
+        MessageService.send(
+            chatId,
+            from,
+            'document',
+            ''
+        )
+            .then(msgRef =>{
+        
+                MessageService.upload(file, from)
+                    .then(url =>{
+                        const downloadFile = url
+                        
+                        if(filePreview){
+
+                            MessageService.upload(filePreview, from)
+                                .then(url2 =>{
+                                    const downloadPreview = url2
+    
+                                    MessageService.setDoc(msgRef,{
+                                        content:downloadFile,
+                                        preview:downloadPreview,
+                                        filename: file.name,
+                                        size: file.size,
+                                        fileType: file.type,
+                                        status:'sent',
+                                        info
+                                    }, {
+                                        merge:true
+                                    })
+                                })
+
+                        } else {
+
+                            MessageService.setDoc(msgRef,{
+                                content:downloadFile,
+                                filename: file.name,
+                                size: file.size,
+                                fileType: file.type,
+                                status:'sent'
+                            }, {
+                                merge:true
                             })
+
+                        }
 
                     })
             })
 
 
+    }
 
-        })
+    static sendImage(chatId, from, file){
 
+        return new Promise((resolve, reject) => {
+
+            MessageService.upload(file, from)
+                .then(url =>{
+
+                    MessageService.send(
+                        chatId,
+                        from,
+                        'image',
+                        url
+                    )
+                        .then(()=>{
+
+                            resolve()
+
+                        })
+
+                })
+            })
 
     }
 
@@ -372,14 +450,14 @@ export class MessageService extends MessageModel{
                 from
             })
                 .then(result =>{
-                    console.log(result)
-                    this.setDoc(this.doc(result.parent, result.id), {
+                    const docRef = this.doc(result.parent, result.id)
+                    this.setDoc(docRef, {
                         status:'sent'
                     }, {
                         merge:true
                     })
                         .then(()=>{
-                            resolve()
+                            resolve(docRef)
                         })
 
                 })

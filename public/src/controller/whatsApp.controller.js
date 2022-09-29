@@ -4,6 +4,7 @@ import { cameraService } from "../service/camera.service.js"
 import { documentPreviewService } from "../service/documentPreview.service.js"
 import { MessageService } from "../service/message.service.js"
 import { microphoneService } from "../service/microphone.service.js"
+import { Base64 } from "../utils/base64.utils.js"
 import { ElementPrototype } from "../utils/elementPrototype.utils.js"
 import { Firebase } from "../utils/firebase.utils.js"
 import { CameraView } from "../view/camera.view.js"
@@ -139,6 +140,28 @@ class WhatsAppController{
         this._user.getContacts()
     }
 
+    sendDocument(chatId, from, file, preview){
+
+        if(file.type === 'application/pdf'){
+
+            Base64.toFile(preview)
+                .then(filePreview =>{
+
+                    MessageService.sendDocument(chatId, from, file, filePreview, this.view.el.infoPanelDocumentPreview.innerHTML)
+
+
+                })
+
+
+
+        } else {
+
+            MessageService.sendDocument(chatId, from, file)
+
+        }
+
+    }
+
     sendMsg(msg){
 
         if(typeof msg !== 'string') return MessageService.sendImage(this._contactActive.chatId, this._user.email, msg)
@@ -202,7 +225,16 @@ class WhatsAppController{
                     this.view.el.panelMessagesContainer.appendChild(view)
 
                     
-                } else if(me){
+                } else {
+
+                    let view = message.getViewElement(me)
+
+                    this.view.el.panelMessagesContainer.querySelector('#_' + data.id).innerHTML = view.innerHTML
+
+                }
+                
+                
+                if(this.view.el.panelMessagesContainer.querySelector('#_' + data.id) && me){
 
                     const msgEl = this.view.el.panelMessagesContainer.querySelector('#_' + data.id)
 

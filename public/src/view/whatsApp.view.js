@@ -316,7 +316,17 @@ class WhatsAppView{
 
         this.el.btnSendDocument.on('click', e => {
 
-            console.log('send document')
+            //console.log('send document')
+            const file = this.el.inputDocument.files[0]
+            const base64 = this.el.imgPanelDocumentPreview.src
+            controller.sendDocument(
+                controller._contactActive.chatId,
+                controller._user.email,
+                file,
+                base64
+            )
+
+            this.el.btnClosePanelDocumentPreview.click()
 
         })
 
