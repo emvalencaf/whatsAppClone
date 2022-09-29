@@ -274,7 +274,9 @@ class WhatsAppView{
 
         this.el.btnSendPicture.on('click', e => {
 
-            console.log(this.el.pictureCamera.src)
+            this.el.btnSendPicture.disabled = true
+
+            controller.sendCameraPicture()
 
         })
 

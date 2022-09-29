@@ -35718,6 +35718,56 @@ var WhatsAppController = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "sendCameraPicture",
+    value: function sendCameraPicture() {
+      var _this6 = this;
+
+      var regex = /^data:(.+);base64,(.*)$/;
+      var result = this.view.el.pictureCamera.src.match(regex);
+      var mimeType = result[1];
+      var ext = mimeType.split('/')[1];
+      var filename = "camera".concat(Date.now(), ".").concat(ext);
+      var picture = new Image();
+      picture.src = this.view.el.pictureCamera.src;
+
+      picture.onload = function (e) {
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        canvas.width = picture.width;
+        canvas.height = picture.height;
+        context.translate(picture.width, 0);
+        context.scale(-1, 1);
+        context.drawImage(picture, 0, 0, canvas.width, canvas.height);
+        fetch(canvas.toDataURL(mimeType)).then(function (res) {
+          return res.arrayBuffer();
+        }).then(function (buffer) {
+          return new File([buffer], filename, {
+            type: mimeType
+          });
+        }).then(function (file) {
+          _this6.sendMsg(file);
+
+          _this6.view.el.btnSendPicture.disabled = false;
+
+          _this6.view.closeAllMainPanel();
+
+          _this6.stopCamera();
+
+          _this6.view.el.btnReshootPanelCamera.hide();
+
+          _this6.view.el.pictureCamera.hide();
+
+          _this6.view.el.videoCamera.show();
+
+          _this6.view.el.containerSendPicture.hide();
+
+          _this6.view.el.containerTakePicture.show();
+
+          _this6.view.el.panelMessagesContainer.show();
+        });
+      };
+    }
+  }, {
     key: "startCamera",
     value: function startCamera() {
       this.controller._camera.startCamera();
@@ -37586,7 +37636,8 @@ var WhatsAppView = /*#__PURE__*/function () {
         controller.reshootPicture();
       });
       this.el.btnSendPicture.on('click', function (e) {
-        console.log(_this2.el.pictureCamera.src);
+        _this2.el.btnSendPicture.disabled = true;
+        controller.sendCameraPicture();
       });
       this.el.btnAttachDocument.on('click', function (e) {
         _this2.closeAllMainPanel();

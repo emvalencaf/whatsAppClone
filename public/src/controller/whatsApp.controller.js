@@ -299,6 +299,50 @@ class WhatsAppController{
     
     }
 
+    sendCameraPicture(){
+        const regex = /^data:(.+);base64,(.*)$/
+        const result = this.view.el.pictureCamera.src.match(regex)
+        const mimeType = result[1]
+        const ext = mimeType.split('/')[1]
+        const filename = `camera${Date.now()}.${ext}`
+
+        const picture = new Image()
+        picture.src = this.view.el.pictureCamera.src
+        picture.onload = e => {
+
+            const canvas = document.createElement('canvas')
+            const context = canvas.getContext('2d')
+
+            canvas.width = picture.width
+            canvas.height = picture.height
+
+            context.translate(picture.width, 0)
+            context.scale(-1, 1)
+
+            context.drawImage(picture, 0, 0, canvas.width, canvas.height)
+
+            fetch(canvas.toDataURL(mimeType))
+                .then(res => res.arrayBuffer())
+                .then(buffer => new File([buffer], filename, {type: mimeType}))
+                .then(file =>{
+
+                    this.sendMsg(file)
+
+                    this.view.el.btnSendPicture.disabled = false
+
+                    this.view.closeAllMainPanel()
+                    this.stopCamera()
+                    this.view.el.btnReshootPanelCamera.hide()
+                    this.view.el.pictureCamera.hide()
+                    this.view.el.videoCamera.show()
+                    this.view.el.containerSendPicture.hide()
+                    this.view.el.containerTakePicture.show()
+                    this.view.el.panelMessagesContainer.show()
+                })
+
+        }
+    }
+
     startCamera(){
         this.controller._camera.startCamera()
     }
