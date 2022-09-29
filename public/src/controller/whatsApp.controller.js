@@ -12,6 +12,7 @@ import { DocumentPreviewView } from "../view/documentPreview.view.js"
 import { MicrophoneView } from "../view/microphone.view.js"
 import { whatsAppView } from "../view/whatsapp.view.js"
 import { CameraController } from "./camera.controller.js"
+import { ContactController } from "./contacts.controller.js"
 import { DocumentPreviewController } from "./documentPreview.controller.js"
 import { MicrophoneController } from "./microphone.controller.js"
 
@@ -50,7 +51,8 @@ class WhatsAppController{
         this.controller = {
             _camera: new CameraController(cameraView, cameraService),
             _documentPreview: new DocumentPreviewController(documentPreviewView, documentPreviewService),
-            _microphone: new MicrophoneController(microphoneView, microphoneService)
+            _microphone: new MicrophoneController(microphoneView, microphoneService),
+            _contacts: new ContactController(this.view.el.modalContacts)
         }
 
         this.view.el.appContent.hide()
@@ -404,6 +406,27 @@ class WhatsAppController{
     stopMicrophone(){
 
         this.controller._microphone.stopMicrophone()
+    }
+
+    openContacts(){
+
+        this.controller._contacts._user = this._user
+        this.controller._contacts.open()
+
+        this.controller._contacts.on('select', contact =>{
+
+            MessageService.sendContact(
+                this._contactActive.chatId,
+                this._user.email,
+                contact
+                )
+
+        })
+
+    }
+
+    closeContacts(){
+        this.controller._contacts.close()
     }
 }
 

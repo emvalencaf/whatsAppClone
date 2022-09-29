@@ -35368,6 +35368,93 @@ var CameraController = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./public/src/controller/contacts.controller.js":
+/*!******************************************************!*\
+  !*** ./public/src/controller/contacts.controller.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ContactController": function() { return /* binding */ ContactController; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _utils_classEvent_utils_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/classEvent.utils.js */ "./public/src/utils/classEvent.utils.js");
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+var ContactController = /*#__PURE__*/function (_ClassEvent) {
+  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(ContactController, _ClassEvent);
+
+  var _super = _createSuper(ContactController);
+
+  function ContactController(modalEl) {
+    var _this;
+
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, ContactController);
+
+    _this = _super.call(this);
+    _this._el = {
+      modalEl: modalEl,
+      listEl: document.querySelector('#contact-list')
+    };
+    return _this;
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(ContactController, [{
+    key: "open",
+    value: function open() {
+      var _this2 = this;
+
+      this._user.getContacts().then(function (contacts) {
+        _this2._el.listEl.innerHTML = '';
+        contacts.forEach(function (contact) {
+          var div = document.createElement('div');
+          div.innerHTML = "\n                <div class=\"contact-list-item\" style=\"z-index: 427; height: 72px; display: contents;\">\n                    <div class=\"JSbIY\">\n                        <div tabindex=\"-1\">\n                            <div class=\"_2EXPL aZ91u\">\n                                <div class=\"dIyEr\">\n                                    <div class=\"_1WliW\" style=\"height: 49px; width: 49px;\">\n                                        <img src=\"#\" class=\"Qgzj8 gqwaM contact-photo\" style=\"display:none\">\n                                        <div class=\"_3ZW2E\">\n                                            <span data-icon=\"default-user\">\n                                                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 212 212\" width=\"212\" height=\"212\">\n                                                    <path fill=\"#DFE5E7\" d=\"M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z\"></path>\n                                                    <g fill=\"#FFF\">\n                                                        <path d=\"M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z\"></path>\n                                                    </g>\n                                                </svg>\n                                            </span>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"_3j7s9\">\n                                    <div class=\"_2FBdJ\">\n                                        <div class=\"_25Ooe\">\n                                            <span dir=\"auto\" class=\"_1wjpf contact-name\">".concat(contact.name, "</span>\n                                        </div>\n                                    </div>\n                                    <div class=\"_1AwDx\">\n                                        <div class=\"_itDl\"></div>\n                                        <div class=\"_3Bxar\">\n    \n    \n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                    ");
+
+          if (contact.photo) {
+            var img = div.querySelector('.contact-photo');
+            img.src = contact.photo;
+            img.show();
+          }
+
+          div.on('click', function (e) {
+            _this2.trigger('select', contact);
+
+            _this2.close();
+          });
+
+          _this2._el.listEl.appendChild(div);
+        });
+      });
+
+      this._el.modalEl.show();
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      this._el.modalEl.hide();
+    }
+  }]);
+
+  return ContactController;
+}(_utils_classEvent_utils_js__WEBPACK_IMPORTED_MODULE_5__.ClassEvent);
+
+/***/ }),
+
 /***/ "./public/src/controller/documentPreview.controller.js":
 /*!*************************************************************!*\
   !*** ./public/src/controller/documentPreview.controller.js ***!
@@ -35498,8 +35585,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
 /* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
 /* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
-/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
-/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+/* harmony import */ var _contacts_controller_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./contacts.controller.js */ "./public/src/controller/contacts.controller.js");
+/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
+/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+
 
 
 
@@ -35531,8 +35620,9 @@ var WhatsAppController = /*#__PURE__*/function () {
     var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_13__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
     this.controller = {
       _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_15__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__.cameraService),
-      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_16__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
-      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_17__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__.microphoneService)
+      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_17__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
+      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_18__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__.microphoneService),
+      _contacts: new _contacts_controller_js__WEBPACK_IMPORTED_MODULE_16__.ContactController(this.view.el.modalContacts)
     };
     this.view.el.appContent.hide();
     this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_10__.Firebase();
@@ -35824,6 +35914,24 @@ var WhatsAppController = /*#__PURE__*/function () {
     key: "stopMicrophone",
     value: function stopMicrophone() {
       this.controller._microphone.stopMicrophone();
+    }
+  }, {
+    key: "openContacts",
+    value: function openContacts() {
+      var _this8 = this;
+
+      this.controller._contacts._user = this._user;
+
+      this.controller._contacts.open();
+
+      this.controller._contacts.on('select', function (contact) {
+        _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendContact(_this8._contactActive.chatId, _this8._user.email, contact);
+      });
+    }
+  }, {
+    key: "closeContacts",
+    value: function closeContacts() {
+      this.controller._contacts.close();
     }
   }]);
 
@@ -36675,10 +36783,21 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
       var me = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
       var div = document.createElement('div');
       div.className = 'message';
+      div.id = "_".concat(this.id);
 
       switch (this.type) {
         case 'contact':
-          div.innerHTML = "\n    \n                <div class=\"_3_7SH kNKwo tail\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"_1YNgi copyable-text\">\n                        <div class=\"_3DZ69\" role=\"button\">\n                            <div class=\"_20hTB\">\n                                <div class=\"_1WliW\" style=\"height: 49px; width: 49px;\">\n                                    <img src=\"#\" class=\"Qgzj8 gqwaM photo-contact-sended\" style=\"display:none\">\n                                    <div class=\"_3ZW2E\">\n                                        <span data-icon=\"default-user\">\n                                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 212 212\" width=\"212\" height=\"212\">\n                                                <path fill=\"#DFE5E7\" d=\"M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z\"></path>\n                                                <g fill=\"#FFF\">\n                                                    <path d=\"M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z\"></path>\n                                                </g>\n                                            </svg>\n                                        </span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"_1lC8v\">\n                                <div dir=\"ltr\" class=\"_3gkvk selectable-text invisible-space copyable-text\">Nome do Contato Anexado</div>\n                            </div>\n                            <div class=\"_3a5-b\">\n                                <div class=\"_1DZAH\" role=\"button\">\n                                    <span class=\"message-time\">".concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"_6qEXM\">\n                            <div class=\"btn-message-send\" role=\"button\">Enviar mensagem</div>\n                        </div>\n                    </div>\n\n                </div>\n                \n                ");
+          div.innerHTML = "\n    \n                <div class=\"_3_7SH kNKwo tail\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"_1YNgi copyable-text\">\n                        <div class=\"_3DZ69\" role=\"button\">\n                            <div class=\"_20hTB\">\n                                <div class=\"_1WliW\" style=\"height: 49px; width: 49px;\">\n                                    <img src=\"#\" class=\"Qgzj8 gqwaM photo-contact-sended\" style=\"display:none\">\n                                    <div class=\"_3ZW2E\">\n                                        <span data-icon=\"default-user\">\n                                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 212 212\" width=\"212\" height=\"212\">\n                                                <path fill=\"#DFE5E7\" d=\"M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z\"></path>\n                                                <g fill=\"#FFF\">\n                                                    <path d=\"M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z\"></path>\n                                                </g>\n                                            </svg>\n                                        </span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"_1lC8v\">\n                                <div dir=\"ltr\" class=\"_3gkvk selectable-text invisible-space copyable-text\">".concat(this.content.name, "</div>\n                            </div>\n                            <div class=\"_3a5-b\">\n                                <div class=\"_1DZAH\" role=\"button\">\n                                    <span class=\"message-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"_6qEXM\">\n                            <div class=\"btn-message-send\" role=\"button\">Enviar mensagem</div>\n                        </div>\n                    </div>\n\n                </div>\n                \n                ");
+
+          if (this.content.photo) {
+            var img = div.querySelector('.photo-contact-sended');
+            img.src = this.content.photo;
+            img.show();
+          }
+
+          div.querySelector('.btn-message-send').on('click', function (e) {
+            console.log('enviar mensagem');
+          });
           break;
 
         case 'image':
@@ -36704,7 +36823,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           break;
 
         default:
-          div.innerHTML = "\n    \n                <div class=\"font-style _3DFk6 tail\" id=\"_".concat(this.id, "\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"Tkt2p\">\n                        <div class=\"_3zb-j ZhF0n\">\n                            <span dir=\"ltr\" class=\"selectable-text invisible-space message-text\">").concat(this.content, "</span>\n                        </div>\n                        <div class=\"_2f-RV\">\n                            <div class=\"_1DZAH\">\n                                <span class=\"message-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ");
+          div.innerHTML = "\n    \n                <div class=\"font-style _3DFk6 tail\">\n                    <span class=\"tail-container\"></span>\n                    <span class=\"tail-container highlight\"></span>\n                    <div class=\"Tkt2p\">\n                        <div class=\"_3zb-j ZhF0n\">\n                            <span dir=\"ltr\" class=\"selectable-text invisible-space message-text\">".concat(this.content, "</span>\n                        </div>\n                        <div class=\"_2f-RV\">\n                            <div class=\"_1DZAH\">\n                                <span class=\"message-time\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__.FormatTimestamp.timestampToTime(this.timestamp), "</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                ");
           break;
       }
 
@@ -36787,6 +36906,11 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           });
         });
       });
+    }
+  }, {
+    key: "sendContact",
+    value: function sendContact(chatId, from, contact) {
+      return MessageService.send(chatId, from, 'contact', contact);
     }
   }, {
     key: "send",
@@ -37844,10 +37968,12 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.btnClosePanelDocumentPreview.click();
       });
       this.el.btnAttachContact.on('click', function (e) {
-        _this2.el.modalContacts.show();
+        //this.el.modalContacts.show()
+        controller.openContacts();
       });
       this.el.btnCloseModalContacts.on('click', function (e) {
-        _this2.el.modalContacts.hide();
+        //this.el.modalContacts.hide()
+        controller.closeContacts();
       });
       this.el.btnSendMicrophone.on('click', function (e) {
         _this2.el.recordMicrophone.show();

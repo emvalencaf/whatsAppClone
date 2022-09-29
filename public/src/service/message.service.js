@@ -60,6 +60,7 @@ export class MessageService extends MessageModel{
         const div = document.createElement('div')
 
         div.className = 'message'
+        div.id = `_${this.id}`
 
         switch(this.type){
 
@@ -87,7 +88,7 @@ export class MessageService extends MessageModel{
                                 </div>
                             </div>
                             <div class="_1lC8v">
-                                <div dir="ltr" class="_3gkvk selectable-text invisible-space copyable-text">Nome do Contato Anexado</div>
+                                <div dir="ltr" class="_3gkvk selectable-text invisible-space copyable-text">${this.content.name}</div>
                             </div>
                             <div class="_3a5-b">
                                 <div class="_1DZAH" role="button">
@@ -103,6 +104,18 @@ export class MessageService extends MessageModel{
                 </div>
                 
                 `
+                if(this.content.photo){
+                    const img = div.querySelector('.photo-contact-sended')
+                    img.src = this.content.photo
+                    img.show()
+                }
+
+                div.querySelector('.btn-message-send').on('click', e =>{
+
+                    console.log('enviar mensagem')
+
+                })
+
                 break
             case 'image':
                 div.innerHTML = `
@@ -288,7 +301,7 @@ export class MessageService extends MessageModel{
             default:
                 div.innerHTML = `
     
-                <div class="font-style _3DFk6 tail" id="_${this.id}">
+                <div class="font-style _3DFk6 tail">
                     <span class="tail-container"></span>
                     <span class="tail-container highlight"></span>
                     <div class="Tkt2p">
@@ -434,6 +447,10 @@ export class MessageService extends MessageModel{
                 })
             })
 
+    }
+
+    static sendContact(chatId, from, contact){
+        return MessageService.send(chatId, from, 'contact', contact)
     }
 
     static send(chatId, from, type, content){

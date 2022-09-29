@@ -332,14 +332,15 @@ class WhatsAppView{
 
         this.el.btnAttachContact.on('click', e => {
 
-            this.el.modalContacts.show()
+            //this.el.modalContacts.show()
+            controller.openContacts()
 
         })
 
         this.el.btnCloseModalContacts.on('click', e => {
 
-            this.el.modalContacts.hide()
-
+            //this.el.modalContacts.hide()
+            controller.closeContacts()
         })
 
         this.el.btnSendMicrophone.on('click', e =>{
