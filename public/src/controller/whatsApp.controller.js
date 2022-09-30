@@ -209,6 +209,8 @@ class WhatsAppController{
                 message.fromJSON(data)
                 let me = (data.from === this._user.email)
 
+                const view = message.getViewElement(me)
+
                 if(!this.view.el.panelMessagesContainer.querySelector('#_' + data.id)){
                     
                     
@@ -229,9 +231,10 @@ class WhatsAppController{
                     
                 } else {
 
-                    let view = message.getViewElement(me)
 
-                    this.view.el.panelMessagesContainer.querySelector('#_' + data.id).innerHTML = view.innerHTML
+                    const parent = this.view.el.panelMessagesContainer.querySelector('#_' + data.id).parentNode
+
+                    parent.replaceChild(view, this.view.el.panelMessagesContainer.querySelector('#_' + data.id))
 
                 }
                 
@@ -244,6 +247,43 @@ class WhatsAppController{
 
                 }
                 
+                if(message.type === 'contact'){
+
+
+                    view.querySelector('.btn-message-send').on('click', e => {
+
+                        ChatModel.createIfNotExists(this._user.email, message.content.email)
+                        .then(chat => {
+
+                            const contact = new UserModel(message.content.email)
+
+                            contact.on('datachange', data =>{
+
+                                contact.chatId = chat.id
+
+                                this._user.addContact(contact)
+                                
+                                this._user.chatId = chat.id
+            
+                                contact.addContact(this._user)
+
+                                this.setActiveContact(contact)
+
+
+                            })
+        
+                            
+        
+                        })
+                        .catch(err => {
+                            console.error(err)
+                        })
+                        
+
+                    })
+
+
+                }
                 
             })
 

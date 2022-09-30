@@ -110,12 +110,6 @@ export class MessageService extends MessageModel{
                     img.show()
                 }
 
-                div.querySelector('.btn-message-send').on('click', e =>{
-
-                    console.log('enviar mensagem')
-
-                })
-
                 break
             case 'image':
                 div.innerHTML = `

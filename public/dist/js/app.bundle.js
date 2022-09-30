@@ -35740,6 +35740,7 @@ var WhatsAppController = /*#__PURE__*/function () {
           var message = new _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService();
           message.fromJSON(data);
           var me = data.from === _this4._user.email;
+          var view = message.getViewElement(me);
 
           if (!_this4.view.el.panelMessagesContainer.querySelector('#_' + data.id)) {
             if (!me) {
@@ -35750,19 +35751,39 @@ var WhatsAppController = /*#__PURE__*/function () {
               });
             }
 
-            var view = message.getViewElement(me);
-
-            _this4.view.el.panelMessagesContainer.appendChild(view);
-          } else {
             var _view = message.getViewElement(me);
 
-            _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id).innerHTML = _view.innerHTML;
+            _this4.view.el.panelMessagesContainer.appendChild(_view);
+          } else {
+            var parent = _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id).parentNode;
+
+            parent.replaceChild(view, _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id));
           }
 
           if (_this4.view.el.panelMessagesContainer.querySelector('#_' + data.id) && me) {
             var msgEl = _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id);
 
             msgEl.querySelector('.message-status').innerHTML = message.getStatusViewElement().outerHTML;
+          }
+
+          if (message.type === 'contact') {
+            view.querySelector('.btn-message-send').on('click', function (e) {
+              _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this4._user.email, message.content.email).then(function (chat) {
+                var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(message.content.email);
+                contact.on('datachange', function (data) {
+                  contact.chatId = chat.id;
+
+                  _this4._user.addContact(contact);
+
+                  _this4._user.chatId = chat.id;
+                  contact.addContact(_this4._user);
+
+                  _this4.setActiveContact(contact);
+                });
+              })["catch"](function (err) {
+                console.error(err);
+              });
+            });
           }
         });
 
@@ -36795,9 +36816,6 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
             img.show();
           }
 
-          div.querySelector('.btn-message-send').on('click', function (e) {
-            console.log('enviar mensagem');
-          });
           break;
 
         case 'image':
