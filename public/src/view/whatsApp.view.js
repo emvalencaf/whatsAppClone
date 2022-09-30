@@ -362,7 +362,6 @@ class WhatsAppView{
         this.el.btnFinishMicrophone.on('click', e => {
 
             controller.stopMicrophone()
-            //this.closeRecordMicrophone()
 
         })
        

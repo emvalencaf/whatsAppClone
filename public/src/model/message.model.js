@@ -100,6 +100,23 @@ export class MessageModel extends Model{
         return this._data.from = value
     }
 
+    get photo(){
+        return this._data.photo
+    }
+
+    set photo(value){
+        return this._data.photo = value
+    }
+
+    get duration(){
+        return this._data.duration
+    }
+
+    set duration(value){
+        return this._data.duration = value
+    }
+
+
     static hdRef(path){
         return whatsAppController._firebase.hdRef(path)
     }

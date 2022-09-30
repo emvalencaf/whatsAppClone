@@ -77,9 +77,29 @@ class MicrophoneService extends ClassEvent{
 
             const filename = `rec${Date.now()}.webm`
 
-            const file = new File([blob], filename, {type: this._mimetype, lastModified: Date.now()})
+            const audioContext = new AudioContext()
 
-            console.log('file', file)
+            const reader = new FileReader()
+            
+            reader.onload = e =>{
+
+                audioContext.decodeAudioData(reader.result)
+                    .then(decode => {
+
+                        const file = new File([blob], filename, {type: this._mimetype, lastModified: Date.now()})
+                        console.log(file)
+                        console.log(decode)
+                        this.trigger('recorded', file, decode)
+
+                    })
+
+                
+            }
+
+            reader.readAsArrayBuffer(blob)
+
+
+            //console.log('file', file)
 /*
             const reader = new FileReader()
 

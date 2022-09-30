@@ -445,7 +445,11 @@ class WhatsAppController{
 
     stopMicrophone(){
 
-        this.controller._microphone.stopMicrophone()
+        const chatId = this._contactActive.chatId
+        const useremail = this._user.email
+        const userphoto = this._user.photo
+
+        this.controller._microphone.stopMicrophone(chatId, useremail, userphoto)
     }
 
     openContacts(){

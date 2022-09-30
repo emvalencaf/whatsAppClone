@@ -1,3 +1,4 @@
+import { MessageService } from "../service/message.service.js"
 import { FormatTimestamp } from "../utils/formatTimestamp.utils.js"
 
 export class MicrophoneController{
@@ -26,8 +27,27 @@ export class MicrophoneController{
 
     }
 
-    stopMicrophone(){
+    stopMicrophone(chatId, from, userphoto){
         
+        this.service.on('recorded', (file, metadata) => {
+
+            console.log(file)
+            console.log(metadata)
+
+            console.log(chatId, from)
+
+            MessageService.sendAudio(
+
+                chatId,
+                from,
+                file,
+                metadata,
+                userphoto
+
+            )
+
+        })
+
         this.service.stopMicrophoneRecord()
         this.view.closeRecordMicrophone()
         this.stopTimer()
