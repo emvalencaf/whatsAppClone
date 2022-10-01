@@ -1,6 +1,7 @@
 
 import { whatsAppController } from "../controller/whatsApp.controller.js"
 import { Format } from "../utils/format.utils.js"
+import { FormatTimestamp } from "../utils/formatTimestamp.utils.js"
 
 class WhatsAppView{
 
@@ -45,7 +46,7 @@ class WhatsAppView{
                     <span dir="auto" title="${contact.name}" class="_1wjpf">${contact.name}</span>
                 </div>
                 <div class="_3Bxar">
-                    <span class="_3T2VG">${contact.lastMessageTime}</span>
+                    <span class="_3T2VG">${FormatTimestamp.timestampToTime(contact.lastMessageTime)}</span>
                 </div>
             </div>
             <div class="_1AwDx">
