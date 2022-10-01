@@ -1,5 +1,6 @@
-import { MessageModel } from "../model/message.model.js";
-import { FormatTimestamp } from "../utils/formatTimestamp.utils.js";
+import { MessageModel } from "../model/message.model.js"
+import { FormatTimestamp } from "../utils/formatTimestamp.utils.js"
+import { Upload } from "../utils/upload.utils.js"
 
 export class MessageService extends MessageModel{
     constructor(){
@@ -406,7 +407,9 @@ export class MessageService extends MessageModel{
     }
     
     static upload(file, from){
-        
+
+        return Upload.send(file, from)
+/*        
         return new Promise((resolve, reject)=>{
             
             const path = from + "/" + Date.now() + "_" + file.name
@@ -437,7 +440,7 @@ export class MessageService extends MessageModel{
                     
         })
 
-
+*/
     }
 
     static sendAudio(chatId, from, file, metadata, photo){

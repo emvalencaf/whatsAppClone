@@ -174,6 +174,15 @@ class WhatsAppView{
             
         })
 
+        this.el.inputProfilePhoto.on('change', e => {
+
+            if(!this.el.inputProfilePhoto.files.length > 0) return
+
+            const file = this.el.inputProfilePhoto.files[0]
+
+            controller.updateUserProfilePhoto(file)
+        })
+
         this.el.inputNamePanelEditProfile.on('keypress', e=>{
 
             if(e.key === 'Enter'){
@@ -240,7 +249,7 @@ class WhatsAppView{
                 controller.sendMsg(file)
             ])
         })
-//Lembrar de refatorar os eventos abaixo relacionado a câmera para a classe viewCamera        
+       
         this.el.btnAttachCamera.on('click', e => {
 
             this.closeAllMainPanel()
@@ -316,7 +325,6 @@ class WhatsAppView{
 
         this.el.btnSendDocument.on('click', e => {
 
-            //console.log('send document')
             const file = this.el.inputDocument.files[0]
             const base64 = this.el.imgPanelDocumentPreview.src
             controller.sendDocument(
@@ -332,14 +340,12 @@ class WhatsAppView{
 
         this.el.btnAttachContact.on('click', e => {
 
-            //this.el.modalContacts.show()
             controller.openContacts()
 
         })
 
         this.el.btnCloseModalContacts.on('click', e => {
 
-            //this.el.modalContacts.hide()
             controller.closeContacts()
         })
 
@@ -476,28 +482,6 @@ class WhatsAppView{
         this.el.menuAttach.removeClass('open')
 
     }
-
-    
-/*
-    closeRecordMicrophone(){
-
-        this.el.recordMicrophone.hide()
-        this.el.btnSendMicrophone.show()
-        clearInterval(this._recordMicrophoneInterval)
-
-    }
-    startRecordMicrophoneTime(){
-
-        const start = Date.now()
-
-        this._recordMicrophoneInterval = setInterval(()=>{
-
-            this.el.recordMicrophoneTimer.innerHTML = FormatTimestamp.toTime((Date.now() - start))
-
-        }, 100)
-
-    }*/
-
     
 }
 

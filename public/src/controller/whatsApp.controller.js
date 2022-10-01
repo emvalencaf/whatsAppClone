@@ -7,6 +7,7 @@ import { microphoneService } from "../service/microphone.service.js"
 import { Base64 } from "../utils/base64.utils.js"
 import { ElementPrototype } from "../utils/elementPrototype.utils.js"
 import { Firebase } from "../utils/firebase.utils.js"
+import { Upload } from "../utils/upload.utils.js"
 import { CameraView } from "../view/camera.view.js"
 import { DocumentPreviewView } from "../view/documentPreview.view.js"
 import { MicrophoneView } from "../view/microphone.view.js"
@@ -471,6 +472,24 @@ class WhatsAppController{
 
     closeContacts(){
         this.controller._contacts.close()
+    }
+
+    updateUserProfilePhoto(file){
+        Upload.send(file, this._user.email)
+            .then(url => {
+
+                this._user.photo = url
+                this._user.setDoc(this._user.email, {
+                    name: this._user.name,
+                    email: this._user.email,
+                    photo: this._user.photo
+                })
+                    .then(()=>{
+
+                        this.view.el.btnClosePanelEditProfile.click()
+
+                    })
+            })
     }
 }
 

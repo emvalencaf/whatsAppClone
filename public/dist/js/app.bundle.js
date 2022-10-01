@@ -35588,14 +35588,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_base64_utils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/base64.utils.js */ "./public/src/utils/base64.utils.js");
 /* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./public/src/utils/elementPrototype.utils.js");
 /* harmony import */ var _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/firebase.utils.js */ "./public/src/utils/firebase.utils.js");
-/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
-/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
-/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
-/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
-/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
-/* harmony import */ var _contacts_controller_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./contacts.controller.js */ "./public/src/controller/contacts.controller.js");
-/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
-/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+/* harmony import */ var _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/upload.utils.js */ "./public/src/utils/upload.utils.js");
+/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
+/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
+/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
+/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
+/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
+/* harmony import */ var _contacts_controller_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./contacts.controller.js */ "./public/src/controller/contacts.controller.js");
+/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
+/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+
 
 
 
@@ -35623,14 +35625,14 @@ var WhatsAppController = /*#__PURE__*/function () {
     console.log('WhatsAppController Ok');
     _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_9__.ElementPrototype.elementsProtoType();
     this.view = view;
-    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_11__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
-    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_12__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
-    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_13__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
+    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_12__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
+    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_13__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
+    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_14__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
     this.controller = {
-      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_15__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__.cameraService),
-      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_17__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
-      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_18__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__.microphoneService),
-      _contacts: new _contacts_controller_js__WEBPACK_IMPORTED_MODULE_16__.ContactController(this.view.el.modalContacts)
+      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_16__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__.cameraService),
+      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_18__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
+      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_19__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__.microphoneService),
+      _contacts: new _contacts_controller_js__WEBPACK_IMPORTED_MODULE_17__.ContactController(this.view.el.modalContacts)
     };
     this.view.el.appContent.hide();
     this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_10__.Firebase();
@@ -35966,12 +35968,29 @@ var WhatsAppController = /*#__PURE__*/function () {
     value: function closeContacts() {
       this.controller._contacts.close();
     }
+  }, {
+    key: "updateUserProfilePhoto",
+    value: function updateUserProfilePhoto(file) {
+      var _this9 = this;
+
+      _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_11__.Upload.send(file, this._user.email).then(function (url) {
+        _this9._user.photo = url;
+
+        _this9._user.setDoc(_this9._user.email, {
+          name: _this9._user.name,
+          email: _this9._user.email,
+          photo: _this9._user.photo
+        }).then(function () {
+          _this9.view.el.btnClosePanelEditProfile.click();
+        });
+      });
+    }
   }]);
 
   return WhatsAppController;
 }();
 
-var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_14__.whatsAppView);
+var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_15__.whatsAppView);
 
 /***/ }),
 
@@ -36775,6 +36794,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
 /* harmony import */ var _model_message_model_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../model/message.model.js */ "./public/src/model/message.model.js");
 /* harmony import */ var _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/formatTimestamp.utils.js */ "./public/src/utils/formatTimestamp.utils.js");
+/* harmony import */ var _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/upload.utils.js */ "./public/src/utils/upload.utils.js");
 
 
 
@@ -36784,6 +36804,7 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
 
 
 
@@ -36944,25 +36965,39 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
   }], [{
     key: "upload",
     value: function upload(file, from) {
-      var _this2 = this;
-
-      return new Promise(function (resolve, reject) {
-        var path = from + "/" + Date.now() + "_" + file.name;
-
-        var ref = _this2.hdRef(path);
-
-        var uploadTask = _this2.hdPut(ref, file);
-
-        uploadTask.on('state_changed', function (e) {
-          console.info('upload', e);
-        }, function (err) {
-          reject(err);
-        }, function () {
-          _this2.hdDownloadURL(uploadTask.snapshot.ref).then(function (url) {
-            resolve(url);
-          });
-        });
-      });
+      return _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_7__.Upload.send(file, from);
+      /*        
+              return new Promise((resolve, reject)=>{
+                  
+                  const path = from + "/" + Date.now() + "_" + file.name
+                  const ref = this.hdRef(path)
+                  
+                  const uploadTask = this.hdPut(ref, file)
+                  
+                  uploadTask.on('state_changed',
+                  
+                      e =>{
+                  
+                          console.info('upload', e)
+                  
+                      },
+                      err =>{
+                          reject(err)
+                      },
+                      ()=>{
+                          
+                          this.hdDownloadURL(uploadTask.snapshot.ref)
+                              .then(url =>{
+                  
+                                  resolve(url)
+                  
+                              })
+                          })
+                          
+                          
+              })
+      
+      */
     }
   }, {
     key: "sendAudio",
@@ -37038,7 +37073,7 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
   }, {
     key: "send",
     value: function send(chatId, from, type, content) {
-      var _this3 = this;
+      var _this2 = this;
 
       var ref = MessageService.getRef(chatId);
       return new Promise(function (resolve, reject) {
@@ -37049,9 +37084,9 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           type: type,
           from: from
         }).then(function (result) {
-          var docRef = _this3.doc(result.parent, result.id);
+          var docRef = _this2.doc(result.parent, result.id);
 
-          _this3.setDoc(docRef, {
+          _this2.setDoc(docRef, {
             status: 'sent'
           }, {
             merge: true
@@ -37689,6 +37724,56 @@ var FormatTimestamp = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./public/src/utils/upload.utils.js":
+/*!******************************************!*\
+  !*** ./public/src/utils/upload.utils.js ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Upload": function() { return /* binding */ Upload; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../controller/whatsApp.controller.js */ "./public/src/controller/whatsApp.controller.js");
+
+
+
+var Upload = /*#__PURE__*/function () {
+  function Upload() {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Upload);
+  }
+
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Upload, null, [{
+    key: "send",
+    value: function send(file, from) {
+      return new Promise(function (resolve, reject) {
+        var path = from + "/" + Date.now() + "_" + file.name;
+
+        var ref = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_2__.whatsAppController._firebase.hdRef(path);
+
+        var uploadTask = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_2__.whatsAppController._firebase.hdPut(ref, file);
+
+        uploadTask.on('state_changed', function (e) {
+          console.info('upload', e);
+        }, function (err) {
+          reject(err);
+        }, function () {
+          _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_2__.whatsAppController._firebase.hdDownloadURL(uploadTask.snapshot.ref).then(function (url) {
+            resolve(url);
+          });
+        });
+      });
+    }
+  }]);
+
+  return Upload;
+}();
+
+/***/ }),
+
 /***/ "./public/src/view/camera.view.js":
 /*!****************************************!*\
   !*** ./public/src/view/camera.view.js ***!
@@ -37998,6 +38083,11 @@ var WhatsAppView = /*#__PURE__*/function () {
       this.el.photoContainerEditProfile.on('click', function (e) {
         _this2.el.inputProfilePhoto.click();
       });
+      this.el.inputProfilePhoto.on('change', function (e) {
+        if (!_this2.el.inputProfilePhoto.files.length > 0) return;
+        var file = _this2.el.inputProfilePhoto.files[0];
+        controller.updateUserProfilePhoto(file);
+      });
       this.el.inputNamePanelEditProfile.on('keypress', function (e) {
         if (e.key === 'Enter') {
           e.preventDefault();
@@ -38039,8 +38129,7 @@ var WhatsAppView = /*#__PURE__*/function () {
         Array.from(_this2.el.inputPhoto.files).forEach(function (file) {
           return [controller.sendMsg(file)];
         });
-      }); //Lembrar de refatorar os eventos abaixo relacionado a câmera para a classe viewCamera        
-
+      });
       this.el.btnAttachCamera.on('click', function (e) {
         _this2.closeAllMainPanel();
 
@@ -38096,7 +38185,6 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.panelMessagesContainer.show();
       });
       this.el.btnSendDocument.on('click', function (e) {
-        //console.log('send document')
         var file = _this2.el.inputDocument.files[0];
         var base64 = _this2.el.imgPanelDocumentPreview.src;
         controller.sendDocument(controller._contactActive.chatId, controller._user.email, file, base64);
@@ -38104,11 +38192,9 @@ var WhatsAppView = /*#__PURE__*/function () {
         _this2.el.btnClosePanelDocumentPreview.click();
       });
       this.el.btnAttachContact.on('click', function (e) {
-        //this.el.modalContacts.show()
         controller.openContacts();
       });
       this.el.btnCloseModalContacts.on('click', function (e) {
-        //this.el.modalContacts.hide()
         controller.closeContacts();
       });
       this.el.btnSendMicrophone.on('click', function (e) {
@@ -38205,26 +38291,6 @@ var WhatsAppView = /*#__PURE__*/function () {
       document.removeEventListener('click', this.closeMenuAttach);
       this.el.menuAttach.removeClass('open');
     }
-    /*
-        closeRecordMicrophone(){
-    
-            this.el.recordMicrophone.hide()
-            this.el.btnSendMicrophone.show()
-            clearInterval(this._recordMicrophoneInterval)
-    
-        }
-        startRecordMicrophoneTime(){
-    
-            const start = Date.now()
-    
-            this._recordMicrophoneInterval = setInterval(()=>{
-    
-                this.el.recordMicrophoneTimer.innerHTML = FormatTimestamp.toTime((Date.now() - start))
-    
-            }, 100)
-    
-        }*/
-
   }]);
 
   return WhatsAppView;
