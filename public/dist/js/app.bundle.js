@@ -35316,6 +35316,29 @@ var XhrIo = esm.XhrIo=W;
 
 /***/ }),
 
+/***/ "./public/src/config.js":
+/*!******************************!*\
+  !*** ./public/src/config.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "config": function() { return /* binding */ config; }
+/* harmony export */ });
+var config = {
+  apiKey: "AIzaSyDIJxH-aNGpWrxezjeo10pjVLMs2P4EoL4",
+  authDomain: "whatsapp-clone-c6a5e.firebaseapp.com",
+  projectId: "whatsapp-clone-c6a5e",
+  storageBucket: "whatsapp-clone-c6a5e.appspot.com",
+  messagingSenderId: "393079913664",
+  appId: "1:393079913664:web:846258fba8966f5782c125",
+  measurementId: "G-WHE4EFXDVZ"
+};
+
+/***/ }),
+
 /***/ "./public/src/controller/camera.controller.js":
 /*!****************************************************!*\
   !*** ./public/src/controller/camera.controller.js ***!
@@ -35577,26 +35600,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "whatsAppController": function() { return /* binding */ whatsAppController; }
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../model/chat.model.js */ "./public/src/model/chat.model.js");
-/* harmony import */ var _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../model/user.model.js */ "./public/src/model/user.model.js");
-/* harmony import */ var _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../service/camera.service.js */ "./public/src/service/camera.service.js");
-/* harmony import */ var _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/documentPreview.service.js */ "./public/src/service/documentPreview.service.js");
-/* harmony import */ var _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../service/message.service.js */ "./public/src/service/message.service.js");
-/* harmony import */ var _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../service/microphone.service.js */ "./public/src/service/microphone.service.js");
-/* harmony import */ var _utils_base64_utils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/base64.utils.js */ "./public/src/utils/base64.utils.js");
-/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./public/src/utils/elementPrototype.utils.js");
-/* harmony import */ var _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/firebase.utils.js */ "./public/src/utils/firebase.utils.js");
-/* harmony import */ var _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/upload.utils.js */ "./public/src/utils/upload.utils.js");
-/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
-/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
-/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
-/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
-/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
-/* harmony import */ var _contacts_controller_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./contacts.controller.js */ "./public/src/controller/contacts.controller.js");
-/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
-/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _model_chat_model_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../model/chat.model.js */ "./public/src/model/chat.model.js");
+/* harmony import */ var _model_user_model_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../model/user.model.js */ "./public/src/model/user.model.js");
+/* harmony import */ var _service_camera_service_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/camera.service.js */ "./public/src/service/camera.service.js");
+/* harmony import */ var _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../service/documentPreview.service.js */ "./public/src/service/documentPreview.service.js");
+/* harmony import */ var _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../service/message.service.js */ "./public/src/service/message.service.js");
+/* harmony import */ var _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../service/microphone.service.js */ "./public/src/service/microphone.service.js");
+/* harmony import */ var _utils_base64_utils_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../utils/base64.utils.js */ "./public/src/utils/base64.utils.js");
+/* harmony import */ var _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/elementPrototype.utils.js */ "./public/src/utils/elementPrototype.utils.js");
+/* harmony import */ var _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/firebase.utils.js */ "./public/src/utils/firebase.utils.js");
+/* harmony import */ var _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/upload.utils.js */ "./public/src/utils/upload.utils.js");
+/* harmony import */ var _view_camera_view_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../view/camera.view.js */ "./public/src/view/camera.view.js");
+/* harmony import */ var _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../view/documentPreview.view.js */ "./public/src/view/documentPreview.view.js");
+/* harmony import */ var _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../view/microphone.view.js */ "./public/src/view/microphone.view.js");
+/* harmony import */ var _view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../view/whatsapp.view.js */ "./public/src/view/whatsapp.view.js");
+/* harmony import */ var _camera_controller_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./camera.controller.js */ "./public/src/controller/camera.controller.js");
+/* harmony import */ var _contacts_controller_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./contacts.controller.js */ "./public/src/controller/contacts.controller.js");
+/* harmony import */ var _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./documentPreview.controller.js */ "./public/src/controller/documentPreview.controller.js");
+/* harmony import */ var _microphone_controller_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./microphone.controller.js */ "./public/src/controller/microphone.controller.js");
+
 
 
 
@@ -35620,67 +35645,101 @@ __webpack_require__.r(__webpack_exports__);
 
 var WhatsAppController = /*#__PURE__*/function () {
   function WhatsAppController(view) {
-    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, WhatsAppController);
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, WhatsAppController);
 
-    console.log('WhatsAppController Ok');
-    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_9__.ElementPrototype.elementsProtoType();
+    this._active = true;
+    _utils_elementPrototype_utils_js__WEBPACK_IMPORTED_MODULE_10__.ElementPrototype.elementsProtoType();
     this.view = view;
-    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_12__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
-    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_13__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
-    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_14__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
+    var cameraView = new _view_camera_view_js__WEBPACK_IMPORTED_MODULE_13__.CameraView(this.view.el.videoCamera, this.view.el.pictureCamera, this.view.el.btnReshootPanelCamera, this.view.el.containerTakePicture, this.view.el.containerSendPicture);
+    var documentPreviewView = new _view_documentPreview_view_js__WEBPACK_IMPORTED_MODULE_14__.DocumentPreviewView(this.view.el.imagePanelDocumentPreview, this.view.el.imgPanelDocumentPreview, this.view.el.filePanelDocumentPreview, this.view.el.infoPanelDocumentPreview, this.view.el.iconPanelDocumentPreview, this.view.el.filenamePanelDocumentPreview, this.view.el.panelDocumentPreview);
+    var microphoneView = new _view_microphone_view_js__WEBPACK_IMPORTED_MODULE_15__.MicrophoneView(this.view.el.recordMicrophoneTimer, this.view.el.recordMicrophone, this.view.el.btnSendMicrophone);
     this.controller = {
-      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_16__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_4__.cameraService),
-      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_18__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_5__.documentPreviewService),
-      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_19__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_7__.microphoneService),
-      _contacts: new _contacts_controller_js__WEBPACK_IMPORTED_MODULE_17__.ContactController(this.view.el.modalContacts)
+      _camera: new _camera_controller_js__WEBPACK_IMPORTED_MODULE_17__.CameraController(cameraView, _service_camera_service_js__WEBPACK_IMPORTED_MODULE_5__.cameraService),
+      _documentPreview: new _documentPreview_controller_js__WEBPACK_IMPORTED_MODULE_19__.DocumentPreviewController(documentPreviewView, _service_documentPreview_service_js__WEBPACK_IMPORTED_MODULE_6__.documentPreviewService),
+      _microphone: new _microphone_controller_js__WEBPACK_IMPORTED_MODULE_20__.MicrophoneController(microphoneView, _service_microphone_service_js__WEBPACK_IMPORTED_MODULE_8__.microphoneService),
+      _contacts: new _contacts_controller_js__WEBPACK_IMPORTED_MODULE_18__.ContactController(this.view.el.modalContacts)
     };
     this.view.el.appContent.hide();
-    this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_10__.Firebase();
+    this._firebase = new _utils_firebase_utils_js__WEBPACK_IMPORTED_MODULE_11__.Firebase();
 
     this._firebase.init();
 
     this.initEvents();
     this.initAuth();
+    this.checkNotifications();
   }
 
-  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(WhatsAppController, [{
-    key: "initAuth",
-    value: function initAuth() {
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(WhatsAppController, [{
+    key: "checkNotifications",
+    value: function checkNotifications() {
       var _this = this;
 
-      this._firebase.initAuth().then(function (response) {
-        _this._user = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(response.user.email);
+      if (!(typeof Notification === "undefined" ? "undefined" : (0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(Notification)) === 'function') return;
+      Notification.permission !== 'granted' ? this.view.el.alertNotificationPermission.show() : this.view.el.alertNotificationPermission.hide();
+      this.view.el.alertNotificationPermission.on('click', function (e) {
+        Notification.requestPermission(function (permission) {
+          if (permission !== 'granted') return;
 
-        _this._user.on('datachange', function (data) {
+          _this.view.el.alertNotificationPermission.hide();
+
+          console.info('notificações permitidas');
+        });
+      });
+    }
+  }, {
+    key: "notification",
+    value: function notification(data) {
+      if (Notification.permission !== 'granted') return;
+      if (this._active) return;
+      var n = new Notification(this._contactActive.name, {
+        icon: this._contactActive.photo,
+        body: data.content
+      });
+      var sound = new Audio('./audio/alert.mp3');
+      sound.currentTime = 0;
+      sound.play();
+      setTimeout(function () {
+        if (n) n.close();
+      }, 3000);
+    }
+  }, {
+    key: "initAuth",
+    value: function initAuth() {
+      var _this2 = this;
+
+      this._firebase.initAuth().then(function (response) {
+        _this2._user = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_4__.UserModel(response.user.email);
+
+        _this2._user.on('datachange', function (data) {
           document.querySelector('title').innerHTML = data.name + " - WhatsApp Clone";
-          _this.view.el.inputNamePanelEditProfile.innerHTML = data.name;
+          _this2.view.el.inputNamePanelEditProfile.innerHTML = data.name;
 
           if (data.photo) {
-            var photo = _this.view.el.imgPanelEditProfile;
+            var photo = _this2.view.el.imgPanelEditProfile;
             photo.src = data.photo;
             photo.show();
 
-            _this.view.el.imgDefaultPanelEditProfile.hide();
+            _this2.view.el.imgDefaultPanelEditProfile.hide();
 
-            var photo2 = _this.view.el.myPhoto.querySelector('img');
+            var photo2 = _this2.view.el.myPhoto.querySelector('img');
 
             photo2.src = data.photo;
             photo2.show();
           }
 
-          _this.initContacts();
+          _this2.initContacts();
         });
 
-        _this._user.name = response.user.displayName;
-        _this._user.email = response.user.email;
-        _this._user.photo = response.user.photoURL;
+        _this2._user.name = response.user.displayName;
+        _this2._user.email = response.user.email;
+        _this2._user.photo = response.user.photoURL;
 
-        _this._user.setDoc(response.user.email, {
-          name: _this._user.name,
-          email: _this._user.email,
-          photo: _this._user.photo
+        _this2._user.setDoc(response.user.email, {
+          name: _this2._user.name,
+          email: _this2._user.email,
+          photo: _this2._user.photo
         }).then(function () {
-          _this.view.el.appContent.css({
+          _this2.view.el.appContent.css({
             display: 'flex'
           });
         })["catch"](function (err) {
@@ -35693,14 +35752,14 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "initContacts",
     value: function initContacts() {
-      var _this2 = this;
+      var _this3 = this;
 
       this._user.on('contactschange', function (docs) {
-        _this2.view.el.contactsMessagesList.innerHTML = '';
+        _this3.view.el.contactsMessagesList.innerHTML = '';
         docs.forEach(function (doc) {
           var contact = doc.data();
 
-          _this2.view.renderContactList(contact, _this2.setActiveContact.bind(_this2));
+          _this3.view.renderContactList(contact, _this3.setActiveContact.bind(_this3));
         });
       });
 
@@ -35709,28 +35768,28 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "sendDocument",
     value: function sendDocument(chatId, from, file, preview) {
-      var _this3 = this;
+      var _this4 = this;
 
       if (file.type === 'application/pdf') {
-        _utils_base64_utils_js__WEBPACK_IMPORTED_MODULE_8__.Base64.toFile(preview).then(function (filePreview) {
-          _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendDocument(chatId, from, file, filePreview, _this3.view.el.infoPanelDocumentPreview.innerHTML);
+        _utils_base64_utils_js__WEBPACK_IMPORTED_MODULE_9__.Base64.toFile(preview).then(function (filePreview) {
+          _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.sendDocument(chatId, from, file, filePreview, _this4.view.el.infoPanelDocumentPreview.innerHTML);
         });
       } else {
-        _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendDocument(chatId, from, file);
+        _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.sendDocument(chatId, from, file);
       }
     }
   }, {
     key: "sendMsg",
     value: function sendMsg(msg) {
-      if (typeof msg !== 'string') return _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendImage(this._contactActive.chatId, this._user.email, msg);
-      return _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.send(this._contactActive.chatId, this._user.email, 'text', msg);
+      if (typeof msg !== 'string') return _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.sendImage(this._contactActive.chatId, this._user.email, msg);
+      return _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.send(this._contactActive.chatId, this._user.email, 'text', msg);
     }
   }, {
     key: "setActiveContact",
     value: function setActiveContact(contact) {
-      var _this4 = this;
+      var _this5 = this;
 
-      if (this._contactActive) _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.readMsg(this._contactActive.chatId, function () {});
+      if (this._contactActive) _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.readMsg(this._contactActive.chatId, function () {});
       this._contactActive = contact;
       this.view.el.activeName.innerHTML = contact.name;
       this.view.el.activeStatus.innerHTML = contact.status;
@@ -35740,21 +35799,31 @@ var WhatsAppController = /*#__PURE__*/function () {
         display: "flex"
       });
       this.view.el.panelMessagesContainer.innerHTML = '';
-      _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.readMsg(this._contactActive.chatId, function (docs) {
-        var scrollTop = _this4.view.el.panelMessagesContainer.scrollTop;
-        var scrollTopMax = _this4.view.el.panelMessagesContainer.scrollHeight - _this4.view.el.panelMessagesContainer.offsetHeight;
+      this._messagesReceived = [];
+      _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.readMsg(this._contactActive.chatId, function (docs) {
+        var scrollTop = _this5.view.el.panelMessagesContainer.scrollTop;
+        var scrollTopMax = _this5.view.el.panelMessagesContainer.scrollHeight - _this5.view.el.panelMessagesContainer.offsetHeight;
         var autoScroll = scrollTop >= scrollTopMax;
         docs.forEach(function (doc) {
           var data = doc.data();
           data.id = doc.id;
-          var message = new _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService();
+          var message = new _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService();
           message.fromJSON(data);
-          var me = data.from === _this4._user.email;
+          var me = data.from === _this5._user.email;
+
+          if (!me && _this5._messagesReceived.filter(function (id) {
+            return id === data.id;
+          }).length === 0) {
+            _this5.notification(data);
+
+            _this5._messagesReceived.push(data.id);
+          }
+
           var view = message.getViewElement(me);
 
-          if (!_this4.view.el.panelMessagesContainer.querySelector('#_' + data.id)) {
+          if (!_this5.view.el.panelMessagesContainer.querySelector('#_' + data.id)) {
             if (!me) {
-              _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.setDoc(doc.ref, {
+              _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.setDoc(doc.ref, {
                 status: 'read'
               }, {
                 merge: true
@@ -35763,32 +35832,32 @@ var WhatsAppController = /*#__PURE__*/function () {
 
             var _view = message.getViewElement(me);
 
-            _this4.view.el.panelMessagesContainer.appendChild(_view);
+            _this5.view.el.panelMessagesContainer.appendChild(_view);
           } else {
-            var parent = _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id).parentNode;
+            var parent = _this5.view.el.panelMessagesContainer.querySelector('#_' + data.id).parentNode;
 
-            parent.replaceChild(view, _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id));
+            parent.replaceChild(view, _this5.view.el.panelMessagesContainer.querySelector('#_' + data.id));
           }
 
-          if (_this4.view.el.panelMessagesContainer.querySelector('#_' + data.id) && me) {
-            var msgEl = _this4.view.el.panelMessagesContainer.querySelector('#_' + data.id);
+          if (_this5.view.el.panelMessagesContainer.querySelector('#_' + data.id) && me) {
+            var msgEl = _this5.view.el.panelMessagesContainer.querySelector('#_' + data.id);
 
             msgEl.querySelector('.message-status').innerHTML = message.getStatusViewElement().outerHTML;
           }
 
           if (message.type === 'contact') {
             view.querySelector('.btn-message-send').on('click', function (e) {
-              _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this4._user.email, message.content.email).then(function (chat) {
-                var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(message.content.email);
+              _model_chat_model_js__WEBPACK_IMPORTED_MODULE_3__.ChatModel.createIfNotExists(_this5._user.email, message.content.email).then(function (chat) {
+                var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_4__.UserModel(message.content.email);
                 contact.on('datachange', function (data) {
                   contact.chatId = chat.id;
 
-                  _this4._user.addContact(contact);
+                  _this5._user.addContact(contact);
 
-                  _this4._user.chatId = chat.id;
-                  contact.addContact(_this4._user);
+                  _this5._user.chatId = chat.id;
+                  contact.addContact(_this5._user);
 
-                  _this4.setActiveContact(contact);
+                  _this5.setActiveContact(contact);
                 });
               })["catch"](function (err) {
                 console.error(err);
@@ -35798,30 +35867,30 @@ var WhatsAppController = /*#__PURE__*/function () {
         });
 
         if (autoScroll) {
-          _this4.view.el.panelMessagesContainer.scrollTop = _this4.view.el.panelMessagesContainer.scrollHeight - _this4.view.el.panelMessagesContainer.offsetHeight;
+          _this5.view.el.panelMessagesContainer.scrollTop = _this5.view.el.panelMessagesContainer.scrollHeight - _this5.view.el.panelMessagesContainer.offsetHeight;
         } else {
-          _this4.view.el.panelMessagesContainer.scrollTop = scrollTop;
+          _this5.view.el.panelMessagesContainer.scrollTop = scrollTop;
         }
       });
     }
   }, {
     key: "addContact",
     value: function addContact(dataForm) {
-      var _this5 = this;
+      var _this6 = this;
 
-      var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_3__.UserModel(dataForm.get('email'));
+      var contact = new _model_user_model_js__WEBPACK_IMPORTED_MODULE_4__.UserModel(dataForm.get('email'));
       console.log(contact);
       contact.on('datachange', function (data) {
         if (!data.name) return console.error('Usuário não foi encontrado');
-        _model_chat_model_js__WEBPACK_IMPORTED_MODULE_2__.ChatModel.createIfNotExists(_this5._user.email, contact.email).then(function (chat) {
+        _model_chat_model_js__WEBPACK_IMPORTED_MODULE_3__.ChatModel.createIfNotExists(_this6._user.email, contact.email).then(function (chat) {
           contact.chatId = chat.id;
-          _this5._user.chatId = chat.id;
-          contact.addContact(_this5._user);
+          _this6._user.chatId = chat.id;
+          contact.addContact(_this6._user);
 
-          _this5._user.addContact(contact).then(function () {
+          _this6._user.addContact(contact).then(function () {
             console.info('contato foi adicionado!');
 
-            _this5.view.el.btnClosePanelAddContact.click();
+            _this6.view.el.btnClosePanelAddContact.click();
           })["catch"](function (err) {
             console.error(err);
           });
@@ -35849,20 +35918,26 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "initEvents",
     value: function initEvents() {
-      var _this6 = this;
+      var _this7 = this;
 
       console.log(this.view.el.inputSearchContacts);
       this.view.initEvents(this);
+      window.addEventListener('focus', function (e) {
+        _this7._active = true;
+      });
+      window.addEventListener('blur', function (e) {
+        _this7._active = false;
+      });
       this.view.el.inputSearchContacts.on('keyup', function (e) {
-        _this6.view.el.inputSearchContacts.value.length > 0 ? _this6.view.el.inputSearchContactsPlaceholder.hide() : _this6.view.el.inputSearchContactsPlaceholder.show();
+        _this7.view.el.inputSearchContacts.value.length > 0 ? _this7.view.el.inputSearchContactsPlaceholder.hide() : _this7.view.el.inputSearchContactsPlaceholder.show();
 
-        _this6._user.getContacts(_this6.view.el.inputSearchContacts.value);
+        _this7._user.getContacts(_this7.view.el.inputSearchContacts.value);
       });
     }
   }, {
     key: "sendCameraPicture",
     value: function sendCameraPicture() {
-      var _this7 = this;
+      var _this8 = this;
 
       var regex = /^data:(.+);base64,(.*)$/;
       var result = this.view.el.pictureCamera.src.match(regex);
@@ -35887,25 +35962,25 @@ var WhatsAppController = /*#__PURE__*/function () {
             type: mimeType
           });
         }).then(function (file) {
-          _this7.sendMsg(file);
+          _this8.sendMsg(file);
 
-          _this7.view.el.btnSendPicture.disabled = false;
+          _this8.view.el.btnSendPicture.disabled = false;
 
-          _this7.view.closeAllMainPanel();
+          _this8.view.closeAllMainPanel();
 
-          _this7.stopCamera();
+          _this8.stopCamera();
 
-          _this7.view.el.btnReshootPanelCamera.hide();
+          _this8.view.el.btnReshootPanelCamera.hide();
 
-          _this7.view.el.pictureCamera.hide();
+          _this8.view.el.pictureCamera.hide();
 
-          _this7.view.el.videoCamera.show();
+          _this8.view.el.videoCamera.show();
 
-          _this7.view.el.containerSendPicture.hide();
+          _this8.view.el.containerSendPicture.hide();
 
-          _this7.view.el.containerTakePicture.show();
+          _this8.view.el.containerTakePicture.show();
 
-          _this7.view.el.panelMessagesContainer.show();
+          _this8.view.el.panelMessagesContainer.show();
         });
       };
     }
@@ -35953,14 +36028,14 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "openContacts",
     value: function openContacts() {
-      var _this8 = this;
+      var _this9 = this;
 
       this.controller._contacts._user = this._user;
 
       this.controller._contacts.open();
 
       this.controller._contacts.on('select', function (contact) {
-        _service_message_service_js__WEBPACK_IMPORTED_MODULE_6__.MessageService.sendContact(_this8._contactActive.chatId, _this8._user.email, contact);
+        _service_message_service_js__WEBPACK_IMPORTED_MODULE_7__.MessageService.sendContact(_this9._contactActive.chatId, _this9._user.email, contact);
       });
     }
   }, {
@@ -35971,17 +36046,17 @@ var WhatsAppController = /*#__PURE__*/function () {
   }, {
     key: "updateUserProfilePhoto",
     value: function updateUserProfilePhoto(file) {
-      var _this9 = this;
+      var _this10 = this;
 
-      _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_11__.Upload.send(file, this._user.email).then(function (url) {
-        _this9._user.photo = url;
+      _utils_upload_utils_js__WEBPACK_IMPORTED_MODULE_12__.Upload.send(file, this._user.email).then(function (url) {
+        _this10._user.photo = url;
 
-        _this9._user.setDoc(_this9._user.email, {
-          name: _this9._user.name,
-          email: _this9._user.email,
-          photo: _this9._user.photo
+        _this10._user.setDoc(_this10._user.email, {
+          name: _this10._user.name,
+          email: _this10._user.email,
+          photo: _this10._user.photo
         }).then(function () {
-          _this9.view.el.btnClosePanelEditProfile.click();
+          _this10.view.el.btnClosePanelEditProfile.click();
         });
       });
     }
@@ -35990,7 +36065,7 @@ var WhatsAppController = /*#__PURE__*/function () {
   return WhatsAppController;
 }();
 
-var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_15__.whatsAppView);
+var whatsAppController = new WhatsAppController(_view_whatsapp_view_js__WEBPACK_IMPORTED_MODULE_16__.whatsAppView);
 
 /***/ }),
 
@@ -36293,6 +36368,11 @@ var MessageModel = /*#__PURE__*/function (_Model) {
       return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.getCollection(doc, 'messages');
     }
   }, {
+    key: "getDoc",
+    value: function getDoc(ref) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.getDoc(ref);
+    }
+  }, {
     key: "doc",
     value: function doc(collection, _doc) {
       return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.doc(collection, _doc);
@@ -36408,9 +36488,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
 /* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
 /* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! firebase/firestore */ "./node_modules/firebase/firestore/dist/index.esm.js");
-/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../controller/whatsApp.controller.js */ "./public/src/controller/whatsApp.controller.js");
-/* harmony import */ var _model_model_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./model.model.js */ "./public/src/model/model.model.js");
+/* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../controller/whatsApp.controller.js */ "./public/src/controller/whatsApp.controller.js");
+/* harmony import */ var _model_model_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./model.model.js */ "./public/src/model/model.model.js");
 
 
 
@@ -36420,7 +36499,6 @@ __webpack_require__.r(__webpack_exports__);
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 
 
 
@@ -36506,6 +36584,22 @@ var UserModel = /*#__PURE__*/function (_Model) {
       return this._data.chatId = value;
     }
   }, {
+    key: "lastMessageTime",
+    get: function get() {
+      return this._data.lastMessageTime;
+    },
+    set: function set(value) {
+      return this._data.lastMessageTime = value;
+    }
+  }, {
+    key: "lastMessage",
+    get: function get() {
+      return this._data.lastMessage;
+    },
+    set: function set(value) {
+      return this._data.lastMessage = value;
+    }
+  }, {
     key: "addContact",
     value: function addContact(contact) {
       var collectionContacts = this.getContactsRef(this.id);
@@ -36525,7 +36619,7 @@ var UserModel = /*#__PURE__*/function (_Model) {
 
         var query = _this3.query(collectionContacts, where);
 
-        _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.onSnapshot(query, function (docs) {
+        _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.onSnapshot(query, function (docs) {
           var contacts = [];
           docs.forEach(function (doc) {
             var data = doc.data();
@@ -36544,12 +36638,12 @@ var UserModel = /*#__PURE__*/function (_Model) {
     value: function query() {
       var _whatsAppController$_;
 
-      return (_whatsAppController$_ = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase).query.apply(_whatsAppController$_, arguments);
+      return (_whatsAppController$_ = _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase).query.apply(_whatsAppController$_, arguments);
     }
   }, {
     key: "where",
     value: function where(fieldPath, opStr, value) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.where(fieldPath, opStr, value);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.where(fieldPath, opStr, value);
     }
   }, {
     key: "getContactsRef",
@@ -36559,48 +36653,48 @@ var UserModel = /*#__PURE__*/function (_Model) {
   }, {
     key: "getCollectionRef",
     value: function getCollectionRef(docRef, path) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.getCollection(docRef, path);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.getCollection(docRef, path);
     }
   }, {
     key: "getDocRef",
     value: function getDocRef(collectionRef, doc) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.doc(collectionRef, doc);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.doc(collectionRef, doc);
     }
   }, {
     key: "saveDoc",
     value: function saveDoc(docRef, data) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.setDoc(docRef, data);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.setDoc(docRef, data);
     }
   }, {
     key: "getRefDB",
     value: function getRefDB() {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.db('users');
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.db('users');
     }
   }, {
     key: "findByEmail",
     value: function findByEmail(email) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.doc(this.getRefDB(), email);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.doc(this.getRefDB(), email);
     }
   }, {
     key: "getDoc",
     value: function getDoc(email) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.getDoc(this.findByEmail(email));
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.getDoc(this.findByEmail(email));
     }
   }, {
     key: "getDocRealTime",
     value: function getDocRealTime(email) {
       var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.onSnapshot(this.findByEmail(email), fn);
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.onSnapshot(this.findByEmail(email), fn);
     }
   }, {
     key: "setDoc",
-    value: function setDoc(email, data) {
-      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_6__.whatsAppController._firebase.setDoc(this.findByEmail(email), data);
+    value: function setDoc(email, data, setOption) {
+      return _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_5__.whatsAppController._firebase.setDoc(this.findByEmail(email), data, setOption);
     }
   }]);
 
   return UserModel;
-}(_model_model_js__WEBPACK_IMPORTED_MODULE_7__.Model);
+}(_model_model_js__WEBPACK_IMPORTED_MODULE_6__.Model);
 
 /***/ }),
 
@@ -37093,14 +37187,15 @@ var MessageService = /*#__PURE__*/function (_MessageModel) {
           }).then(function () {
             resolve(docRef);
           });
-        })["catch"](function (err) {});
+        })["catch"](function (err) {
+          console.error(err);
+        });
       });
     }
   }, {
     key: "readMsg",
     value: function readMsg(chatId) {
       var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
-      console.log(chatId);
       return this.onSnapshot(this.getQueryMsgs(chatId, 'timestamp'), fn);
     }
   }]);
@@ -37481,6 +37576,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
 /* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config.js */ "./public/src/config.js");
+
 
 
 
@@ -37496,15 +37593,7 @@ var Firebase = /*#__PURE__*/function () {
   function Firebase() {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Firebase);
 
-    this._config = {
-      apiKey: "AIzaSyDIJxH-aNGpWrxezjeo10pjVLMs2P4EoL4",
-      authDomain: "whatsapp-clone-c6a5e.firebaseapp.com",
-      projectId: "whatsapp-clone-c6a5e",
-      storageBucket: "whatsapp-clone-c6a5e.appspot.com",
-      messagingSenderId: "393079913664",
-      appId: "1:393079913664:web:846258fba8966f5782c125",
-      measurementId: "G-WHE4EFXDVZ"
-    };
+    this._config = _config_js__WEBPACK_IMPORTED_MODULE_2__.config;
     this.init();
   }
 
@@ -37981,6 +38070,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _controller_whatsApp_controller_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../controller/whatsApp.controller.js */ "./public/src/controller/whatsApp.controller.js");
 /* harmony import */ var _utils_format_utils_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/format.utils.js */ "./public/src/utils/format.utils.js");
+/* harmony import */ var _utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/formatTimestamp.utils.js */ "./public/src/utils/formatTimestamp.utils.js");
+
 
 
 
@@ -38007,7 +38098,7 @@ var WhatsAppView = /*#__PURE__*/function () {
       var cb = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
       var div = document.createElement('div');
       div.className = 'contact-item';
-      div.innerHTML = "\n        <div class=\"dIyEr\">\n            <div class=\"_1WliW\" style=\"height: 49px; width: 49px;\">\n                <img src=\"#\" class=\"Qgzj8 gqwaM photo\" style=\"display:none;\">\n                <div class=\"_3ZW2E\">\n                    <span data-icon=\"default-user\" class=\"\">\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 212 212\" width=\"212\" height=\"212\">\n                            <path fill=\"#DFE5E7\" d=\"M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z\"></path>\n                            <g fill=\"#FFF\">\n                                <path d=\"M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z\"></path>\n                            </g>\n                        </svg>\n                    </span>\n                </div>\n            </div>\n        </div>\n        <div class=\"_3j7s9\">\n            <div class=\"_2FBdJ\">\n                <div class=\"_25Ooe\">\n                    <span dir=\"auto\" title=\"".concat(contact.name, "\" class=\"_1wjpf\">").concat(contact.name, "</span>\n                </div>\n                <div class=\"_3Bxar\">\n                    <span class=\"_3T2VG\">").concat(contact.lastMessageTime, "</span>\n                </div>\n            </div>\n            <div class=\"_1AwDx\">\n                <div class=\"_itDl\">\n                    <span title=\"digitando\u2026\" class=\"vdXUe _1wjpf typing\" style=\"display:none\">digitando\u2026</span>\n\n                    <span class=\"_2_LEW last-message\">\n                        <div class=\"_1VfKB\">\n                            <span data-icon=\"status-dblcheck\" class=\"\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 18\" width=\"18\" height=\"18\">\n                                    <path fill=\"#263238\" fill-opacity=\".4\" d=\"M17.394 5.035l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-.427-.388a.381.381 0 0 0-.578.038l-.451.576a.497.497 0 0 0 .043.645l1.575 1.51a.38.38 0 0 0 .577-.039l7.483-9.602a.436.436 0 0 0-.076-.609zm-4.892 0l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-2.614-2.556a.435.435 0 0 0-.614.007l-.505.516a.435.435 0 0 0 .007.614l3.887 3.8a.38.38 0 0 0 .577-.039l7.483-9.602a.435.435 0 0 0-.075-.609z\"></path>\n                                </svg>\n                            </span>\n                        </div>\n                        <span dir=\"ltr\" class=\"_1wjpf _3NFp9\">").concat(contact.lastMessage, "</span>\n                        <div class=\"_3Bxar\">\n                            <span>\n                                <div class=\"_15G96\">\n                                    <span class=\"OUeyt messages-count-new\" style=\"display:none;\">1</span>\n                                </div>\n                        </div>\n                        </span>\n                </div>\n            </div>\n        </div>\n        ");
+      div.innerHTML = "\n        <div class=\"dIyEr\">\n            <div class=\"_1WliW\" style=\"height: 49px; width: 49px;\">\n                <img src=\"#\" class=\"Qgzj8 gqwaM photo\" style=\"display:none;\">\n                <div class=\"_3ZW2E\">\n                    <span data-icon=\"default-user\" class=\"\">\n                        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 212 212\" width=\"212\" height=\"212\">\n                            <path fill=\"#DFE5E7\" d=\"M106.251.5C164.653.5 212 47.846 212 106.25S164.653 212 106.25 212C47.846 212 .5 164.654.5 106.25S47.846.5 106.251.5z\"></path>\n                            <g fill=\"#FFF\">\n                                <path d=\"M173.561 171.615a62.767 62.767 0 0 0-2.065-2.955 67.7 67.7 0 0 0-2.608-3.299 70.112 70.112 0 0 0-3.184-3.527 71.097 71.097 0 0 0-5.924-5.47 72.458 72.458 0 0 0-10.204-7.026 75.2 75.2 0 0 0-5.98-3.055c-.062-.028-.118-.059-.18-.087-9.792-4.44-22.106-7.529-37.416-7.529s-27.624 3.089-37.416 7.529c-.338.153-.653.318-.985.474a75.37 75.37 0 0 0-6.229 3.298 72.589 72.589 0 0 0-9.15 6.395 71.243 71.243 0 0 0-5.924 5.47 70.064 70.064 0 0 0-3.184 3.527 67.142 67.142 0 0 0-2.609 3.299 63.292 63.292 0 0 0-2.065 2.955 56.33 56.33 0 0 0-1.447 2.324c-.033.056-.073.119-.104.174a47.92 47.92 0 0 0-1.07 1.926c-.559 1.068-.818 1.678-.818 1.678v.398c18.285 17.927 43.322 28.985 70.945 28.985 27.678 0 52.761-11.103 71.055-29.095v-.289s-.619-1.45-1.992-3.778a58.346 58.346 0 0 0-1.446-2.322zM106.002 125.5c2.645 0 5.212-.253 7.68-.737a38.272 38.272 0 0 0 3.624-.896 37.124 37.124 0 0 0 5.12-1.958 36.307 36.307 0 0 0 6.15-3.67 35.923 35.923 0 0 0 9.489-10.48 36.558 36.558 0 0 0 2.422-4.84 37.051 37.051 0 0 0 1.716-5.25c.299-1.208.542-2.443.725-3.701.275-1.887.417-3.827.417-5.811s-.142-3.925-.417-5.811a38.734 38.734 0 0 0-1.215-5.494 36.68 36.68 0 0 0-3.648-8.298 35.923 35.923 0 0 0-9.489-10.48 36.347 36.347 0 0 0-6.15-3.67 37.124 37.124 0 0 0-5.12-1.958 37.67 37.67 0 0 0-3.624-.896 39.875 39.875 0 0 0-7.68-.737c-21.162 0-37.345 16.183-37.345 37.345 0 21.159 16.183 37.342 37.345 37.342z\"></path>\n                            </g>\n                        </svg>\n                    </span>\n                </div>\n            </div>\n        </div>\n        <div class=\"_3j7s9\">\n            <div class=\"_2FBdJ\">\n                <div class=\"_25Ooe\">\n                    <span dir=\"auto\" title=\"".concat(contact.name, "\" class=\"_1wjpf\">").concat(contact.name, "</span>\n                </div>\n                <div class=\"_3Bxar\">\n                    <span class=\"_3T2VG\">").concat(_utils_formatTimestamp_utils_js__WEBPACK_IMPORTED_MODULE_5__.FormatTimestamp.timestampToTime(contact.lastMessageTime), "</span>\n                </div>\n            </div>\n            <div class=\"_1AwDx\">\n                <div class=\"_itDl\">\n                    <span title=\"digitando\u2026\" class=\"vdXUe _1wjpf typing\" style=\"display:none\">digitando\u2026</span>\n\n                    <span class=\"_2_LEW last-message\">\n                        <div class=\"_1VfKB\">\n                            <span data-icon=\"status-dblcheck\" class=\"\">\n                                <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 18\" width=\"18\" height=\"18\">\n                                    <path fill=\"#263238\" fill-opacity=\".4\" d=\"M17.394 5.035l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-.427-.388a.381.381 0 0 0-.578.038l-.451.576a.497.497 0 0 0 .043.645l1.575 1.51a.38.38 0 0 0 .577-.039l7.483-9.602a.436.436 0 0 0-.076-.609zm-4.892 0l-.57-.444a.434.434 0 0 0-.609.076l-6.39 8.198a.38.38 0 0 1-.577.039l-2.614-2.556a.435.435 0 0 0-.614.007l-.505.516a.435.435 0 0 0 .007.614l3.887 3.8a.38.38 0 0 0 .577-.039l7.483-9.602a.435.435 0 0 0-.075-.609z\"></path>\n                                </svg>\n                            </span>\n                        </div>\n                        <span dir=\"ltr\" class=\"_1wjpf _3NFp9\">").concat(contact.lastMessage, "</span>\n                        <div class=\"_3Bxar\">\n                            <span>\n                                <div class=\"_15G96\">\n                                    <span class=\"OUeyt messages-count-new\" style=\"display:none;\">1</span>\n                                </div>\n                        </div>\n                        </span>\n                </div>\n            </div>\n        </div>\n        ");
       this.checkPhoto(contact.photo, div.querySelector('.photo'));
       /*
               if(contact.photo) {

@@ -582,6 +582,7 @@ export class MessageService extends MessageModel{
                 })
                 .catch(err =>{
 
+                    console.error(err)
 
                 })
 
@@ -590,7 +591,7 @@ export class MessageService extends MessageModel{
     }
 
     static readMsg(chatId, fn = () => {}){
-        console.log(chatId)
+
         return this.onSnapshot(this.getQueryMsgs(chatId, 'timestamp'), fn)
 
     }

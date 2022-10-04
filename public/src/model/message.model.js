@@ -138,6 +138,11 @@ export class MessageModel extends Model{
         return whatsAppController._firebase.getCollection(doc, 'messages')
 
     }
+
+    static getDoc(ref){
+        return whatsAppController._firebase.getDoc(ref)
+    }
+
     static doc(collection, doc){
         return whatsAppController._firebase.doc(collection, doc)
     }

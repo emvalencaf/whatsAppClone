@@ -21,7 +21,7 @@ class WhatsAppController{
 
     constructor(view){
 
-        console.log('WhatsAppController Ok')
+        this._active = true
         ElementPrototype.elementsProtoType()
         this.view = view
 
@@ -61,6 +61,53 @@ class WhatsAppController{
         this._firebase.init()
         this.initEvents()
         this.initAuth()
+        this.checkNotifications()
+    }
+
+    checkNotifications(){
+
+        if(!typeof Notification === 'function') return
+
+        Notification.permission !== 'granted'? this.view.el.alertNotificationPermission.show(): this.view.el.alertNotificationPermission.hide()
+
+        this.view.el.alertNotificationPermission.on('click', e => {
+
+            Notification.requestPermission(permission => {
+
+                if(permission !== 'granted') return
+
+                this.view.el.alertNotificationPermission.hide()
+                console.info('notificações permitidas')
+
+            })
+
+        })
+    
+
+    }
+
+    notification(data){
+
+        if(Notification.permission !== 'granted') return
+
+        if(this._active) return
+
+        const n = new Notification(this._contactActive.name, {
+            icon: this._contactActive.photo,
+            body: data.content
+        })
+
+
+        const sound = new Audio('./audio/alert.mp3')
+        sound.currentTime = 0
+        sound.play()
+
+        setTimeout(()=>{
+
+            if(n) n.close()
+
+        }, 3000)
+
     }
 
     initAuth(){
@@ -191,9 +238,11 @@ class WhatsAppController{
         this.view.el.main.css({
             display:"flex"
         })
-
+        
         this.view.el.panelMessagesContainer.innerHTML = ''
 
+        this._messagesReceived = []
+        
         MessageService.readMsg(this._contactActive.chatId, docs =>{ 
 
             let scrollTop = this.view.el.panelMessagesContainer.scrollTop
@@ -201,14 +250,24 @@ class WhatsAppController{
 
             let autoScroll = scrollTop >= scrollTopMax
 
+
             docs.forEach(doc => {
 
                 let data = doc.data()
                 data.id = doc.id
                 
+                
                 let message = new MessageService()
                 message.fromJSON(data)
+
                 let me = (data.from === this._user.email)
+
+                if(!me && this._messagesReceived.filter(id=> id === data.id).length === 0){
+
+                    this.notification(data)
+                    this._messagesReceived.push(data.id)
+
+                }
 
                 const view = message.getViewElement(me)
 
@@ -228,7 +287,6 @@ class WhatsAppController{
                     const view = message.getViewElement(me)
                 
                     this.view.el.panelMessagesContainer.appendChild(view)
-
                     
                 } else {
 
@@ -364,6 +422,18 @@ class WhatsAppController{
     initEvents(){
         console.log(this.view.el.inputSearchContacts)
         this.view.initEvents(this)
+
+        window.addEventListener('focus', e => {
+
+            this._active = true
+
+        })
+
+        window.addEventListener('blur', e => {
+
+            this._active = false
+
+        })
 
         this.view.el.inputSearchContacts.on('keyup', e => {
             

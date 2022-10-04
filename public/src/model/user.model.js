@@ -1,4 +1,3 @@
-import { collection } from "firebase/firestore";
 import { whatsAppController } from "../controller/whatsApp.controller.js";
 import { Model } from "./model.model.js";
 
@@ -73,6 +72,21 @@ export class UserModel extends Model{
         return this._data.chatId = value
     }
 
+    get lastMessageTime(){
+        return this._data.lastMessageTime
+    }
+
+    set lastMessageTime(value){
+        return this._data.lastMessageTime = value
+    }
+
+    get lastMessage(){
+        return this._data.lastMessage
+    }
+
+    set lastMessage(value){
+        return this._data.lastMessage = value
+    }
 
     addContact(contact){
 
@@ -156,7 +170,7 @@ export class UserModel extends Model{
         return whatsAppController._firebase.onSnapshot(this.findByEmail(email), fn)
     }
 
-    setDoc(email, data){
-        return whatsAppController._firebase.setDoc(this.findByEmail(email), data)
+    setDoc(email, data, setOption){
+        return whatsAppController._firebase.setDoc(this.findByEmail(email), data, setOption)
     }
 }

@@ -1,3 +1,5 @@
+import { config } from '../config.js'
+
 const firebaseApp = require('firebase/app')
 const firebaseFirestore = require('firebase/firestore')
 const firebaseStorage = require('firebase/storage')
@@ -7,17 +9,7 @@ export class Firebase{
 
     constructor(){
 
-        this._config = {
-
-            apiKey: "AIzaSyDIJxH-aNGpWrxezjeo10pjVLMs2P4EoL4",
-            authDomain: "whatsapp-clone-c6a5e.firebaseapp.com",
-            projectId: "whatsapp-clone-c6a5e",
-            storageBucket: "whatsapp-clone-c6a5e.appspot.com",
-            messagingSenderId: "393079913664",
-            appId: "1:393079913664:web:846258fba8966f5782c125",
-            measurementId: "G-WHE4EFXDVZ"
-
-        }
+        this._config = config
 
         this.init()
     }
