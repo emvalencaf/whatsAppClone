@@ -51,4 +51,6 @@ Até certo nível de uso o serviço cloud function está disponível de forma gr
 ### Para renderizar a última mensagem
 
 1. Modifique o plano da sua conta no firebase para o Blaze;
-2. Abra o terminal na pasta do projeto e execute o comando: `firebase deploy --only functions`.
+2. Instale o firebase tools globalmente na máquina usando o comando: `npm install -g firebase-tools`;
+3. Logue no firebase usando o comando: `firebase login`; e permita o firebase acesso de informações;
+4. Execute o comando: `firebase deploy --only functions`.
