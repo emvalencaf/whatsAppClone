@@ -124,7 +124,7 @@ exports.saveLastMessage = functions.firestore.document('/chats/{chatId}/messages
                         .set({
                             lastMesage: messageDoc.content,
                             lastMessageTime: new Date()
-                        },{merge:true})
+                        }, {merge:true})
                             .then( e => {
 
                                 console.log('[FINISH]', new Date());
